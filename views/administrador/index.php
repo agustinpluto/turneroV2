@@ -155,7 +155,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/fisiatriaTurnos.php" class="card-body">
                   <h3 class="card-title">Fisiatría</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -163,7 +163,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/fonoaudiologiaTurnos.php" class="card-body">
                   <h3 class="card-title">Fonoaudiología</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -171,7 +171,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/kinesiologiaTurnos.php" class="card-body">
                   <h3 class="card-title">Kinesiología</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -185,7 +185,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/neurologiaTurnos.php" class="card-body">
                   <h3 class="card-title">Neurología</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -193,7 +193,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/nutricionTurnos.php" class="card-body">
                   <h3 class="card-title">Nutrición</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -201,7 +201,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/psicologiaTurnos.php" class="card-body">
                   <h3 class="card-title">Psicología</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -215,7 +215,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/psicomotricidadTurnos.php" class="card-body">
                   <h3 class="card-title">Psicomotricidad</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -223,7 +223,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/psicopedagogiaTurnos.php" class="card-body">
                   <h3 class="card-title">Psicopedagogía</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -231,7 +231,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/psiquiatriaTurnos.php" class="card-body">
                   <h3 class="card-title">Psiquiatría</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -246,7 +246,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/terapiaOcupacionalTurnos.php" class="card-body">
                   <h3 class="card-title">Terapia Ocupacional</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -254,7 +254,7 @@ if ($rol != 1 || empty($id)) {
               <div class="card m-1">
                 <a href="../turnoEspecialidad/trabajadoraSocialTurnos.php" class="card-body">
                   <h3 class="card-title">Trabajadora Social</h3>
-                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                  <p class="card-text">Presionar para turno</p>
                 </a>
               </div>
             </div>
@@ -275,7 +275,7 @@ if ($rol != 1 || empty($id)) {
         <div class="card m-1">
           <a href="../turnoEspecialidad/depto2.php" class="card-body">
             <h3 class="card-title">Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</h3>
-            <p class="card-text">Toque el réctangulo para sacar turno</p>
+            <p class="card-text">Presionar para turno</p>
           </a>
         </div>
       </div>
@@ -283,7 +283,7 @@ if ($rol != 1 || empty($id)) {
         <div class="card m-1">
           <a href="../turnoEspecialidad/depto3.php" class="card-body">
             <h3 class="card-title">Departamento de Selectividad y Aprehensión Alimentaria</h3>
-            <p class="card-text">Toque el réctangulo para sacar turno</p>
+            <p class="card-text">Presionar para turno</p>
           </a>
         </div>
       </div>
