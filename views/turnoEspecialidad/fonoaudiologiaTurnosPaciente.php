@@ -299,7 +299,7 @@ if ($rol != 2 || empty($id)) {
 
             var diasCorreaSelect = document.getElementById('diasCorreaSelect')
             var apellido = fonoaudiologiaSelect.value;
-
+            var imagenCorrea = document.getElementById('imagenCorrea')
             if (apellido == 'Correa') {
                 diasCorreaSelect.style.display = "block"
                 diasJoverSelect.style.display = "none"
