@@ -341,7 +341,7 @@ if ($rol != 2 || empty($id)) {
                 imagenBarroso.style.display = "none"
                 imagenDelrio.style.display = "block"
                 imagenMartinez.style.display = "none"
-            } else if (apellido == 'Martinez') {
+            } else if (apellido == 'Martínez') {
                 diasMartinezSelect.style.display = "block"
                 diasBarrosoSelect.style.display = "none"
                 diasDelRioSelect.style.display = "none"
