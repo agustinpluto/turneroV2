@@ -119,17 +119,23 @@ if (empty($id)) {
                     include "../../funciones/repetido.php";
                     include "../selects/kinesiologia.php";
                     // GROS
+                    include "../selects/gros/imagenGros.php";
                     include "../selects/gros/diasGrosSelect.php";
                     include "../selects/gros/horariosLunesGrosSelect.php";
                     include "../selects/gros/horariosMiercolesGrosSelect.php";
                     include "../selects/gros/horariosJuevesGrosSelect.php";
 
                     // JUAREZ
+                    include "../selects/juarez/imagenJuarez.php";
                     include "../selects/juarez/diasJuarezSelect.php";
                     include "../selects/juarez/horariosLunesJuarezSelect.php";
                     include "../selects/juarez/horariosMartesJuarezSelect.php";
                     include "../selects/juarez/horariosMiercolesJuarezSelect.php";
                     include "../selects/juarez/horariosJuevesJuarezSelect.php";
+
+                    
+                    
+                    
 
                     if (isset($_POST['botonRegistro'])) {
 
@@ -257,10 +263,14 @@ if (empty($id)) {
                 if (apellido == 'Gros') {
                     diasGrosSelect.style.display = "block";
                     diasJuarezSelect.style.display = "none";
+                    imagenGros.style.display = "block"
+                    imagenJuarez.style.display = "none"
 
                 } else if (apellido == 'Juarez') {
                     diasGrosSelect.style.display = "none";
                     diasJuarezSelect.style.display = "block";
+                    imagenGros.style.display = "none"
+                    imagenJuarez.style.display = "block"
 
                 }
             })

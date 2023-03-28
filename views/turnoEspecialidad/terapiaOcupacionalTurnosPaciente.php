@@ -128,22 +128,29 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
+                include "../../funciones/repetido.php";
                 include "../selects/terapiaOcupacional.php";
 
                 //BARROSO 
+                include "../selects/barroso/imagenBarroso.php";
                 include "../selects/barroso/diasBarrosoSelect.php";
+
                 include "../selects/barroso/horariosMartesBarrosoSelect.php";
                 include "../selects/barroso/horariosJuevesBarrosoSelect.php";
 
                 //DEL RIO
+                include "../selects/delrio/imagenDelrio.php";
                 include "../selects/delrio/diasDelRioSelect.php";
+
                 include "../selects/delrio/horariosLunesDelRioSelect.php";
                 include "../selects/delrio/horariosMartesDelRioSelect.php";
                 include "../selects/delrio/horariosMiercolesDelRioSelect.php";
                 include "../selects/delrio/horariosJuevesDelRioSelect.php";
 
                 //MARTINEZ
+                include "../selects/martinez/imagenMartinez.php";
                 include "../selects/martinez/diasMartinezSelect.php";
+
                 include "../selects/martinez/horariosLunesMartinezSelect.php";
                 include "../selects/martinez/horariosMartesMartinezSelect.php";
                 include "../selects/martinez/horariosMiercolesMartinezSelect.php";
@@ -202,7 +209,6 @@ if ($rol != 2 || empty($id)) {
                                     $resultado = mysqli_query($conexion, $sql);
                                     echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                                 }
-
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesDelRioSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $martes)) {
@@ -314,6 +320,10 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesMartinezSelect.style.display = "none"
                 horariosMiercolesMartinezSelect.style.display = "none"
                 horariosJuevesMartinezSelect.style.display = "none"
+                imagenBarroso.style.display = "block"
+                imagenDelrio.style.display = "none"
+                imagenMartinez.style.display = "none"
+
             } else if (apellido == 'Del Río') {
 
                 diasDelRioSelect.style.display = "block"
@@ -329,7 +339,10 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesMartinezSelect.style.display = "none"
                 horariosMiercolesMartinezSelect.style.display = "none"
                 horariosJuevesMartinezSelect.style.display = "none"
-            } else if (apellido == 'Martínez') {
+                imagenBarroso.style.display = "none"
+                imagenDelrio.style.display = "block"
+                imagenMartinez.style.display = "none"
+            } else if (apellido == 'Martinez') {
                 diasMartinezSelect.style.display = "block"
                 diasBarrosoSelect.style.display = "none"
                 diasDelRioSelect.style.display = "none"
@@ -343,8 +356,10 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesMartinezSelect.style.display = "none"
                 horariosMiercolesMartinezSelect.style.display = "none"
                 horariosJuevesMartinezSelect.style.display = "none"
+                imagenBarroso.style.display = "none"
+                imagenDelrio.style.display = "none"
+                imagenMartinez.style.display = "block"
             }
-
 
 
             diasBarrosoSelect.addEventListener("change", function() {

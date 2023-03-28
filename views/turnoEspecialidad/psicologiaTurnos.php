@@ -81,7 +81,7 @@ if (empty($id)) {
 
 <body class="text-center">
 
-<main class="form-signin w-50 m-auto">
+    <main class="form-signin w-50 m-auto">
 
         <form method="post">
 
@@ -89,178 +89,186 @@ if (empty($id)) {
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h1 class="h3 mb-3 fw-normal">Turnos para Psicología - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
+                                                                            function obtenerNombre($id_usuario)
+                                                                            {
+                                                                                include "../../database/conexion.php";
+                                                                                $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                    $nombre = $row['nombre'];
+                                                                                }
+                                                                                return strtoupper($nombre);
                                                                             }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                            echo obtenerNombre($id); ?></h1>
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
                 </div>
             </div>
-        <form method="post">
+            <form method="post">
 
-            
 
-            <div class="form-floating my-5">
-                <input type="text" class="form-control" id="floatingInput" name="dni" required>
-                <label for="floatingInput">DNI del Paciente</label>
-            </div>
 
-            <?php
-            include "../../funciones/repetido.php";
-            include "../selects/psicologia.php";
-            //BALSAMO
-            include "../selects/balsamo/diasBalsamoSelect.php";
-            include "../selects/balsamo/horariosBalsamoJuevesSelect.php";
-            //CANO
-            include "../selects/cano/diasCanoSelect.php";
-            include "../selects/cano/horariosMiercolesCanoSelect.php";
-            //GONZALEZ
-            include "../selects/gonzalez/diasGonzalezSelect.php";
-            include "../selects/gonzalez/horariosMiercolesGonzalezSelect.php";
-            include "../selects/gonzalez/horariosJuevesGonzalezSelect.php";
-            //MOLINA
-            include "../selects/molina/diasMolinaSelect.php";
-            include "../selects/molina/horariosMartesMolinaSelect.php";
-            include "../selects/molina/horariosJuevesMolinaSelect.php";
-            //HERRERA
-            include "../selects/herrera/diasHerreraSelect.php";
-            include "../selects/herrera/horariosMartesHerreraSelect.php";
-            include "../selects/herrera/horariosMiercolesHerreraSelect.php";
+                <div class="form-floating my-5">
+                    <input type="text" class="form-control" id="floatingInput" name="dni" required>
+                    <label for="floatingInput">DNI del Paciente</label>
+                </div>
 
-            if (isset($_POST['botonRegistro'])) {
+                <?php
+                include "../../funciones/repetido.php";
+                include "../selects/psicologia.php";
+                //BALSAMO
+                include "../selects/balsamo/imagenBalsamo.php";
+                include "../selects/balsamo/diasBalsamoSelect.php";
 
-                if ($_POST['psicologiaSelect'] != 'no') {
-                    include "../../database/conexion.php";
+                include "../selects/balsamo/horariosBalsamoJuevesSelect.php";
+                //CANO
+                include "../selects/cano/imagenCano.php";
+                include "../selects/cano/diasCanoSelect.php";
 
-                    include "../../funciones/getNombre.php";
+                include "../selects/cano/horariosMiercolesCanoSelect.php";
+                //GONZALEZ
+                include "../selects/gonzalez/imagenGonzalez.php";
+                include "../selects/gonzalez/diasGonzalezSelect.php";
 
-                    $dni = $_POST['dni'];
+                include "../selects/gonzalez/horariosMiercolesGonzalezSelect.php";
+                include "../selects/gonzalez/horariosJuevesGonzalezSelect.php";
+                //MOLINA
+                include "../selects/molina/imagenMolina.php";
+                include "../selects/molina/diasMolinaSelect.php";
 
-                    $apellido_medico = $_POST['psicologiaSelect'];
+                include "../selects/molina/horariosMartesMolinaSelect.php";
+                include "../selects/molina/horariosJuevesMolinaSelect.php";
+                //HERRERA
+                include "../selects/herrera/imagenHerrera.php";
+                include "../selects/herrera/diasHerreraSelect.php";
+                include "../selects/herrera/horariosMartesHerreraSelect.php";
+                include "../selects/herrera/horariosMiercolesHerreraSelect.php";
 
-                    $dias = [$_POST['diasBalsamoSelect'], $_POST['diasCanoSelect'], $_POST['diasGonzalezSelect'], $_POST['diasMolinaSelect'], $_POST['diasHerreraSelect']];
+                if (isset($_POST['botonRegistro'])) {
 
-                    $apellido_p = getApellidoPaciente($dni, $conexion);
-                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                    if ($_POST['psicologiaSelect'] != 'no') {
+                        include "../../database/conexion.php";
 
-                    if ($apellido_medico == "Bálsamo") {
-                        $fecha = $_POST["diasBalsamoSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosBalsamoJuevesSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                        include "../../funciones/getNombre.php";
+
+                        $dni = $_POST['dni'];
+
+                        $apellido_medico = $_POST['psicologiaSelect'];
+
+                        $dias = [$_POST['diasBalsamoSelect'], $_POST['diasCanoSelect'], $_POST['diasGonzalezSelect'], $_POST['diasMolinaSelect'], $_POST['diasHerreraSelect']];
+
+                        $apellido_p = getApellidoPaciente($dni, $conexion);
+                        $apellido_m = getMatricula($apellido_medico, $conexion);
+
+                        if ($apellido_medico == "Bálsamo") {
+                            $fecha = $_POST["diasBalsamoSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Thursday') {
+                                $jueves = $_POST['horariosBalsamoJuevesSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
                             }
-                        }
-                    } elseif ($apellido_medico == "Cano") {
-                        $fecha = $_POST["diasCanoSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Wednesday') {
+                        } elseif ($apellido_medico == "Cano") {
+                            $fecha = $_POST["diasCanoSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Wednesday') {
 
-                            $miercoles = $_POST['horariosMiercolesGonzalezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                $miercoles = $_POST['horariosMiercolesGonzalezSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
                             }
-                        }
-                    } elseif ($apellido_medico == "Gonzalez") {
-                        $fecha = $_POST["diasGonzalezSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Thursday') {
+                        } elseif ($apellido_medico == "Gonzalez") {
+                            $fecha = $_POST["diasGonzalezSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Thursday') {
 
-                            $jueves = $_POST['horariosJuevesGonzalezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Wednesday') {
+                                $jueves = $_POST['horariosJuevesGonzalezSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
+                            } elseif ($dia_de_la_semana == 'Wednesday') {
 
-                            $miercoles = $_POST['horariosMiercolesGonzalezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                $miercoles = $_POST['horariosMiercolesGonzalezSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
                             }
-                        }
-                    } elseif ($apellido_medico == "Molina") {
-                        $fecha = $_POST["diasMolinaSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosJuevesMolinaSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                        } elseif ($apellido_medico == "Molina") {
+                            $fecha = $_POST["diasMolinaSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Thursday') {
+                                $jueves = $_POST['horariosJuevesMolinaSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
+                            } elseif ($dia_de_la_semana == 'Tuesday') {
+                                $martes = $_POST['horariosMartesMolinaSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
                             }
-                        } elseif ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesMolinaSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        }
-                    } elseif ($apellido_medico == "Herrera") {
-                        $fecha = $_POST["diasHerreraSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Wednesday') {
-                            $miercoles = $_POST['horariosMiercolesHerreraSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                            
-                        } elseif ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesHerreraSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                        } elseif ($apellido_medico == "Herrera") {
+                            $fecha = $_POST["diasHerreraSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Wednesday') {
+                                $miercoles = $_POST['horariosMiercolesHerreraSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
+                            } elseif ($dia_de_la_semana == 'Tuesday') {
+                                $martes = $_POST['horariosMartesHerreraSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                }
                             }
                         }
                     }
                 }
-            }
 
 
-            ?>
+                ?>
 
-<div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-                <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver a las Especialidades</a>
-            </div>
-        </form>
+                <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+                    <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
+                    <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver a las Especialidades</a>
+                </div>
+            </form>
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
@@ -297,6 +305,12 @@ if (empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "block"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Cano') {
                 diasBalsamoSelect.style.display = "none"
@@ -312,6 +326,12 @@ if (empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "block"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Gonzalez') {
                 diasBalsamoSelect.style.display = "none"
@@ -327,6 +347,12 @@ if (empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "block"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Molina') {
                 diasBalsamoSelect.style.display = "none"
@@ -342,6 +368,12 @@ if (empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "block"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Herrera') {
                 diasBalsamoSelect.style.display = "none"
@@ -357,6 +389,12 @@ if (empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "block"
+
             }
 
 

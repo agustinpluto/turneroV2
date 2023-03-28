@@ -89,17 +89,17 @@ if ($rol != 2 || empty($id)) {
 
             <div class="container-fluid d-flex justify-content-center align-items-center">
                 <h1 class="h3 mb-3 fw-normal">Turnos para Psicopedagogía - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
+                                                                            function obtenerNombre($id_usuario)
+                                                                            {
+                                                                                include "../../database/conexion.php";
+                                                                                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
+                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                    $nombre = $row['nombre'];
+                                                                                }
+                                                                                return strtoupper($nombre);
                                                                             }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                            echo obtenerNombre($id); ?></h1>
 
             </div>
             <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -125,22 +125,25 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
+            include "../../funciones/repetido.php";
             include "../selects/psicopedagogia.php";
+            include "../selects/deuna/imagenDeuna.php";
             include "../selects/deuna/diasDeunaSelect.php";
-            include "../selects/deuna/horariosMartesDeUnaSelect.php";
 
+            include "../selects/deuna/horariosMartesDeUnaSelect.php";
+            include "../selects/fernandez/imagenFernandez.php";
             include "../selects/fernandez/diasFernandezSelect.php";
+
             include "../selects/fernandez/horariosLunesFernandezSelect.php";
             include "../selects/fernandez/horariosMartesFernandezSelect.php";
             include "../selects/fernandez/horariosJuevesFernandezSelect.php";
-
             if (isset($_POST['botonRegistro'])) {
 
                 if ($_POST['psicopedagogiaSelect'] != 'no') {
                     include "../../database/conexion.php";
 
                     include "../../funciones/getNombre.php";
-                    
+
 
                     $apellido_medico = $_POST['psicopedagogiaSelect'];
                     $apellido_m = getMatricula($apellido_medico, $conexion);
@@ -224,11 +227,16 @@ if ($rol != 2 || empty($id)) {
                 horariosLunesFernandezSelect.style.display = "none"
                 horariosMartesFernandezSelect.style.display = "none"
                 horariosJuevesFernandezSelect.style.display = "none"
+                imagenDeuna.style.display = "block"
+                imagenDeuna.style.display = "none"
 
             } else if (apellido == 'Fernandez') {
                 horariosMartesDeUnaSelect.style.display = "none"
                 diasDeUna.style.display = "none"
                 diasFernandez.style.display = "block"
+                imagenDeuna.style.display = "none"
+                imagenDeuna.style.display = "block"
+
 
             }
         })

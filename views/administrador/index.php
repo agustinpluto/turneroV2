@@ -103,6 +103,21 @@ if ($rol != 1 || empty($id)) {
     .my-float {
       margin-top: 16px;
     }
+
+    .card-body {
+      border: 3px solid #f6ba62;
+      background-color: white;
+      color: black;
+      transition: 0.5s background-color ease, 0.5s color ease;
+    }
+
+    .card-body:hover {
+      background-color: #905597;
+    }
+
+    a {
+      text-decoration: none;
+    }
   </style>
 
 </head>
@@ -213,13 +228,13 @@ if ($rol != 1 || empty($id)) {
               </div>
             </div>
             <div class="col">
-                <div class="card m-1">
-                  <a href="../turnoEspecialidad/psiquiatriaTurnosPaciente.php" class="card-body">
-                    <h3 class="card-title">Psiquiatría</h3>
-                    <p class="card-text">Toque el réctangulo para sacar turno</p>
-                  </a>
-                </div>
+              <div class="card m-1">
+                <a href="../turnoEspecialidad/psiquiatriaTurnosPaciente.php" class="card-body">
+                  <h3 class="card-title">Psiquiatría</h3>
+                  <p class="card-text">Toque el réctangulo para sacar turno</p>
+                </a>
               </div>
+            </div>
 
           </div>
         </div>

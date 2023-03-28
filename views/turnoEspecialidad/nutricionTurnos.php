@@ -114,6 +114,7 @@ if (empty($id)) {
 
             <?php
             include "../selects/nutricion.php";
+            include "../selects/cacciavillani/imagenCacciavillani.php";
             include "../selects/cacciavillani/diasCacciavillaniSelect.php";
             include "../selects/cacciavillani/horariosCacciavillaniSelect.php";
 
@@ -170,7 +171,7 @@ if (empty($id)) {
             if (apellido == 'Cacciavillani') {
                 diasCacciavillaniSelect.style.display = "block"
                 horariosCacciavillaniSelect.style.display = "block"
-
+                imagenCacciavillani.style.display ="block"
             }
         })
     </script>

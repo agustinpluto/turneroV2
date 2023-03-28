@@ -113,25 +113,30 @@ if (empty($id)) {
             </div>
 
             <?php
+            include "../../funciones/repetido.php";
             include "../selects/fonoaudiologia.php";
             // CORREA
+            include "../selects/correa/imagenCorrea.php";
             include "../selects/correa/diasCorreaSelect.php";
             include "../selects/correa/horariosMartesCorreaSelect.php";
             include "../selects/correa/horariosJuevesCorreaSelect.php";
             // JOVER
+            include "../selects/jover/imagenJover.php";
             include "../selects/jover/diasJoverSelect.php";
             include "../selects/jover/horariosLunesJoverSelect.php";
             include "../selects/jover/horariosMiercolesJoverSelect.php";
             // MAZZOLA
+            include "../selects/mazzola/imagenMazzola.php";
             include "../selects/mazzola/diasMazzolaSelect.php";
             include "../selects/mazzola/horariosJuevesMazzolaSelect.php";
             // SERRANO
+            include "../selects/serrano/imagenSerrano.php";
             include "../selects/serrano/diasSerranoSelect.php";
             include "../selects/serrano/horariosLunesSerranoSelect.php";
             include "../selects/serrano/horariosMiercolesSerranoSelect.php";
             include "../selects/serrano/horariosJuevesSerranoSelect.php";
 
-
+        
             
             if (isset($_POST['botonRegistro'])) {
                 
@@ -294,6 +299,10 @@ if (empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "block";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "none";
 
             } else if (apellido == "Jover") {
                 diasJoverSelect.style.display = "block"
@@ -306,6 +315,10 @@ if (empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "block";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "none";
 
             } else if (apellido == "Mazzola") {
                 diasMazzolaSelect.style.display = "block"
@@ -319,6 +332,11 @@ if (empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "block";
+                imagenSerrano.style.display = "none";
+
 
             } else if (apellido == "Serrano") {
                 diasSerranoSelect.style.display = "block"
@@ -330,6 +348,11 @@ if (empty($id)) {
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosLunesJoverSelect.style.display = "none"
                 horariosMiercolesJoverSelect.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "block";
+
 
             }
 

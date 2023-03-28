@@ -124,6 +124,7 @@ if ($rol != 2 || empty($id)) {
                 </div>';
 
             include "../selects/trabajadoraSocial.php";
+            include "../selects/rondine/imagenRondine.php";
             include "../selects/rondine/diasRondineSelect.php";
             include "../selects/rondine/horariosRondineSelect.php";
             include "../../funciones/repetido.php";
@@ -174,6 +175,7 @@ if ($rol != 2 || empty($id)) {
             if (apellido == 'Rondine') {
                 horariosRondineSelect.style.display = "block"
                 diasRondineSelect.style.display = "block"
+                imagenRondine.style.display = "block"
 
             }
         })

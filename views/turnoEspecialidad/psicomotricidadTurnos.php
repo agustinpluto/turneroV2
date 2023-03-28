@@ -117,7 +117,9 @@ if (empty($id)) {
             <?php
             include "../../funciones/repetido.php";
             include "../selects/psicomotricidad.php";
+            include "../selects/zabala/imagenZabala.php";
             include "../selects/zabala/diasZabalaSelect.php";
+            
             include "../selects/zabala/horariosMartesZabalaSelect.php";
             include "../selects/zabala/horariosMiercolesZabalaSelect.php";
             include "../selects/zabala/horariosJuevesZabalaSelect.php";
@@ -192,6 +194,7 @@ if (empty($id)) {
 
             if (apellido == 'Zabala') {
                 diasZabalaSelect.style.display = "block"
+                imagenZabala.style.display = "block"
             }
         })
         diasZabalaSelect.addEventListener("change", function() {

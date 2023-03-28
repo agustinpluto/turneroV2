@@ -116,6 +116,7 @@ if (empty($id)) {
 
             <?php
             include "../selects/neurologia.php";
+            include "../selects/ros/imagenRos.php";
             include "../selects/ros/diasRosSelect.php";
             include "../selects/ros/horariosViernesRosSelect.php";
             if (isset($_POST['botonRegistro'])) {
@@ -170,6 +171,7 @@ if (empty($id)) {
             if (apellido == 'Ros') {
                 diasRos.style.display = "block"
                 horariosViernesRosSelect.style.display = "block"
+                imagenRos.style.display ="block"
             }
         })
     </script>

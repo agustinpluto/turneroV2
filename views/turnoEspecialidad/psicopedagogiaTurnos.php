@@ -81,29 +81,29 @@ if (empty($id)) {
 
 <body class="text-center">
 
-<main class="form-signin w-50 m-auto">
+    <main class="form-signin w-50 m-auto">
 
-    <div class="container-fluid d-flex">
+        <div class="container-fluid d-flex">
 
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <h1 class="h3 mb-3 fw-normal">Turnos para Psicopedagogía - <?php
-                                                                function obtenerNombre($id_usuario)
-                                                                {
-                                                                    include "../../database/conexion.php";
-                                                                    $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                    $resultado = mysqli_query($conexion, $sql);
-                                                                    while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                        $nombre = $row['nombre'];
-                                                                    }
-                                                                    return strtoupper($nombre);
-                                                                }
-                                                                echo obtenerNombre($id); ?></h1>
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <h1 class="h3 mb-3 fw-normal">Turnos para Psicopedagogía - <?php
+                                                                            function obtenerNombre($id_usuario)
+                                                                            {
+                                                                                include "../../database/conexion.php";
+                                                                                $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                    $nombre = $row['nombre'];
+                                                                                }
+                                                                                return strtoupper($nombre);
+                                                                            }
+                                                                            echo obtenerNombre($id); ?></h1>
 
+            </div>
+            <div class="container-fluid d-flex justify-content-center align-items-center">
+                <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
+            </div>
         </div>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
-        </div>
-    </div>
         <form method="post">
 
 
@@ -116,10 +116,13 @@ if (empty($id)) {
             <?php
             include "../../funciones/repetido.php";
             include "../selects/psicopedagogia.php";
+            include "../selects/deuna/imagenDeuna.php";
             include "../selects/deuna/diasDeunaSelect.php";
-            include "../selects/deuna/horariosMartesDeUnaSelect.php";
 
+            include "../selects/deuna/horariosMartesDeUnaSelect.php";
+            include "../selects/fernandez/imagenFernandez.php";
             include "../selects/fernandez/diasFernandezSelect.php";
+
             include "../selects/fernandez/horariosLunesFernandezSelect.php";
             include "../selects/fernandez/horariosMartesFernandezSelect.php";
             include "../selects/fernandez/horariosJuevesFernandezSelect.php";
@@ -160,7 +163,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Tuesday') {
                             $martes = $_POST['horariosMartesFernandezSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $martes)) {
@@ -170,7 +172,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Thursday') {
                             $jueves = $_POST['horariosJuevesFernandezSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
@@ -187,7 +188,7 @@ if (empty($id)) {
 
             ?>
 
-<div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+            <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
                 <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
                 <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver a las Especialidades</a>
             </div>
@@ -217,11 +218,16 @@ if (empty($id)) {
                 horariosLunesFernandezSelect.style.display = "none"
                 horariosMartesFernandezSelect.style.display = "none"
                 horariosJuevesFernandezSelect.style.display = "none"
+                imagenDeuna.style.display = "block"
+                imagenDeuna.style.display = "none"
 
             } else if (apellido == 'Fernandez') {
                 horariosMartesDeUnaSelect.style.display = "none"
                 diasDeUna.style.display = "none"
                 diasFernandez.style.display = "block"
+                imagenDeuna.style.display = "none"
+                imagenDeuna.style.display = "block"
+
 
             }
         })

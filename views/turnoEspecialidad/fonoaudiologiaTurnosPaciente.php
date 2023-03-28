@@ -88,17 +88,17 @@ if ($rol != 2 || empty($id)) {
 
             <div class="container-fluid d-flex justify-content-center align-items-center">
                 <h1 class="h3 mb-3 fw-normal">Turnos para Fonoaudiología - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
+                                                                            function obtenerNombre($id_usuario)
+                                                                            {
+                                                                                include "../../database/conexion.php";
+                                                                                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
+                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                    $nombre = $row['nombre'];
+                                                                                }
+                                                                                return strtoupper($nombre);
                                                                             }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                            echo obtenerNombre($id); ?></h1>
 
             </div>
             <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -125,23 +125,36 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
+            include "../../funciones/repetido.php";
             include "../selects/fonoaudiologia.php";
             // CORREA
+            include "../selects/correa/imagenCorrea.php";
             include "../selects/correa/diasCorreaSelect.php";
             include "../selects/correa/horariosMartesCorreaSelect.php";
             include "../selects/correa/horariosJuevesCorreaSelect.php";
             // JOVER
+            include "../selects/jover/imagenJover.php";
             include "../selects/jover/diasJoverSelect.php";
+
             include "../selects/jover/horariosLunesJoverSelect.php";
             include "../selects/jover/horariosMiercolesJoverSelect.php";
             // MAZZOLA
+            include "../selects/mazzola/imagenMazzola.php";
             include "../selects/mazzola/diasMazzolaSelect.php";
+
             include "../selects/mazzola/horariosJuevesMazzolaSelect.php";
             // SERRANO
+            include "../selects/serrano/imagenSerrano.php";
             include "../selects/serrano/diasSerranoSelect.php";
+
             include "../selects/serrano/horariosLunesSerranoSelect.php";
             include "../selects/serrano/horariosMiercolesSerranoSelect.php";
             include "../selects/serrano/horariosJuevesSerranoSelect.php";
+
+
+
+
+
 
             if (isset($_POST['botonRegistro'])) {
 
@@ -150,7 +163,7 @@ if ($rol != 2 || empty($id)) {
 
                     include "../../funciones/getNombre.php";
 
-                
+
 
                     $apellido_medico = $_POST['fonoaudiologiaSelect'];
 
@@ -195,7 +208,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Wednesday') {
                             $miercoles = $_POST['horariosMiercolesJoverSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
@@ -205,7 +217,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     } elseif ($apellido_medico == "Mazzola") {
                         $fecha = $_POST['diasMazzolaSelect'];
@@ -219,7 +230,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     } elseif ($apellido_medico == "Serrano") {
                         $fecha = $_POST['diasSerranoSelect'];
@@ -234,7 +244,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Wednesday') {
 
                             $miercoles = $_POST['horariosMiercolesSerranoSelect'];
@@ -245,7 +254,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Thursday') {
 
                             $jueves = $_POST['horariosJuevesSerranoSelect'];
@@ -256,7 +264,6 @@ if ($rol != 2 || empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     }
                 }
@@ -303,6 +310,10 @@ if ($rol != 2 || empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "block";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "none";
 
             } else if (apellido == "Jover") {
                 diasJoverSelect.style.display = "block"
@@ -315,6 +326,10 @@ if ($rol != 2 || empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "block";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "none";
 
             } else if (apellido == "Mazzola") {
                 diasMazzolaSelect.style.display = "block"
@@ -328,6 +343,11 @@ if ($rol != 2 || empty($id)) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
                 horariosJuevesSerrano.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "block";
+                imagenSerrano.style.display = "none";
+
 
             } else if (apellido == "Serrano") {
                 diasSerranoSelect.style.display = "block"
@@ -339,6 +359,11 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosLunesJoverSelect.style.display = "none"
                 horariosMiercolesJoverSelect.style.display = "none"
+                imagenCorrea.style.display = "none";
+                imagenJover.style.display = "none";
+                imagenMazzola.style.display = "none";
+                imagenSerrano.style.display = "block";
+
 
             }
 

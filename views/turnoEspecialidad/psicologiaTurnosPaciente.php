@@ -127,25 +127,35 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
-            include "../selects/psicologia.php";
-            //BALSAMO
-            include "../selects/balsamo/diasBalsamoSelect.php";
-            include "../selects/balsamo/horariosBalsamoJuevesSelect.php";
-            //CANO
-            include "../selects/cano/diasCanoSelect.php";
-            include "../selects/cano/horariosMiercolesCanoSelect.php";
-            //GONZALEZ
-            include "../selects/gonzalez/diasGonzalezSelect.php";
-            include "../selects/gonzalez/horariosMiercolesGonzalezSelect.php";
-            include "../selects/gonzalez/horariosJuevesGonzalezSelect.php";
-            //MOLINA
-            include "../selects/molina/diasMolinaSelect.php";
-            include "../selects/molina/horariosMartesMolinaSelect.php";
-            include "../selects/molina/horariosJuevesMolinaSelect.php";
-            //HERRERA
-            include "../selects/herrera/diasHerreraSelect.php";
-            include "../selects/herrera/horariosMartesHerreraSelect.php";
-            include "../selects/herrera/horariosMiercolesHerreraSelect.php";
+                include "../../funciones/repetido.php";
+                include "../selects/psicologia.php";
+                //BALSAMO
+                include "../selects/balsamo/imagenBalsamo.php";
+                include "../selects/balsamo/diasBalsamoSelect.php";
+                
+                include "../selects/balsamo/horariosBalsamoJuevesSelect.php";
+                //CANO
+                include "../selects/cano/imagenCano.php";
+                include "../selects/cano/diasCanoSelect.php";
+                
+                include "../selects/cano/horariosMiercolesCanoSelect.php";
+                //GONZALEZ
+                include "../selects/gonzalez/imagenGonzalez.php";
+                include "../selects/gonzalez/diasGonzalezSelect.php";
+                
+                include "../selects/gonzalez/horariosMiercolesGonzalezSelect.php";
+                include "../selects/gonzalez/horariosJuevesGonzalezSelect.php";
+                //MOLINA
+                include "../selects/molina/imagenMolina.php";
+                include "../selects/molina/diasMolinaSelect.php";
+                
+                include "../selects/molina/horariosMartesMolinaSelect.php";
+                include "../selects/molina/horariosJuevesMolinaSelect.php";
+                //HERRERA
+                include "../selects/herrera/imagenHerrera.php";
+                include "../selects/herrera/diasHerreraSelect.php";
+                include "../selects/herrera/horariosMartesHerreraSelect.php";
+                include "../selects/herrera/horariosMiercolesHerreraSelect.php";
 
             if (isset($_POST['botonRegistro'])) {
 
@@ -304,6 +314,12 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "block"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Cano') {
                 diasBalsamoSelect.style.display = "none"
@@ -319,6 +335,12 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "block"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Gonzalez') {
                 diasBalsamoSelect.style.display = "none"
@@ -334,6 +356,12 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "block"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Molina') {
                 diasBalsamoSelect.style.display = "none"
@@ -349,6 +377,12 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "block"
+                imagenHerrera.style.display = "none"
+
 
             } else if (apellido == 'Herrera') {
                 diasBalsamoSelect.style.display = "none"
@@ -364,6 +398,12 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMolinaSelect.style.display = "none"
                 horariosMartesHerreraSelect.style.display = "none"
                 horariosMiercolesHerreraSelect.style.display = "none"
+                imagenBaslsamo.style.display = "none"
+                imagenCano.style.display = "none"
+                imagenGonzalez.style.display = "none"
+                imagenMolina.style.display = "none"
+                imagenHerrera.style.display = "block"
+
             }
 
 

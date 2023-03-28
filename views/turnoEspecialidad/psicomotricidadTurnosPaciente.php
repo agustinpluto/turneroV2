@@ -127,9 +127,11 @@ if ($rol != 2 || empty($id)) {
         <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
         <label for="dni">Tu DNI</label>
     </div>';
-
+    include "../../funciones/repetido.php";
             include "../selects/psicomotricidad.php";
+            include "../selects/zabala/imagenZabala.php";
             include "../selects/zabala/diasZabalaSelect.php";
+            
             include "../selects/zabala/horariosMartesZabalaSelect.php";
             include "../selects/zabala/horariosMiercolesZabalaSelect.php";
             include "../selects/zabala/horariosJuevesZabalaSelect.php";
@@ -203,6 +205,7 @@ if ($rol != 2 || empty($id)) {
 
             if (apellido == 'Zabala') {
                 diasZabalaSelect.style.display = "block"
+                imagenZabala.style.display = "block"
             }
         })
         diasZabalaSelect.addEventListener("change", function() {

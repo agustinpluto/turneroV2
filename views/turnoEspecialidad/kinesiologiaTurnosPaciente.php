@@ -123,20 +123,28 @@ if ($rol != 2 || empty($id)) {
         <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
         <label for="dni">Tu DNI</label>
     </div>';
-
+            
             include "../selects/kinesiologia.php";
             // GROS
+            include "../selects/gros/imagenGros.php";
             include "../selects/gros/diasGrosSelect.php";
+            
             include "../selects/gros/horariosLunesGrosSelect.php";
             include "../selects/gros/horariosMiercolesGrosSelect.php";
             include "../selects/gros/horariosJuevesGrosSelect.php";
             include "../../funciones/repetido.php";
             // JUAREZ
+            include "../selects/juarez/imagenJuarez.php";
             include "../selects/juarez/diasJuarezSelect.php";
+            
             include "../selects/juarez/horariosLunesJuarezSelect.php";
             include "../selects/juarez/horariosMartesJuarezSelect.php";
             include "../selects/juarez/horariosMiercolesJuarezSelect.php";
             include "../selects/juarez/horariosJuevesJuarezSelect.php";
+
+            
+            
+                    
 
             if (isset($_POST['botonRegistro'])) {
 
@@ -261,14 +269,18 @@ if ($rol != 2 || empty($id)) {
             var apellido = kinesiologiaSelect.value;
 
             if (apellido == 'Gros') {
-                diasGrosSelect.style.display = "block";
-                diasJuarezSelect.style.display = "none";
+                    diasGrosSelect.style.display = "block";
+                    diasJuarezSelect.style.display = "none";
+                    imagenGros.style.display = "block"
+                    imagenJuarez.style.display = "none"
 
-            } else if (apellido == 'Juarez') {
-                diasGrosSelect.style.display = "none";
-                diasJuarezSelect.style.display = "block";
+                } else if (apellido == 'Juarez') {
+                    diasGrosSelect.style.display = "none";
+                    diasJuarezSelect.style.display = "block";
+                    imagenGros.style.display = "none"
+                    imagenJuarez.style.display = "block"
 
-            }
+                }
         })
 
         diasGros.addEventListener("change", function() {

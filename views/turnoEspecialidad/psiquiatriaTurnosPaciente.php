@@ -127,15 +127,19 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
                     <label for="dni">Tu DNI</label>
                 </div>';
-
+                include "../../funciones/repetido.php";
             include "../selects/psiquiatria.php";
             //CASTELARI
+            include "../selects/castelari/imagenCastelari.php";
             include "../selects/castelari/diasCastelariSelect.php";
+            
             include "../selects/castelari/horariosMiercolesCastelariSelect.php";
 
 
             //REYNOLDS
+            include "../selects/reynolds/imagenReynolds.php";
             include "../selects/reynolds/diasReynoldsSelect.php";
+            
             include "../selects/reynolds/horariosMartesReynoldsSelect.php";
 
             if (isset($_POST['botonRegistro'])) {
@@ -207,6 +211,8 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesReynoldsSelect.style.display = "none"
                 diasCastelariSelect.style.display = "block"
                 horariosMiercolesCastelariSelect.style.display = "block"
+                imagenCastelari.style.display = "block"
+                imagenReynolds.style.display = "none"
 
             } else if (apellido == 'Reynolds') {
 
@@ -214,6 +220,8 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesReynoldsSelect.style.display = "block"
                 diasCastelariSelect.style.display = "none"
                 horariosMiercolesCastelariSelect.style.display = "none"
+                imagenCastelari.style.display = "none"
+                imagenReynolds.style.display = "block"
             }
         })
     </script>
