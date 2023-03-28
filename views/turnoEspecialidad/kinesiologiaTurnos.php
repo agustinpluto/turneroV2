@@ -257,6 +257,8 @@ if (empty($id)) {
                 horariosMartesJuarezSelect = "none";
                 horariosMiercolesJuarezSelect = "none";
                 horariosJuevesJuarezSelect = "none";
+                imagenGros.style.display = "none"
+imagenGros.style.display = "none"
 
                 var apellido = kinesiologiaSelect.value;
 
