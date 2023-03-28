@@ -109,7 +109,7 @@
           <h1>TURNOS INTEGRA</h1>
           <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
         </div>
-        <img src="../logointegra2.png" alt="" style="width:250px">
+        <img src="../logointegra2.png" class="pl-3" alt="" style="width:250px">
       </div>
       <div class="mb-5">
         <a href="../index.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Ir al Inicio</a>
