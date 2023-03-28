@@ -29,7 +29,7 @@ while ($fecha <= $fecha_limite) {
     $fecha_es = strftime('%A, %d de %B', $fecha);
 
     // Mostramos la opción del select
-    echo '<option value="' . date('Y-m-d', $fecha) . '">' . $fecha_es . '</option>';
+    echo '<option value="' . date('Y-m-d', $fecha) . '">' . strtoupper($fecha_es) . '</option>';
 
     // Avanzamos a la siguiente semana
     $fecha = strtotime('+1 week', $fecha);
