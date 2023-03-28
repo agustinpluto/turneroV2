@@ -88,7 +88,6 @@ if (empty($id)) {
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h1 class="h3 mb-3 fw-normal">Turnos para Fonoaudiología - <?php
-                                                                                $id = $id_usuario;
                                                                                 function obtenerNombre($id_usuario)
                                                                                 {
                                                                                     include "../../database/conexion.php";
@@ -166,6 +165,7 @@ if (empty($id)) {
                                 $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
 

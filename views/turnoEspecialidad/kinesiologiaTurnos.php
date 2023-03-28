@@ -81,7 +81,6 @@ if (empty($id)) {
 
 <body class="text-center">
 
-    <main class="form-signin w-50 m-auto">
         <main class="form-signin w-50 m-auto">
 
             <form method="post">
