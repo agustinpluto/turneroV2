@@ -127,7 +127,7 @@ if ($rol != 2 || empty($id)) {
         <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
         <label for="dni">Tu DNI</label>
     </div>';
-    include "../../funciones/repetido.php";
+   
             include "../selects/psicomotricidad.php";
             include "../selects/zabala/imagenZabala.php";
             include "../selects/zabala/diasZabalaSelect.php";

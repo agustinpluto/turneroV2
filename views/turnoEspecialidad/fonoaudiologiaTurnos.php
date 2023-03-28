@@ -113,7 +113,7 @@ if (empty($id)) {
             </div>
 
             <?php
-            include "../../funciones/repetido.php";
+           
             include "../selects/fonoaudiologia.php";
             // CORREA
             include "../selects/correa/imagenCorrea.php";
