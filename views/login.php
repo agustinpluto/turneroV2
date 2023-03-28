@@ -106,7 +106,7 @@
 
       <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
         <div class="container">
-          <h1>Turnos Integra</h1>
+          <h1>TURNOS INTEGRA</h1>
           <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
         </div>
         <img src="../logointegra2.png" alt="" style="width:250px">
