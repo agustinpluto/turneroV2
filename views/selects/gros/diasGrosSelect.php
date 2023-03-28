@@ -1,13 +1,10 @@
 <?php
 
 echo '<select name="diasGrosSelect" id="diasGrosSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option>';
-
-echo '</select>';
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();
 $fecha_limite = strtotime('+1 month', $fecha_actual);
 $lunes = strtotime('next monday', $fecha_actual);
-
 $miercoles = strtotime('next Wednesday', $fecha_actual);
 $jueves = strtotime('next Thursday', $fecha_actual);
 
