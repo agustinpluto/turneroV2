@@ -296,7 +296,7 @@ if (empty($id)) {
                 horariosMiercolesJoverSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "block";
                 imagenJover.style.display = "none";
                 imagenMazzola.style.display = "none";
@@ -312,7 +312,7 @@ if (empty($id)) {
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "none";
                 imagenJover.style.display = "block";
                 imagenMazzola.style.display = "none";
@@ -329,7 +329,7 @@ if (empty($id)) {
                 horariosMiercolesJoverSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "none";
                 imagenJover.style.display = "none";
                 imagenMazzola.style.display = "block";
@@ -391,7 +391,7 @@ if (empty($id)) {
                 horariosJuevesMazzolaSelect.style.display = "block"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "block"
+                horariosJuevesSerranoSelect.style.display = "block"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
 
@@ -401,27 +401,27 @@ if (empty($id)) {
 
             var horariosLunesSerranoSelect = document.getElementById('horariosLunesSerranoSelect')
             var horariosMiercolesSerranoSelect = document.getElementById('horariosMiercolesSerranoSelect')
-            var horariosJuevesSerrano = document.getElementById('horariosJuevesSerranoSelect')
+            var horariosJuevesSerranoSelect = document.getElementById('horariosJuevesSerranoSelect')
             var dia = new Date(diasSerranoSelect.value).getDay()
 
             if (dia == 0) {
                 horariosLunesSerranoSelect.style.display = "block"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
             } else if (dia == 2) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "block"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
             } else if (dia == 3) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "block"
+                horariosJuevesSerranoSelect.style.display = "block"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
