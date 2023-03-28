@@ -105,7 +105,7 @@
     <main>
 
       <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-        <div class="container-fluid my-2 ml-2" style="background-color: #90559730">
+        <div class="container my-2 ml-2" style="background-color: #90559730">
           <h1>TURNOS INTEGRA</h1>
           <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
         </div>
