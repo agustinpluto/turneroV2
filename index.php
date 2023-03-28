@@ -147,7 +147,7 @@
                 <div class="accordion-body">
 
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
 
                 </div>
@@ -163,7 +163,7 @@
               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -178,7 +178,7 @@
               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -193,7 +193,7 @@
               <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -208,7 +208,7 @@
               <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -222,7 +222,7 @@
               <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -236,7 +236,7 @@
               <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -250,7 +250,7 @@
               <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -264,7 +264,7 @@
               <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -278,7 +278,7 @@
               <div id="flush-collapseEleven" class="accordion-collapse collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
@@ -292,7 +292,7 @@
               <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
                   <p>Profesionales</p>
-                  <p>Dias</p>
+                  <p>Días</p>
                   <p>Fecha</p>
                 </div>
               </div>
