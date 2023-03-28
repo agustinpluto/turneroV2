@@ -235,7 +235,7 @@ if (empty($id)) {
                                     echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                                 }
                             }
-                        } elseif ($apellido_medico == "Herrera venturini") {
+                        } elseif ($apellido_medico == "Herrera") {
                             $fecha = $_POST["diasHerreraSelect"];
                             $dia_de_la_semana = date("l", strtotime($fecha));
                             if ($dia_de_la_semana == 'Wednesday') {
