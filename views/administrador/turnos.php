@@ -194,10 +194,10 @@ if ($rol != 1 || empty($id)){
                                 <td>' . $apellidoPaciente .', '.$nombrePaciente. ' </td>
                                 <td> ' . $apellidoMedico .', '.$nombreMedico. ' </td>
                                 <td> ' . $fecha .' | '.$hora. ' </td>
-                                <th><a href="http://localhost:8000/eliminarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
+                                <th><a href="http://localhost/eliminarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
                                 delete
                                 </span></a>
-                                <a href="http://localhost:8000/editarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-success btn-sm" name="eliminar"><span class="material-symbols-outlined">
+                                <a href="http://localhost/editarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-success btn-sm" name="eliminar"><span class="material-symbols-outlined">
                                 edit
                                 </span></a></th>
                                 
