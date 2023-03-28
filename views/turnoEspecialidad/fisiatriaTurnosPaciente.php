@@ -7,6 +7,7 @@ if ($rol != 2 || empty($id)) {
 
     header("location: ../../index.php");
 }
+setlocale(LC_TIME, 'es_ES');
 ?>
 
 
