@@ -151,21 +151,24 @@
               <li class="list-group-item">Psiquiatría</li>
               <li class="list-group-item">Terapia Ocupacional</li>
               <li class="list-group-item">Trabajadora Social</li>
-            </ul>
-            <div class="list-group-item">
-              <h2 class="accordion-header" id="flush-headingThirdteen">
-                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirdteen" aria-expanded="false" aria-controls="flush-collapseThirdteen">
-                  Departamentos
-                </button>
-              </h2>
-              <div id="flush-collapseThirdteen" class="accordion-collapse collapse" aria-labelledby="flush-headingThirdteen" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">
-                  <p>Departamento de Evaluaciones</p>
-                  <p>Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</p>
-                  <p>Departamento de Selectividad y Aprehensión Alimentaria</p>
+              <li class="list-group-item">
+                <h2 class="accordion-header" id="flush-headingThirdteen">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirdteen" aria-expanded="false" aria-controls="flush-collapseThirdteen">
+                    Departamentos
+                  </button>
+                </h2>
+                <div id="flush-collapseThirdteen" class="accordion-collapse collapse" aria-labelledby="flush-headingThirdteen" data-bs-parent="#accordionFlushExample">
+                  <div class="accordion-body">
+                    <p>Departamento de Evaluaciones</p>
+                    <p>Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</p>
+                    <p>Departamento de Selectividad y Aprehensión Alimentaria</p>
+                  </div>
                 </div>
-              </div>
-            </div>
+
+              </li>
+            </ul>
+
+
           </div>
         </div>
       </div>
