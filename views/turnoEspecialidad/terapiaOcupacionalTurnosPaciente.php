@@ -226,7 +226,7 @@ if ($rol != 2 || empty($id)) {
                                     $resultado = mysqli_query($conexion, $sql);
                                     echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                                 }
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                               
                             } elseif ($dia_de_la_semana == 'Thursday') {
                                 $jueves = $_POST['horariosJuevesDelRioSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $lunes)) {

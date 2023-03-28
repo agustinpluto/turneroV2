@@ -144,8 +144,8 @@ if ($rol != 2 || empty($id)){
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id_turno = $row['id'];
                         $matricula = $row['medico'];
-                        $apellido = strtoupper(traerApellidoMedico($matricula));
-                        $nombre = strtoupper(traerNombreMedico($matricula));
+                        $apellido = ucfirst(traerApellidoMedico($matricula));
+                        $nombre = ucfirst(traerNombreMedico($matricula));
 
                         echo '<tr>    
                                 <td>' . $apellido .', '.$nombre . '</td>

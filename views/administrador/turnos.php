@@ -179,14 +179,14 @@ if ($rol != 1 || empty($id)){
                         $dni = $row['paciente'];
                         $sql3 = "SELECT * FROM pacientes WHERE dni = '$dni'";
                         $matricula = $row['medico'];
-                        $nombreMedico = strtoupper(traerNombreMedico($matricula));
-                        $apellidoMedico = strtoupper(traerApellidoMedico($matricula));
+                        $nombreMedico = ucfirst(traerNombreMedico($matricula));
+                        $apellidoMedico = ucfirst(traerApellidoMedico($matricula));
                         
                         $hora = date('H:i', strtotime($row['hora']));
                         $fecha = $row['fecha'];
 
-                        $nombrePaciente = strtoupper(traerNombrePaciente($dni));
-                        $apellidoPaciente = strtoupper(traerApellidoPaciente($dni));
+                        $nombrePaciente = ucfirst(traerNombrePaciente($dni));
+                        $apellidoPaciente = ucfirst(traerApellidoPaciente($dni));
                         
 
                         echo '<tr>
