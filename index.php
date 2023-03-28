@@ -285,9 +285,9 @@
               </h2>
               <div id="flush-collapseThirdteen" class="accordion-collapse collapse" aria-labelledby="flush-headingThirdteen" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Depto de Evaluaciones</p>
-                  <p>Depto de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</p>
-                  <p>Depto de Selectividad y Aprehensión Alimentaria</p>
+                  <p>Departamento de Evaluaciones</p>
+                  <p>Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</p>
+                  <p>Departamento de Selectividad y Aprehensión Alimentaria</p>
                 </div>
               </div>
             </div>
