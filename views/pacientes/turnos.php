@@ -151,7 +151,7 @@ if ($rol != 2 || empty($id)){
                                 <td>' . $apellido .', '.$nombre . '</td>
                                 <td> ' . $row['fecha'] . ' </td>
                                 <td> ' . $row['hora'] . ' </td>
-                                <th><a href="http://localhost/eliminarTurno.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
+                                <th><a href="http://turnero-integra.com.ar/eliminarTurno.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
                                 delete
                                 </span></a></th>
                             </tr>';
