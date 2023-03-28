@@ -104,15 +104,15 @@
 
     <main>
 
-    <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-                <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
-                    <h1 class="m-2">TURNOS INTEGRA</h1>
-                    <p>Centro de Rehabilitación Integral</p>
-                </div>
-                <div class="container-fluid d-flex justify-content-end">
-                <img src="../logointegra2.png" alt="" style="width:250px">
-                </div>
-            </div>
+      <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+        <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
+          <h1 class="m-2">TURNOS INTEGRA</h1>
+          <p>Centro de Rehabilitación Integral</p>
+        </div>
+        <div class="container-fluid d-flex justify-content-end">
+          <img src="../logointegra2.png" alt="" style="width:250px">
+        </div>
+      </div>
       <div class="mb-5">
         <a href="./views/registro.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Crear cuenta</a>
         <a href="./views/login.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Iniciar sesión</a>
@@ -148,9 +148,7 @@
               <div id="flush-collapseOne" class="accordion-collapse collapse" aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
 
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
 
                 </div>
               </div>
@@ -164,9 +162,7 @@
               </h2>
               <div id="flush-collapseTwo" class="accordion-collapse collapse" aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -179,9 +175,7 @@
               </h2>
               <div id="flush-collapseFour" class="accordion-collapse collapse" aria-labelledby="flush-headingFour" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -194,9 +188,7 @@
               </h2>
               <div id="flush-collapseFive" class="accordion-collapse collapse" aria-labelledby="flush-headingFive" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -209,9 +201,7 @@
               </h2>
               <div id="flush-collapseSix" class="accordion-collapse collapse" aria-labelledby="flush-headingSix" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -223,9 +213,7 @@
               </h2>
               <div id="flush-collapseSeven" class="accordion-collapse collapse" aria-labelledby="flush-headingSeven" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -237,9 +225,7 @@
               </h2>
               <div id="flush-collapseEight" class="accordion-collapse collapse" aria-labelledby="flush-headingEight" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -251,9 +237,7 @@
               </h2>
               <div id="flush-collapseNine" class="accordion-collapse collapse" aria-labelledby="flush-headingNine" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -265,9 +249,7 @@
               </h2>
               <div id="flush-collapseTen" class="accordion-collapse collapse" aria-labelledby="flush-headingTen" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -279,9 +261,7 @@
               </h2>
               <div id="flush-collapseEleven" class="accordion-collapse collapse" aria-labelledby="flush-headingEleven" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
@@ -293,9 +273,7 @@
               </h2>
               <div id="flush-collapseTwelve" class="accordion-collapse collapse" aria-labelledby="flush-headingTwelve" data-bs-parent="#accordionFlushExample">
                 <div class="accordion-body">
-                  <p>Profesionales</p>
-                  <p>Días</p>
-                  <p>Fecha</p>
+
                 </div>
               </div>
             </div>
