@@ -109,7 +109,7 @@
                     <h1>TURNOS INTEGRA</h1>
                     <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
                 </div>
-                <div class="container-fluid d-flex">
+                <div class="container-fluid d-flex aling-items-end">
                 <img src="../logointegra2.png" alt="" style="width:250px">
                 </div>
             </div>
