@@ -150,7 +150,7 @@ if ($rol != 2 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
-          <h4>Seleccioná la Especialidad/Departamento</h4>
+          
         </div>
         <div class="container-fluid">
           <div class="row">
