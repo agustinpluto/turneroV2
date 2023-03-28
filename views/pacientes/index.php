@@ -132,15 +132,13 @@ if ($rol != 2 || empty($id)) {
 
 
     <main>
-    <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-                <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
-                    <h1 class="m-2">TURNOS INTEGRA</h1>
-                    <p>Centro de Rehabilitación Integral</p>
-                </div>
-                <div class="container-fluid d-flex justify-content-end">
-                <img src="../logointegra2.png" alt="" style="width:250px">
-                </div>
-            </div>
+      <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+        <div class="container">
+          <h1>Turnos Integra</h1>
+          <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
+        </div>
+        <img src="../../logointegra2.png" alt="" style="width:170px">
+      </div>
 
       <div class="mb-5">
         <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
@@ -150,7 +148,7 @@ if ($rol != 2 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
-          
+          <h4>Seleccioná la Especialidad/Departamento</h4>
         </div>
         <div class="container-fluid">
           <div class="row">
