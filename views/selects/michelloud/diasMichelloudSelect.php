@@ -16,7 +16,7 @@ $fecha = strtotime('next Wednesday', $fecha_actual);
 // Recorremos las fechas hasta la fecha límite
 while ($fecha <= $fecha_limite) {
     // Mostramos la fecha en el formato deseado (día de la semana y día del mes en español)
-    $fecha_es = strftime('%A, %d', $fecha);
+    $fecha_es = strftime('%A %d', $fecha);
 
     // Mostramos la opción del select
     echo '<option value="' . date('Y-m-d', $fecha) . '">' . ucfirst($fecha_es) . '</option>';
