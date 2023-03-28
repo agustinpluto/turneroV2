@@ -95,27 +95,29 @@
 </head>
 
 <body>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-  <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
-    <i class="fa fa-whatsapp my-float"></i>
-  </a>
-  <div class="col-lg-8 mx-auto p-4 py-md-5 ">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
+    <div class="col-lg-8 mx-auto p-4 py-md-5 ">
 
 
-    <main>
+        <main>
 
-      <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-        <div class="container my-2 ml-2" style="background-color: #90559730">
-          <h1>TURNOS INTEGRA</h1>
-          <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
-        </div>
-        <img src="../logointegra2.png" class="pl-3" alt="" style="width:250px">
-      </div>
-      <div class="mb-5">
-        <a href="../index.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Ir al Inicio</a>
-      </div>
+            <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+                <div class="container-fluid d-flex " style="background-color: #90559730">
+                    <h1>TURNOS INTEGRA</h1>
+                    <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
+                </div>
+                <div class="container-fluid d-flex">
+                <img src="../logointegra2.png" alt="" style="width:250px">
+                </div>
+            </div>
+            <div class="mb-5">
+                <a href="../index.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Ir al Inicio</a>
+            </div>
 
-      <hr class="col-3 col-md-2 mb-5">
+            <hr class="col-3 col-md-2 mb-5">
             <form method="post">
 
                 <img class="mb-4" src="../integra.png" alt="" width="80">
