@@ -127,7 +127,7 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
-                include "../../funciones/repetido.php";
+                
                 include "../selects/psicologia.php";
                 //BALSAMO
                 include "../selects/balsamo/imagenBalsamo.php";
