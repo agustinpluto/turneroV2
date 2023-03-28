@@ -5,8 +5,12 @@ echo '<select name="diasBarrosoSelect" id="diasBarrosoSelect" class="form-select
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();
 $fecha_limite = strtotime('+1 month', $fecha_actual);
-$martes = strtotime('next Thursday', $fecha_actual);
-$miercoles = strtotime('next Thursday', $fecha_actual);
+
+$martes = strtotime('next Tuesday', $fecha_actual);
+
+$jueves = strtotime('next Thursday', $fecha_actual);
+
+
 
 while ($martes <= $fecha_limite) {
     
@@ -17,6 +21,8 @@ while ($martes <= $fecha_limite) {
     $martes = strtotime('+1 week', $martes);
 }
 
+
+
 while ($jueves <= $fecha_limite) {
     
     $jueves_es = strftime('%A %d/%m', $jueves);
@@ -25,5 +31,6 @@ while ($jueves <= $fecha_limite) {
 
     $jueves = strtotime('+1 week', $jueves);
 }
+
 
 echo '</select>';

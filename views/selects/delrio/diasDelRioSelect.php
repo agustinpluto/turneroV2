@@ -1,35 +1,53 @@
 <?php
 echo '';
 echo '<select name="diasDelRioSelect" id="diasDelRioSelect" class="form-select form-select-lg mb-4" style="display: none"><option value="no">Día</option>';
-$fechaActual = date('Y-m-d');
-$fechaDentroDeUnMes = date('Y-m-d', strtotime('+1 month'));
-$fechaLunes = strtotime('next Monday', strtotime($fechaActual));
-$fechaMartes = strtotime('next Tuesday', strtotime($fechaActual));
-$fechaMiercoles = strtotime('next Wednesday', strtotime($fechaActual));
-$fechaJueves = strtotime('next Thursday', strtotime($fechaActual));
 
-while ($fechaLunes <= strtotime('next Monday', strtotime($fechaDentroDeUnMes))) {
-    $fechaLunes_str = date('Y-m-d', $fechaLunes);
-    $fechaLunes_fmt = date('l, d F', $fechaLunes);
-    echo "<option value=\"$fechaLunes_str\">$fechaLunes_fmt</option>";
-    $fechaLunes = strtotime('+1 week', $fechaLunes);
+
+setlocale(LC_TIME, "es_AR.UTF-8");
+$fecha_actual = time();
+$fecha_limite = strtotime('+1 month', $fecha_actual);
+$lunes = strtotime('next monday', $fecha_actual);
+$martes = strtotime('next Tuesday', $fecha_actual);
+$miercoles = strtotime('next Wednesday', $fecha_actual);
+$jueves = strtotime('next Thursday', $fecha_actual);
+
+
+while ($lunes <= $fecha_limite) {
+    
+    $lunes_es = strftime('%A %d/%m', $lunes);
+
+    echo '<option value="' . date('Y-m-d', $lunes) . '">' . ucfirst($lunes_es) . '</option>';
+
+    $lunes = strtotime('+1 week', $lunes);
 }
-while ($fechaMartes <= strtotime('next Tuesday', strtotime($fechaDentroDeUnMes))) {
-    $fechaMartes_str = date('Y-m-d', $fechaMartes);
-    $fechaMartes_fmt = date('l, d F', $fechaMartes);
-    echo "<option value=\"$fechaMartes_str\">$fechaMartes_fmt</option>";
-    $fechaMartes = strtotime('+1 week', $fechaMartes);
+
+while ($martes <= $fecha_limite) {
+    
+    $martes_es = strftime('%A %d/%m', $martes);
+
+    echo '<option value="' . date('Y-m-d', $martes) . '">' . ucfirst($martes_es) . '</option>';
+
+    $martes = strtotime('+1 week', $martes);
 }
-while ($fechaMiercoles <= strtotime('next Wednesday', strtotime($fechaDentroDeUnMes))) {
-    $fechaMiercoles_str = date('Y-m-d', $fechaMiercoles);
-    $fechaMiercoles_fmt = date('l, d F', $fechaMiercoles);
-    echo "<option value=\"$fechaMiercoles_str\">$fechaMiercoles_fmt</option>";
-    $fechaMiercoles = strtotime('+1 week', $fechaMiercoles);
+
+while ($miercoles <= $fecha_limite) {
+    
+    $miercoles_es = strftime('%A %d/%m', $miercoles);
+
+    echo '<option value="' . date('Y-m-d', $miercoles) . '">' . ucfirst($miercoles_es) . '</option>';
+
+    $miercoles = strtotime('+1 week', $miercoles);
 }
-while ($fechaJueves <= strtotime('next Thursday', strtotime($fechaDentroDeUnMes))) {
-    $fechaJueves_str = date('Y-m-d', $fechaJueves);
-    $fechaJueves_fmt = date('l, d F', $fechaJueves);
-    echo "<option value=\"$fechaJueves_str\">$fechaJueves_fmt</option>";
-    $fechaJueves = strtotime('+1 week', $fechaJueves);
+
+while ($jueves <= $fecha_limite) {
+    
+    $jueves_es = strftime('%A %d/%m', $jueves);
+
+    echo '<option value="' . date('Y-m-d', $jueves) . '">' . ucfirst($jueves_es) . '</option>';
+
+    $jueves = strtotime('+1 week', $jueves);
 }
+
+
 echo '</select>';
+

@@ -2,23 +2,32 @@
 
 echo '<select name="diasHerreraSelect" id="diasHerreraSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Día</option>';
 
-$fechaActual = date('Y-m-d');
-$fechaDentroDeUnMes = date('Y-m-d', strtotime('+1 month'));
-$fechaMiercoles = strtotime('next Wednesday', strtotime($fechaActual));
-$fechaMartes = strtotime('next Tuesday', strtotime($fechaActual));
 
-while ($fechaMiercoles <= strtotime('next Wednesday', strtotime($fechaDentroDeUnMes))) {
-    $fechaMiercoles_str = date('Y-m-d', $fechaMiercoles);
-    $fechaMiercoles_fmt = date('l, d F', $fechaMiercoles);
-    echo "<option value=\"$fechaMiercoles_str\">$fechaMiercoles_fmt</option>";
-    $fechaMiercoles = strtotime('+1 week', $fechaMiercoles);
+setlocale(LC_TIME, "es_AR.UTF-8");
+$fecha_actual = time();
+$fecha_limite = strtotime('+1 month', $fecha_actual);
+
+$miercoles = strtotime('next Wednesday', $fecha_actual);
+$jueves = strtotime('next Thursday', $fecha_actual);
+
+
+while ($miercoles <= $fecha_limite) {
+    
+    $miercoles_es = strftime('%A %d/%m', $miercoles);
+
+    echo '<option value="' . date('Y-m-d', $miercoles) . '">' . ucfirst($miercoles_es) . '</option>';
+
+    $miercoles = strtotime('+1 week', $miercoles);
 }
 
-while ($fechaMartes <= strtotime('next Tuesday', strtotime($fechaDentroDeUnMes))) {
-    $fechaMartes_str = date('Y-m-d', $fechaMartes);
-    $fechaMartes_fmt = date('l, d F', $fechaMartes);
-    echo "<option value=\"$fechaMartes_str\">$fechaMartes_fmt</option>";
-    $fechaMartes = strtotime('+1 week', $fechaMartes);
+while ($jueves <= $fecha_limite) {
+    
+    $jueves_es = strftime('%A %d/%m', $jueves);
+
+    echo '<option value="' . date('Y-m-d', $jueves) . '">' . ucfirst($jueves_es) . '</option>';
+
+    $jueves = strtotime('+1 week', $jueves);
 }
+
 
 echo '</select>';
