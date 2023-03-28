@@ -281,7 +281,7 @@ if ($rol != 1 || empty($id)) {
       </div>
       <div class="col">
         <div class="card m-1">
-          <a href="../turnoEspecialidad/depto3.php" class="card-body">
+          <a href="../turnoEspecialidad/depto1.php" class="card-body">
             <h3 class="card-title">Departamento de Selectividad y Aprehensión Alimentaria</h3>
             <p class="card-text">Presionar para turno</p>
           </a>
