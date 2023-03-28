@@ -88,18 +88,18 @@ if (empty($id)) {
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h1 class="h3 mb-3 fw-normal">Turnos para Fonoaudiología - <?php
-                    $id=$id_usuario;
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
-                                                                            }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                                $id = $id_usuario;
+                                                                                function obtenerNombre($id_usuario)
+                                                                                {
+                                                                                    include "../../database/conexion.php";
+                                                                                    $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                    $resultado = mysqli_query($conexion, $sql);
+                                                                                    while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                        $nombre = $row['nombre'];
+                                                                                    }
+                                                                                    return strtoupper($nombre);
+                                                                                }
+                                                                                echo obtenerNombre($id); ?></h1>
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -113,7 +113,7 @@ if (empty($id)) {
             </div>
 
             <?php
-           
+
             include "../selects/fonoaudiologia.php";
             // CORREA
             include "../selects/correa/imagenCorrea.php";
@@ -136,10 +136,10 @@ if (empty($id)) {
             include "../selects/serrano/horariosMiercolesSerranoSelect.php";
             include "../selects/serrano/horariosJuevesSerranoSelect.php";
 
-        
-            
+
+
             if (isset($_POST['botonRegistro'])) {
-                
+
                 if ($_POST['fonoaudiologiaSelect'] != 'no') {
                     include "../../database/conexion.php";
                     include "../../funciones/repetido.php";
@@ -190,7 +190,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Wednesday') {
                             $miercoles = $_POST['horariosMiercolesJoverSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
@@ -200,7 +199,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     } elseif ($apellido_medico == "Mazzola") {
                         $fecha = $_POST['diasMazzolaSelect'];
@@ -214,7 +212,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     } elseif ($apellido_medico == "Serrano") {
                         $fecha = $_POST['diasSerranoSelect'];
@@ -229,7 +226,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Wednesday') {
 
                             $miercoles = $_POST['horariosMiercolesSerranoSelect'];
@@ -240,7 +236,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         } elseif ($dia_de_la_semana == 'Thursday') {
 
                             $jueves = $_POST['horariosJuevesSerranoSelect'];
@@ -251,7 +246,6 @@ if (empty($id)) {
                                 $resultado = mysqli_query($conexion, $sql);
                                 echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                             }
-                            
                         }
                     }
                 }
@@ -282,6 +276,10 @@ if (empty($id)) {
         horariosJuevesCorreaSelect.style.display = "none"
         horariosLunesJoverSelect.style.display = "none"
         horariosMiercolesJoverSelect.style.display = "none"
+        imagenCorrea.style.display = "none";
+        imagenJover.style.display = "none";
+        imagenMazzola.style.display = "none";
+        imagenSerrano.style.display = "none";
 
         fonoaudiologiaSelect.addEventListener("change", function() {
 

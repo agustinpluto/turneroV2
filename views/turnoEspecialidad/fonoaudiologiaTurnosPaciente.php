@@ -293,6 +293,10 @@ if ($rol != 2 || empty($id)) {
         horariosJuevesCorreaSelect.style.display = "none"
         horariosLunesJoverSelect.style.display = "none"
         horariosMiercolesJoverSelect.style.display = "none"
+        imagenCorrea.style.display = "none";
+        imagenJover.style.display = "none";
+        imagenMazzola.style.display = "none";
+        imagenSerrano.style.display = "none";
 
         fonoaudiologiaSelect.addEventListener("change", function() {
 
