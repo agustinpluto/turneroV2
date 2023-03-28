@@ -129,7 +129,7 @@
 
             <li class="text-danger d-flex align-items-start mb-1">Recordá anotar tu contraseña!</li>
             <br>
-            <li class="text-danger d-flex align-items-start mb-1">PARA AGENDAR EL TURNO DEBERA ABONAR LA SEÑA <code> (50% DEL COSTO POR SERVICIO)</code> </li>
+            <li class="text-danger d-flex align-items-start mb-1">PARA AGENDAR EL TURNO DEBERA ABONAR LA SEÑA (50% DEL COSTO POR SERVICIO) </li>
 
           </ul>
         </div>
