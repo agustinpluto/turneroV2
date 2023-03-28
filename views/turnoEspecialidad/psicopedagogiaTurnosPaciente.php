@@ -228,14 +228,14 @@ if ($rol != 2 || empty($id)) {
                 horariosMartesFernandezSelect.style.display = "none"
                 horariosJuevesFernandezSelect.style.display = "none"
                 imagenDeuna.style.display = "block"
-                imagenDeuna.style.display = "none"
+                imagenFernandez.style.display = "none"
 
             } else if (apellido == 'Fernandez') {
                 horariosMartesDeUnaSelect.style.display = "none"
                 diasDeUna.style.display = "none"
                 diasFernandez.style.display = "block"
                 imagenDeuna.style.display = "none"
-                imagenDeuna.style.display = "block"
+                imagenFernandez.style.display = "block"
 
 
             }
