@@ -1,7 +1,7 @@
 <?php
 
 echo '<select name="diasMichelloudSelect" id="diasMichelloudSelect" class="form-select form-select-lg mb-4"> <option value="no">Día</option>';
-
+setlocale(LC_TIME, 'es_ES');
 $fechaActual = date('Y-m-d');
 $fechaDentroDeUnMes = date('Y-m-d', strtotime('+1 month'));
 $fecha = strtotime('next Wednesday', strtotime($fechaActual));
