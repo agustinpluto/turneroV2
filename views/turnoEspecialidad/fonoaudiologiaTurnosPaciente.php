@@ -125,7 +125,7 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
 
-            
+
             include "../selects/fonoaudiologia.php";
             // CORREA
             include "../selects/correa/imagenCorrea.php";
@@ -293,7 +293,10 @@ if ($rol != 2 || empty($id)) {
         horariosJuevesCorreaSelect.style.display = "none"
         horariosLunesJoverSelect.style.display = "none"
         horariosMiercolesJoverSelect.style.display = "none"
-        
+        imagenCorrea.style.display = "none";
+        imagenJover.style.display = "none";
+        imagenMazzola.style.display = "none";
+        imagenSerrano.style.display = "none";
 
         fonoaudiologiaSelect.addEventListener("change", function() {
 
@@ -310,7 +313,7 @@ if ($rol != 2 || empty($id)) {
                 horariosMiercolesJoverSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "block";
                 imagenJover.style.display = "none";
                 imagenMazzola.style.display = "none";
@@ -326,7 +329,7 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "none";
                 imagenJover.style.display = "block";
                 imagenMazzola.style.display = "none";
@@ -343,7 +346,7 @@ if ($rol != 2 || empty($id)) {
                 horariosMiercolesJoverSelect.style.display = "none"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 imagenCorrea.style.display = "none";
                 imagenJover.style.display = "none";
                 imagenMazzola.style.display = "block";
@@ -405,7 +408,7 @@ if ($rol != 2 || empty($id)) {
                 horariosJuevesMazzolaSelect.style.display = "block"
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "block"
+                horariosJuevesSerranoSelect.style.display = "block"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
 
@@ -415,27 +418,27 @@ if ($rol != 2 || empty($id)) {
 
             var horariosLunesSerranoSelect = document.getElementById('horariosLunesSerranoSelect')
             var horariosMiercolesSerranoSelect = document.getElementById('horariosMiercolesSerranoSelect')
-            var horariosJuevesSerrano = document.getElementById('horariosJuevesSerranoSelect')
+            var horariosJuevesSerranoSelect = document.getElementById('horariosJuevesSerranoSelect')
             var dia = new Date(diasSerranoSelect.value).getDay()
 
             if (dia == 0) {
                 horariosLunesSerranoSelect.style.display = "block"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
             } else if (dia == 2) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "block"
-                horariosJuevesSerrano.style.display = "none"
+                horariosJuevesSerranoSelect.style.display = "none"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
             } else if (dia == 3) {
                 horariosLunesSerranoSelect.style.display = "none"
                 horariosMiercolesSerranoSelect.style.display = "none"
-                horariosJuevesSerrano.style.display = "block"
+                horariosJuevesSerranoSelect.style.display = "block"
                 horariosMartesCorreaSelect.style.display = "none"
                 horariosJuevesCorreaSelect.style.display = "none"
                 horariosJuevesMazzolaSelect.style.display = "none"
