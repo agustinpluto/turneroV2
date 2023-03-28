@@ -133,9 +133,9 @@ if (empty($id)) {
                     include "../selects/juarez/horariosMiercolesJuarezSelect.php";
                     include "../selects/juarez/horariosJuevesJuarezSelect.php";
 
-                    
-                    
-                    
+
+
+
 
                     if (isset($_POST['botonRegistro'])) {
 
@@ -258,7 +258,7 @@ if (empty($id)) {
                 horariosMiercolesJuarezSelect = "none";
                 horariosJuevesJuarezSelect = "none";
                 imagenGros.style.display = "none"
-imagenGros.style.display = "none"
+                imagenJuarez.style.display = "none"
 
                 var apellido = kinesiologiaSelect.value;
 
