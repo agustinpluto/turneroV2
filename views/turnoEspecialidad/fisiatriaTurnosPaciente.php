@@ -168,7 +168,6 @@ if ($rol != 2 || empty($id)) {
     </footer>
     </div>
     <script>
-        const mp = new MercadoPago("YOUR_PUBLIC_KEY");
         var fisiatriaSelect = document.getElementById('fisiatriaSelect');
 
         diasMichelloudSelect.style.display = "none";
