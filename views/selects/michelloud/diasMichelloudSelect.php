@@ -2,7 +2,8 @@
 
 echo '<select name="diasMichelloudSelect" id="diasMichelloudSelect" class="form-select form-select-lg mb-4"> <option value="no">Día</option>';
 
-setlocale(LC_TIME , 'es_AR.UTF-8');
+
+setlocale(LC_TIME, 'es_ES.UTF-8');
 
 
 $fechaActual = date('Y-m-d');
