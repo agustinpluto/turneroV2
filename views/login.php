@@ -105,9 +105,9 @@
         <main>
 
             <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-                <div class="container-fluid d-flex flex-column" style="background-color: #90559730">
+                <div class="container-fluid d-flex flex-column px-2" style="background-color: #90559730">
                     <h1>TURNOS INTEGRA</h1>
-                    <p class="">Centro de Rehabilitación Integral</p>
+                    <p>Centro de Rehabilitación Integral</p>
                 </div>
                 <div class="container-fluid d-flex justify-content-end">
                 <img src="../logointegra2.png" alt="" style="width:250px">
