@@ -92,7 +92,7 @@ if (empty($id)) {
                                                                         function obtenerNombre($id_usuario)
                                                                         {
                                                                             include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
                                                                             $resultado = mysqli_query($conexion, $sql);
                                                                             while ($row = mysqli_fetch_assoc($resultado)) {
                                                                                 $nombre = $row['nombre'];
@@ -113,10 +113,10 @@ if (empty($id)) {
             </div>
 
             <?php
-            include "../selects/fisiatria.php";
-            include "../selects/michelloud/imagenMichelloud.php";
-            include "../selects/michelloud/diasMichelloudSelect.php";
-            include "../selects/michelloud/horariosMiercolesMichelloud.php";
+            include "../selects/nutricion.php";
+            include "../selects/cacciavillani/imagenCacciavillani.php";
+            include "../selects/cacciavillani/diasCacciavillaniSelect.php";
+            include "../selects/cacciavillani/horariosCacciavillani.php";
 
 
             if (isset($_POST['botonRegistro'])) {

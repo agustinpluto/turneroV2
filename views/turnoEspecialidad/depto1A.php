@@ -113,10 +113,10 @@ if (empty($id)) {
             </div>
 
             <?php
-            include "../selects/fisiatria.php";
-            include "../selects/michelloud/imagenMichelloud.php";
-            include "../selects/michelloud/diasMichelloudSelect.php";
-            include "../selects/michelloud/horariosMiercolesMichelloud.php";
+            include "../selects/nutricion.php";
+            include "../selects/cacciavillani/imagenCacciavillani.php";
+            include "../selects/cacciavillani/diasCacciavillaniSelect.php";
+            include "../selects/cacciavillani/horariosCacciavillani.php";
 
 
             if (isset($_POST['botonRegistro'])) {
