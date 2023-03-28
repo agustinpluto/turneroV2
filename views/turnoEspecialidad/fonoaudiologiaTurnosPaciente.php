@@ -128,12 +128,12 @@ if ($rol != 2 || empty($id)) {
 
             include "../selects/fonoaudiologia.php";
             // CORREA
-            // include "../selects/correa/imagenCorrea.php";
+            include "../selects/correa/imagenCorrea.php";
             include "../selects/correa/diasCorreaSelect.php";
             include "../selects/correa/horariosMartesCorreaSelect.php";
             include "../selects/correa/horariosJuevesCorreaSelect.php";
             // JOVER
-            // include "../selects/jover/imagenJover.php";
+            include "../selects/jover/imagenJover.php";
             include "../selects/jover/diasJoverSelect.php";
 
             include "../selects/jover/horariosLunesJoverSelect.php";
@@ -144,7 +144,7 @@ if ($rol != 2 || empty($id)) {
 
             include "../selects/mazzola/horariosJuevesMazzolaSelect.php";
             // SERRANO
-            // include "../selects/serrano/imagenSerrano.php";
+            include "../selects/serrano/imagenSerrano.php";
             include "../selects/serrano/diasSerranoSelect.php";
 
             include "../selects/serrano/horariosLunesSerranoSelect.php";
