@@ -139,7 +139,7 @@
           <p>Información detallada, días y horarios de atención</p>
           <div class="accordion accordion-flush" id="accordionFlushExample">
 
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingOne">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseOne" aria-expanded="false" aria-controls="flush-collapseOne">
                   Fisiatría
@@ -154,7 +154,7 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingTwo">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwo" aria-expanded="false" aria-controls="flush-collapseTwo">
                   Fonoaudiología
@@ -167,7 +167,7 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingFour">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFour" aria-expanded="false" aria-controls="flush-collapseFour">
                   Kinesiología
@@ -180,7 +180,7 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingFive">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseFive" aria-expanded="false" aria-controls="flush-collapseFive">
                   Neurología
@@ -193,7 +193,7 @@
               </div>
             </div>
 
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingSix">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSix" aria-expanded="false" aria-controls="flush-collapseSix">
                   Nutrición
@@ -205,7 +205,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingSeven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseSeven" aria-expanded="false" aria-controls="flush-collapseSeven">
                   Psicología
@@ -217,7 +217,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingEight">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEight" aria-expanded="false" aria-controls="flush-collapseEight">
                   Psicomotricidad
@@ -229,7 +229,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingNine">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseNine" aria-expanded="false" aria-controls="flush-collapseNine">
                   Psicopedagogía
@@ -241,7 +241,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingTen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTen" aria-expanded="false" aria-controls="flush-collapseTen">
                   Psiquiatría
@@ -253,7 +253,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingEleven">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseEleven" aria-expanded="false" aria-controls="flush-collapseEleven">
                   Terapia Ocupacional
@@ -265,7 +265,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingTwelve">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseTwelve" aria-expanded="false" aria-controls="flush-collapseTwelve">
                   Trabajadora Social
@@ -277,7 +277,7 @@
                 </div>
               </div>
             </div>
-            <div class="accordion-item">
+            <div class="list-group-item">
               <h2 class="accordion-header" id="flush-headingThirdteen">
                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapseThirdteen" aria-expanded="false" aria-controls="flush-collapseThirdteen">
                   Departamentos
