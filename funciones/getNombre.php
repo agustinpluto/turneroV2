@@ -7,8 +7,9 @@ function getApellidoPaciente($dni, $conexion)
     $resultado_paciente = mysqli_query($conexion, $sql_paciente);
     while ($row = mysqli_fetch_assoc($resultado_paciente)) {
         $apellido = $row['apellido'];
+        return $apellido;
     }
-    return $apellido;
+    
 }
 function getNombrePaciente($dni, $conexion)
 {   
@@ -17,8 +18,9 @@ function getNombrePaciente($dni, $conexion)
     $resultado_paciente = mysqli_query($conexion, $sql_paciente);
     while ($row = mysqli_fetch_assoc($resultado_paciente)) {
         $nombre = $row['nombre'];
+        return $nombre;
     }
-    return $nombre;
+    
 }
 function getMatricula($apellido, $conexion)
 {   
@@ -28,9 +30,9 @@ function getMatricula($apellido, $conexion)
 
     while ($row = mysqli_fetch_assoc($resultado_medico)) {
         $matricula = $row['matricula'];
-        
+        return $matricula;
     }
-    return $matricula;
+    
 }
 
 function getMail($apellido, $conexion)
@@ -41,7 +43,7 @@ function getMail($apellido, $conexion)
 
     while ($row = mysqli_fetch_assoc($resultado_medico)) {
         $email = $row['email'];
-        
+        return $email;
     }
-    return $email;
+    
 }

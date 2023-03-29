@@ -142,9 +142,13 @@ if (empty($id)) {
                             } else {
                                 $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
                                 $resultado = mysqli_query($conexion, $sql);
+                                
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+
                                 $email_medico = getMail($apellido_m, $conexion);
+
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
                             " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                             }
