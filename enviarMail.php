@@ -17,11 +17,11 @@ mail_me($to, $subject, $msg, $headers);
 function mail_me($to, $subject, $message) {
 
 $headers = [
-        'From' => 'agustin <agustinpluto.sv@gmail.com>',
+        'From' => 'agustin noreply@turnero-integra.com.ar',
     'content-type' => 'text/html',
     'MIME-Version' => '1.0',
     'Date' => date('r'),
-    'Message-ID' => '<'.sha1(microtime(true)).'@em1753.turnero-integra.com.ar>'
+    'Message-ID' => '<'.sha1(microtime(true)).'@turnero-integra.com.ar>'
 ];
     try {
         $mail = new PHPMailer(true);
@@ -39,7 +39,7 @@ $headers = [
         $mail->Subject = $subject;
         $mail->Body = $message;
 
-        $mail->setFrom('<agustinpluto.sv@gmail.com>', 'agustin');
+        $mail->setFrom('noreply@turnero-integra.com.ar', 'agustin');
         $mail->addAddress($to); // Add a recipient
         $mail->send();
        echo 'Message has been sent';
