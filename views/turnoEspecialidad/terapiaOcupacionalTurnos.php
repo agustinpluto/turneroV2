@@ -81,324 +81,362 @@ if (empty($id)) {
 
 <body class="text-center">
 
-        <main class="form-signin w-50 m-auto">
+    <main class="form-signin w-50 m-auto">
 
+        <form method="post">
+
+            <div class="container-fluid d-flex">
+
+                <div class="container-fluid d-flex justify-content-center align-items-center">
+                    <h1 class="h3 mb-3 fw-normal">Turnos para Terapia Ocupacional - <?php
+                                                                                    function obtenerNombre($id_usuario)
+                                                                                    {
+                                                                                        include "../../database/conexion.php";
+                                                                                        $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                        $resultado = mysqli_query($conexion, $sql);
+                                                                                        while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                            $nombre = $row['nombre'];
+                                                                                        }
+                                                                                        return strtoupper($nombre);
+                                                                                    }
+                                                                                    echo obtenerNombre($id); ?></h1>
+
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-center">
+                    <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
+                </div>
+            </div>
             <form method="post">
 
-                <div class="container-fluid d-flex">
-
-                    <div class="container-fluid d-flex justify-content-center align-items-center">
-                        <h1 class="h3 mb-3 fw-normal">Turnos para Terapia Ocupacional - <?php
-                                                                                        function obtenerNombre($id_usuario)
-                                                                                        {
-                                                                                            include "../../database/conexion.php";
-                                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                                $nombre = $row['nombre'];
-                                                                                            }
-                                                                                            return strtoupper($nombre);
-                                                                                        }
-                                                                                        echo obtenerNombre($id); ?></h1>
-
-                    </div>
-                    <div class="container-fluid d-flex justify-content-center align-items-center">
-                        <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
-                    </div>
+                <div class="form-floating my-5">
+                    <input type="text" class="form-control" id="floatingInput" name="dni" required>
+                    <label for="floatingInput">DNI del Paciente</label>
                 </div>
-                <form method="post">
 
-                    <div class="form-floating my-5">
-                        <input type="text" class="form-control" id="floatingInput" name="dni" required>
-                        <label for="floatingInput">DNI del Paciente</label>
-                    </div>
+                <?php
+                include "../../funciones/repetido.php";
+                include "../selects/terapiaOcupacional.php";
 
-                    <?php
-                    include "../../funciones/repetido.php";
-                    include "../selects/terapiaOcupacional.php";
+                //BARROSO 
+                include "../selects/barroso/imagenBarroso.php";
+                include "../selects/barroso/diasBarrosoSelect.php";
 
-                    //BARROSO 
-                    include "../selects/barroso/imagenBarroso.php";
-                    include "../selects/barroso/diasBarrosoSelect.php";
+                include "../selects/barroso/horariosMartesBarrosoSelect.php";
+                include "../selects/barroso/horariosJuevesBarrosoSelect.php";
 
-                    include "../selects/barroso/horariosMartesBarrosoSelect.php";
-                    include "../selects/barroso/horariosJuevesBarrosoSelect.php";
+                //DEL RIO
+                include "../selects/delrio/imagenDelrio.php";
+                include "../selects/delrio/diasDelRioSelect.php";
 
-                    //DEL RIO
-                    include "../selects/delrio/imagenDelrio.php";
-                    include "../selects/delrio/diasDelRioSelect.php";
+                include "../selects/delrio/horariosLunesDelRioSelect.php";
+                include "../selects/delrio/horariosMartesDelRioSelect.php";
+                include "../selects/delrio/horariosMiercolesDelRioSelect.php";
+                include "../selects/delrio/horariosJuevesDelRioSelect.php";
 
-                    include "../selects/delrio/horariosLunesDelRioSelect.php";
-                    include "../selects/delrio/horariosMartesDelRioSelect.php";
-                    include "../selects/delrio/horariosMiercolesDelRioSelect.php";
-                    include "../selects/delrio/horariosJuevesDelRioSelect.php";
+                //MARTINEZ
+                include "../selects/martinez/imagenMartinez.php";
+                include "../selects/martinez/diasMartinezSelect.php";
 
-                    //MARTINEZ
-                    include "../selects/martinez/imagenMartinez.php";
-                    include "../selects/martinez/diasMartinezSelect.php";
+                include "../selects/martinez/horariosLunesMartinezSelect.php";
+                include "../selects/martinez/horariosMartesMartinezSelect.php";
+                include "../selects/martinez/horariosMiercolesMartinezSelect.php";
+                include "../selects/martinez/horariosJuevesMartinezSelect.php";
 
-                    include "../selects/martinez/horariosLunesMartinezSelect.php";
-                    include "../selects/martinez/horariosMartesMartinezSelect.php";
-                    include "../selects/martinez/horariosMiercolesMartinezSelect.php";
-                    include "../selects/martinez/horariosJuevesMartinezSelect.php";
+                if ($apellido_medico == "Barroso") {
 
-                    if ($apellido_medico == "Barroso") {
+                    $fecha = $_POST["diasBarrosoSelect"];
+                    $dia_de_la_semana = date("l", strtotime($fecha));
 
-                        $fecha = $_POST["diasBarrosoSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-
-                        if ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosBarrosoJuevesSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesBarrosoSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
+                    if ($dia_de_la_semana == 'Thursday') {
+                        $jueves = $_POST['horariosBarrosoJuevesSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                         }
-                    } elseif ($apellido_medico == "Del Río") {
-
-                        $fecha = $_POST['diasDelRioSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-
-                        if ($dia_de_la_semana == 'Monday') {
-                            $lunes = $_POST['horariosLunesDelRioSelect'];
-
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesDelRioSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Wednesday') {
-                            $miercoles = $_POST['horariosMiercolesDelRioSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                            echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                        } elseif ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosJuevesDelRioSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        }
-                    } elseif ($apellido_medico == "Martínez") {
-
-                        $fecha = $_POST['diasMartinezSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-
-                        if ($dia_de_la_semana == 'Monday') {
-                            $lunes = $_POST['horariosLunesMartinezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesMartinezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Wednesday') {
-                            $miercoles = $_POST['horariosMiercolesMartinezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
-                        } elseif ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosJuevesMartinezSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
-                            }
+                    } elseif ($dia_de_la_semana == 'Tuesday') {
+                        $martes = $_POST['horariosMartesBarrosoSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                         }
                     }
+                } elseif ($apellido_medico == "Del Río") {
 
+                    $fecha = $_POST['diasDelRioSelect'];
+                    $dia_de_la_semana = date("l", strtotime($fecha));
 
-                    ?>
+                    if ($dia_de_la_semana == 'Monday') {
+                        $lunes = $_POST['horariosLunesDelRioSelect'];
 
-                    <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-                        <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                        <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" 
-                        type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-                    </div>
-                </form>
-        </main>
-        <footer class="pt-5 my-5 text-muted border-top">
-            Todos los derechos reservados - Centro Integra &middot; &copy; 2023
-        </footer>
-        </div>
-        <script>
-            var terapiaOcupacionalSelect = document.getElementById('terapiaOcupacionalSelect');
-            var diasBarrosoSelect = document.getElementById('diasBarrosoSelect')
-            var diasDelRioSelect = document.getElementById('diasDelRioSelect')
-            var diasMartinezSelect = document.getElementById('diasMartinezSelect')
+                        if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Tuesday') {
+                        $martes = $_POST['horariosMartesDelRioSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Wednesday') {
+                        $miercoles = $_POST['horariosMiercolesDelRioSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Thursday') {
+                        $jueves = $_POST['horariosJuevesDelRioSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    }
+                } elseif ($apellido_medico == "Martínez") {
 
-            terapiaOcupacionalSelect.addEventListener("change", function() {
+                    $fecha = $_POST['diasMartinezSelect'];
+                    $dia_de_la_semana = date("l", strtotime($fecha));
 
-                var apellido = terapiaOcupacionalSelect.value;
-
-                if (apellido == 'Barroso') {
-                    diasDelRioSelect.style.display = "none"
-                    diasBarrosoSelect.style.display = "block"
-                    diasMartinezSelect.style.display = "none"
-                    horariosMartesBarrosoSelect.style.display = "none"
-                    horariosBarrosoJuevesSelect.style.display = "none"
-                    horariosLunesDelRioSelect.style.display = "none"
-                    horariosMartesDelRioSelect.style.display = "none"
-                    horariosMiercolesDelRioSelect.style.display = "none"
-                    horariosJuevesDelRioSelect.style.display = "none"
-                    horariosLunesMartinezSelect.style.display = "none"
-                    horariosMartesMartinezSelect.style.display = "none"
-                    horariosMiercolesMartinezSelect.style.display = "none"
-                    horariosJuevesMartinezSelect.style.display = "none"
-                    imagenBarroso.style.display = "block"
-                    imagenDelrio.style.display = "none"
-                    imagenMartinez.style.display = "none"
-                    
-                } else if (apellido == 'Del Río') {
-
-                    diasDelRioSelect.style.display = "block"
-                    diasBarrosoSelect.style.display = "none"
-                    diasMartinezSelect.style.display = "none"
-                    horariosMartesBarrosoSelect.style.display = "none"
-                    horariosBarrosoJuevesSelect.style.display = "none"
-                    horariosLunesDelRioSelect.style.display = "none"
-                    horariosMartesDelRioSelect.style.display = "none"
-                    horariosMiercolesDelRioSelect.style.display = "none"
-                    horariosJuevesDelRioSelect.style.display = "none"
-                    horariosLunesMartinezSelect.style.display = "none"
-                    horariosMartesMartinezSelect.style.display = "none"
-                    horariosMiercolesMartinezSelect.style.display = "none"
-                    horariosJuevesMartinezSelect.style.display = "none"
-                    imagenBarroso.style.display = "none"
-                    imagenDelrio.style.display = "block"
-                    imagenMartinez.style.display = "none"
-                } else if (apellido == 'Martinez') {
-                    diasMartinezSelect.style.display = "block"
-                    diasBarrosoSelect.style.display = "none"
-                    diasDelRioSelect.style.display = "none"
-                    horariosMartesBarrosoSelect.style.display = "none"
-                    horariosBarrosoJuevesSelect.style.display = "none"
-                    horariosLunesDelRioSelect.style.display = "none"
-                    horariosMartesDelRioSelect.style.display = "none"
-                    horariosMiercolesDelRioSelect.style.display = "none"
-                    horariosJuevesDelRioSelect.style.display = "none"
-                    horariosLunesMartinezSelect.style.display = "none"
-                    horariosMartesMartinezSelect.style.display = "none"
-                    horariosMiercolesMartinezSelect.style.display = "none"
-                    horariosJuevesMartinezSelect.style.display = "none"
-                    imagenBarroso.style.display = "none"
-                    imagenDelrio.style.display = "none"
-                    imagenMartinez.style.display = "block"
+                    if ($dia_de_la_semana == 'Monday') {
+                        $lunes = $_POST['horariosLunesMartinezSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Tuesday') {
+                        $martes = $_POST['horariosMartesMartinezSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Wednesday') {
+                        $miercoles = $_POST['horariosMiercolesMartinezSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    } elseif ($dia_de_la_semana == 'Thursday') {
+                        $jueves = $_POST['horariosJuevesMartinezSelect'];
+                        if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                            $resultado = mysqli_query($conexion, $sql);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                            $email_medico = getMail($apellido_m, $conexion);
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        }
+                    }
                 }
 
 
+                ?>
 
-                diasBarrosoSelect.addEventListener("change", function() {
-                    var dia = new Date(diasBarrosoSelect.value).getDay()
+                <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+                    <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
+                    <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                </div>
+            </form>
+    </main>
+    <footer class="pt-5 my-5 text-muted border-top">
+        Todos los derechos reservados - Centro Integra &middot; &copy; 2023
+    </footer>
+    </div>
+    <script>
+        var terapiaOcupacionalSelect = document.getElementById('terapiaOcupacionalSelect');
+        var diasBarrosoSelect = document.getElementById('diasBarrosoSelect')
+        var diasDelRioSelect = document.getElementById('diasDelRioSelect')
+        var diasMartinezSelect = document.getElementById('diasMartinezSelect')
 
-                    if (dia == 1) {
-                        horariosMartesBarrosoSelect.style.display = "block"
-                        horariosBarrosoJuevesSelect.style.display = "none"
-                    } else if (dia == 3) {
-                        horariosMartesBarrosoSelect.style.display = "none"
-                        horariosBarrosoJuevesSelect.style.display = "block"
-                    }
+        terapiaOcupacionalSelect.addEventListener("change", function() {
 
-                })
-                diasDelRioSelect.addEventListener("change", function() {
-                    var dia = new Date(diasDelRioSelect.value).getDay()
-                    if (dia == 0) {
-                        horariosLunesDelRioSelect.style.display = "block"
-                        horariosMartesDelRioSelect.style.display = "none"
-                        horariosMiercolesDelRioSelect.style.display = "none"
-                        horariosJuevesDelRioSelect.style.display = "none"
+            var apellido = terapiaOcupacionalSelect.value;
 
-                    } else if (dia == 1) {
-                        horariosLunesDelRioSelect.style.display = "none"
-                        horariosMartesDelRioSelect.style.display = "block"
-                        horariosMiercolesDelRioSelect.style.display = "none"
-                        horariosJuevesDelRioSelect.style.display = "none"
-                    } else if (dia == 2) {
-                        horariosLunesDelRioSelect.style.display = "none"
-                        horariosMartesDelRioSelect.style.display = "none"
-                        horariosMiercolesDelRioSelect.style.display = "block"
-                        horariosJuevesDelRioSelect.style.display = "none"
-                    } else if (dia == 3) {
-                        horariosLunesDelRioSelect.style.display = "none"
-                        horariosMartesDelRioSelect.style.display = "none"
-                        horariosMiercolesDelRioSelect.style.display = "none"
-                        horariosJuevesDelRioSelect.style.display = "block"
-                    }
-                })
-                diasMartinezSelect.addEventListener("change", function() {
-                    var dia = new Date(diasMartinezSelect.value).getDay()
-                    if (dia == 0) {
-                        horariosLunesMartinezSelect.style.display = "block"
-                        horariosMartesMartinezSelect.style.display = "none"
-                        horariosMiercolesMartinezSelect.style.display = "none"
-                        horariosJuevesMartinezSelect.style.display = "none"
-                    } else if (dia == 1) {
-                        horariosLunesMartinezSelect.style.display = "none"
-                        horariosMartesMartinezSelect.style.display = "block"
-                        horariosMiercolesMartinezSelect.style.display = "none"
-                        horariosJuevesMartinezSelect.style.display = "none"
-                    } else if (dia == 2) {
-                        horariosLunesMartinezSelect.style.display = "none"
-                        horariosMartesMartinezSelect.style.display = "none"
-                        horariosMiercolesMartinezSelect.style.display = "block"
-                        horariosJuevesMartinezSelect.style.display = "none"
-                    } else if (dia == 3) {
-                        horariosLunesMartinezSelect.style.display = "none"
-                        horariosMartesMartinezSelect.style.display = "none"
-                        horariosMiercolesMartinezSelect.style.display = "none"
-                        horariosJuevesMartinezSelect.style.display = "block"
-                    }
-                })
+            if (apellido == 'Barroso') {
+                diasDelRioSelect.style.display = "none"
+                diasBarrosoSelect.style.display = "block"
+                diasMartinezSelect.style.display = "none"
+                horariosMartesBarrosoSelect.style.display = "none"
+                horariosBarrosoJuevesSelect.style.display = "none"
+                horariosLunesDelRioSelect.style.display = "none"
+                horariosMartesDelRioSelect.style.display = "none"
+                horariosMiercolesDelRioSelect.style.display = "none"
+                horariosJuevesDelRioSelect.style.display = "none"
+                horariosLunesMartinezSelect.style.display = "none"
+                horariosMartesMartinezSelect.style.display = "none"
+                horariosMiercolesMartinezSelect.style.display = "none"
+                horariosJuevesMartinezSelect.style.display = "none"
+                imagenBarroso.style.display = "block"
+                imagenDelrio.style.display = "none"
+                imagenMartinez.style.display = "none"
+
+            } else if (apellido == 'Del Río') {
+
+                diasDelRioSelect.style.display = "block"
+                diasBarrosoSelect.style.display = "none"
+                diasMartinezSelect.style.display = "none"
+                horariosMartesBarrosoSelect.style.display = "none"
+                horariosBarrosoJuevesSelect.style.display = "none"
+                horariosLunesDelRioSelect.style.display = "none"
+                horariosMartesDelRioSelect.style.display = "none"
+                horariosMiercolesDelRioSelect.style.display = "none"
+                horariosJuevesDelRioSelect.style.display = "none"
+                horariosLunesMartinezSelect.style.display = "none"
+                horariosMartesMartinezSelect.style.display = "none"
+                horariosMiercolesMartinezSelect.style.display = "none"
+                horariosJuevesMartinezSelect.style.display = "none"
+                imagenBarroso.style.display = "none"
+                imagenDelrio.style.display = "block"
+                imagenMartinez.style.display = "none"
+            } else if (apellido == 'Martinez') {
+                diasMartinezSelect.style.display = "block"
+                diasBarrosoSelect.style.display = "none"
+                diasDelRioSelect.style.display = "none"
+                horariosMartesBarrosoSelect.style.display = "none"
+                horariosBarrosoJuevesSelect.style.display = "none"
+                horariosLunesDelRioSelect.style.display = "none"
+                horariosMartesDelRioSelect.style.display = "none"
+                horariosMiercolesDelRioSelect.style.display = "none"
+                horariosJuevesDelRioSelect.style.display = "none"
+                horariosLunesMartinezSelect.style.display = "none"
+                horariosMartesMartinezSelect.style.display = "none"
+                horariosMiercolesMartinezSelect.style.display = "none"
+                horariosJuevesMartinezSelect.style.display = "none"
+                imagenBarroso.style.display = "none"
+                imagenDelrio.style.display = "none"
+                imagenMartinez.style.display = "block"
+            }
+
+
+
+            diasBarrosoSelect.addEventListener("change", function() {
+                var dia = new Date(diasBarrosoSelect.value).getDay()
+
+                if (dia == 1) {
+                    horariosMartesBarrosoSelect.style.display = "block"
+                    horariosBarrosoJuevesSelect.style.display = "none"
+                } else if (dia == 3) {
+                    horariosMartesBarrosoSelect.style.display = "none"
+                    horariosBarrosoJuevesSelect.style.display = "block"
+                }
 
             })
-        </script>
+            diasDelRioSelect.addEventListener("change", function() {
+                var dia = new Date(diasDelRioSelect.value).getDay()
+                if (dia == 0) {
+                    horariosLunesDelRioSelect.style.display = "block"
+                    horariosMartesDelRioSelect.style.display = "none"
+                    horariosMiercolesDelRioSelect.style.display = "none"
+                    horariosJuevesDelRioSelect.style.display = "none"
+
+                } else if (dia == 1) {
+                    horariosLunesDelRioSelect.style.display = "none"
+                    horariosMartesDelRioSelect.style.display = "block"
+                    horariosMiercolesDelRioSelect.style.display = "none"
+                    horariosJuevesDelRioSelect.style.display = "none"
+                } else if (dia == 2) {
+                    horariosLunesDelRioSelect.style.display = "none"
+                    horariosMartesDelRioSelect.style.display = "none"
+                    horariosMiercolesDelRioSelect.style.display = "block"
+                    horariosJuevesDelRioSelect.style.display = "none"
+                } else if (dia == 3) {
+                    horariosLunesDelRioSelect.style.display = "none"
+                    horariosMartesDelRioSelect.style.display = "none"
+                    horariosMiercolesDelRioSelect.style.display = "none"
+                    horariosJuevesDelRioSelect.style.display = "block"
+                }
+            })
+            diasMartinezSelect.addEventListener("change", function() {
+                var dia = new Date(diasMartinezSelect.value).getDay()
+                if (dia == 0) {
+                    horariosLunesMartinezSelect.style.display = "block"
+                    horariosMartesMartinezSelect.style.display = "none"
+                    horariosMiercolesMartinezSelect.style.display = "none"
+                    horariosJuevesMartinezSelect.style.display = "none"
+                } else if (dia == 1) {
+                    horariosLunesMartinezSelect.style.display = "none"
+                    horariosMartesMartinezSelect.style.display = "block"
+                    horariosMiercolesMartinezSelect.style.display = "none"
+                    horariosJuevesMartinezSelect.style.display = "none"
+                } else if (dia == 2) {
+                    horariosLunesMartinezSelect.style.display = "none"
+                    horariosMartesMartinezSelect.style.display = "none"
+                    horariosMiercolesMartinezSelect.style.display = "block"
+                    horariosJuevesMartinezSelect.style.display = "none"
+                } else if (dia == 3) {
+                    horariosLunesMartinezSelect.style.display = "none"
+                    horariosMartesMartinezSelect.style.display = "none"
+                    horariosMiercolesMartinezSelect.style.display = "none"
+                    horariosJuevesMartinezSelect.style.display = "block"
+                }
+            })
+
+        })
+    </script>
 
 </body>
 

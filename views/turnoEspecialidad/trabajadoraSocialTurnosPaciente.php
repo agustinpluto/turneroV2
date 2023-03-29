@@ -87,17 +87,17 @@ if ($rol != 2 || empty($id)) {
 
             <div class="container-fluid d-flex justify-content-center align-items-center">
                 <h1 class="h3 mb-3 fw-normal">Turnos para Trabajadora Social - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
-                                                                            }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                                function obtenerNombre($id_usuario)
+                                                                                {
+                                                                                    include "../../database/conexion.php";
+                                                                                    $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
+                                                                                    $resultado = mysqli_query($conexion, $sql);
+                                                                                    while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                        $nombre = $row['nombre'];
+                                                                                    }
+                                                                                    return strtoupper($nombre);
+                                                                                }
+                                                                                echo obtenerNombre($id); ?></h1>
 
             </div>
             <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -141,14 +141,19 @@ if ($rol != 2 || empty($id)) {
                         $dia_de_la_semana = date("l", strtotime($fecha));
                         if ($dia_de_la_semana == 'Thursday') {
                             $lunes = $_POST['horariosRondineSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)){
+                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
                                 $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
                                 $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                $email_medico = getMail($apellido_m, $conexion);
+
+
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                             }
-                            
                         }
                     }
                 }
@@ -157,8 +162,7 @@ if ($rol != 2 || empty($id)) {
             ?>
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
                 <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" 
-                type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
             </div>
         </form>
     </main>

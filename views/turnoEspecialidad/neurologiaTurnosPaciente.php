@@ -155,7 +155,13 @@ if ($rol != 2 || empty($id)) {
                             } else {
                                 $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$viernes')";
                                 $resultado = mysqli_query($conexion, $sql);
-                                echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                $email_medico = getMail($apellido_m, $conexion);
+
+
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                             }
                         }
                     }
@@ -164,8 +170,7 @@ if ($rol != 2 || empty($id)) {
             ?>
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
                 <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" 
-                type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
             </div>
         </form>
     </main>
@@ -183,7 +188,7 @@ if ($rol != 2 || empty($id)) {
             if (apellido == 'Ros') {
                 diasRos.style.display = "block"
                 horariosViernesRosSelect.style.display = "block"
-                imagenRos.style.display ="block"
+                imagenRos.style.display = "block"
             }
         })
     </script>
