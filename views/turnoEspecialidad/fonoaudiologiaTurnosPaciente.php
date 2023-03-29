@@ -189,7 +189,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
 
@@ -205,7 +205,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                             }
                         }
                     } elseif ($apellido_medico == "Jover") {
@@ -224,7 +224,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Wednesday') {
                             $miercoles = $_POST['horariosMiercolesJoverSelect'];
@@ -239,7 +239,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                             }
                         }
                     } elseif ($apellido_medico == "Mazzola") {
@@ -258,7 +258,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                             }
                         }
                     } elseif ($apellido_medico == "Serrano") {
@@ -278,7 +278,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Wednesday') {
 
@@ -294,7 +294,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
 
@@ -310,7 +310,7 @@ if ($rol != 2 || empty($id)) {
 
 
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                             }
                         }
                     }

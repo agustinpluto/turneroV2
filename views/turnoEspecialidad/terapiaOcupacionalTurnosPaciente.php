@@ -173,7 +173,7 @@ if ($rol != 2 || empty($id)) {
 
                             $fecha = $_POST["diasBarrosoSelect"];
                             $dia_de_la_semana = date("l", strtotime($fecha));
-
+        
                             if ($dia_de_la_semana == 'Thursday') {
                                 $jueves = $_POST['horariosBarrosoJuevesSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
@@ -184,10 +184,8 @@ if ($rol != 2 || empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-
-
                                     header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesBarrosoSelect'];
@@ -199,26 +197,28 @@ if ($rol != 2 || empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-
-
                                     header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                                 }
                             }
                         } elseif ($apellido_medico == "Del Río") {
-
+        
                             $fecha = $_POST['diasDelRioSelect'];
                             $dia_de_la_semana = date("l", strtotime($fecha));
-
+        
                             if ($dia_de_la_semana == 'Monday') {
                                 $lunes = $_POST['horariosLunesDelRioSelect'];
-
+        
                                 if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
                                     echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesDelRioSelect'];
@@ -227,7 +227,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Wednesday') {
                                 $miercoles = $_POST['horariosMiercolesDelRioSelect'];
@@ -236,7 +240,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Thursday') {
                                 $jueves = $_POST['horariosJuevesDelRioSelect'];
@@ -245,14 +253,18 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                                 }
                             }
                         } elseif ($apellido_medico == "Martínez") {
-
+        
                             $fecha = $_POST['diasMartinezSelect'];
                             $dia_de_la_semana = date("l", strtotime($fecha));
-
+        
                             if ($dia_de_la_semana == 'Monday') {
                                 $lunes = $_POST['horariosLunesMartinezSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
@@ -260,7 +272,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesMartinezSelect'];
@@ -269,7 +285,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Wednesday') {
                                 $miercoles = $_POST['horariosMiercolesMartinezSelect'];
@@ -278,7 +298,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                                 }
                             } elseif ($dia_de_la_semana == 'Thursday') {
                                 $jueves = $_POST['horariosJuevesMartinezSelect'];
@@ -287,7 +311,11 @@ if ($rol != 2 || empty($id)) {
                                 } else {
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
                                     $resultado = mysqli_query($conexion, $sql);
-                                    echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                                    " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                                 }
                             }
                         }

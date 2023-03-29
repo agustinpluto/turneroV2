@@ -81,86 +81,85 @@ if (empty($id)) {
 
 <body class="text-center">
 
-<main class="form-signin w-50 m-auto">
+    <main class="form-signin w-50 m-auto">
 
-<form method="post">
-
-    <div class="container-fluid d-flex">
-
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <h1 class="h3 mb-3 fw-normal">Turnos para Neurología - <?php
-                                                                function obtenerNombre($id_usuario)
-                                                                {
-                                                                    include "../../database/conexion.php";
-                                                                    $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                    $resultado = mysqli_query($conexion, $sql);
-                                                                    while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                        $nombre = $row['nombre'];
-                                                                    }
-                                                                    return strtoupper($nombre);
-                                                                }
-                                                                echo obtenerNombre($id); ?></h1>
-
-        </div>
-        <div class="container-fluid d-flex justify-content-center align-items-center">
-            <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
-        </div>
-    </div>
         <form method="post">
 
-         
-            <div class="form-floating my-5">
-                <input type="text" class="form-control" id="floatingInput" name="dni" required>
-                <label for="floatingInput">DNI del Paciente</label>
+            <div class="container-fluid d-flex">
+
+                <div class="container-fluid d-flex justify-content-center align-items-center">
+                    <h1 class="h3 mb-3 fw-normal">Turnos para Neurología - <?php
+                                                                            function obtenerNombre($id_usuario)
+                                                                            {
+                                                                                include "../../database/conexion.php";
+                                                                                $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                    $nombre = $row['nombre'];
+                                                                                }
+                                                                                return strtoupper($nombre);
+                                                                            }
+                                                                            echo obtenerNombre($id); ?></h1>
+
+                </div>
+                <div class="container-fluid d-flex justify-content-center align-items-center">
+                    <img src="../../lineas.png" class="justify-content-end mt-1" alt="" style="width:170px">
+                </div>
             </div>
+            <form method="post">
 
-            <?php
-            include "../selects/neurologia.php";
-            include "../selects/ros/imagenRos.php";
-            include "../selects/ros/diasRosSelect.php";
-            include "../selects/ros/horariosViernesRosSelect.php";
-            if (isset($_POST['botonRegistro'])) {
-                if ($_POST['kinesiologiaSelect'] != 'no') {
-                    include "../../database/conexion.php";
-                    include "../../funciones/repetido.php";
-                    include "../../funciones/getNombre.php";
 
-                    $dni = $_POST['dni'];
+                <div class="form-floating my-5">
+                    <input type="text" class="form-control" id="floatingInput" name="dni" required>
+                    <label for="floatingInput">DNI del Paciente</label>
+                </div>
 
-                    $apellido_medico = $_POST['kinesiologiaSelect'];
+                <?php
+                include "../selects/neurologia.php";
+                include "../selects/ros/imagenRos.php";
+                include "../selects/ros/diasRosSelect.php";
+                include "../selects/ros/horariosViernesRosSelect.php";
+                if (isset($_POST['botonRegistro'])) {
+                    if ($_POST['kinesiologiaSelect'] != 'no') {
+                        include "../../database/conexion.php";
+                        include "../../funciones/repetido.php";
+                        include "../../funciones/getNombre.php";
 
-                    $dias = $_POST['diasRosSelect'];
+                        $dni = $_POST['dni'];
 
-                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                        $apellido_medico = $_POST['kinesiologiaSelect'];
 
-                    if ($apellido_medico = "Ros") {
-                        $fecha = $_POST["diasRosSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Friday') {
-                            $viernes = $_POST['horariosViernesRosSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $viernes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$viernes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        $dias = $_POST['diasRosSelect'];
+
+                        $apellido_m = getMatricula($apellido_medico, $conexion);
+
+                        if ($apellido_medico = "Ros") {
+                            $fecha = $_POST["diasRosSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Friday') {
+                                $viernes = $_POST['horariosViernesRosSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $viernes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$viernes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $viernes . "");
+                                }
                             }
                         }
                     }
                 }
-            }
-            ?>
+                ?>
 
-<div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-                <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" 
-                type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-            </div>
-        </form>
+                <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+                    <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
+                    <a href="../administrador/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                </div>
+            </form>
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
@@ -176,7 +175,7 @@ if (empty($id)) {
             if (apellido == 'Ros') {
                 diasRos.style.display = "block"
                 horariosViernesRosSelect.style.display = "block"
-                imagenRos.style.display ="block"
+                imagenRos.style.display = "block"
             }
         })
     </script>

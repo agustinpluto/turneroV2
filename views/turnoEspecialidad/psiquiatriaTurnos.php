@@ -152,7 +152,7 @@ if (empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                             }
                         }
                     } elseif ($apellido_medico == "Reynolds") {
@@ -169,7 +169,7 @@ if (empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                             }
                         }
                     }

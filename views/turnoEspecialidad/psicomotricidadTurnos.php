@@ -149,7 +149,7 @@ if (empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Wednesday') {
                             $miercoles = $_POST['horariosMiercolesZabalaSelect'];
@@ -162,7 +162,7 @@ if (empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "");
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
                             $jueves = $_POST['horariosJuevesZabalaSelect'];
@@ -175,7 +175,7 @@ if (empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                             }
                         }
                     }
