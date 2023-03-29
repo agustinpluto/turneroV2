@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 $verifcode = sha1(microtime(true));
-$to      = 'agustinpluto.sv@gmail.com';
+$to      = 'agustinpluto@gmail.com';
 $subject = 'Verificar Cuenta para Turnero';
 $msg = "<html>Hola, hace click aca: https://lalala/verify/$verifcode</html>";
 
@@ -17,7 +17,7 @@ mail_me($to, $subject, $msg, $headers);
 function mail_me($to, $subject, $message) {
 
 $headers = [
-        'From' => 'AGUS <no-reply@em1753.turnero-integra.com.ar>',
+        'From' => 'agustin <no-reply@em1753.turnero-integra.com.ar>',
     'content-type' => 'text/html',
     'MIME-Version' => '1.0',
     'Date' => date('r'),
@@ -39,7 +39,7 @@ $headers = [
         $mail->Subject = $subject;
         $mail->Body = $message;
 
-        $mail->setFrom('<no-reply@em1753.turnero-integra.com.ar>', 'AGUS');
+        $mail->setFrom('<no-reply@em1753.turnero-integra.com.ar>', 'agustin');
         $mail->addAddress($to); // Add a recipient
         $mail->send();
        echo 'Message has been sent';
