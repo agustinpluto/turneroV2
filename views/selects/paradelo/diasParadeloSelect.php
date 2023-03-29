@@ -1,6 +1,6 @@
 <?php
 
-echo '<select name="diasParadeloSelect" id="diasParadeloSelect" class="form-select form-select-lg mb-4"> <option value="no">Día</option>';
+echo '<select name="diasParadeloSelect" id="diasParadeloSelect" class="form-select form-select-lg mb-4 " style="display: none;"> <option value="no">Día</option>';
 
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();

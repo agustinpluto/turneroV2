@@ -2,7 +2,7 @@
 
 $horariosParadeloSelect = ['10:00:00'];
 
-echo '<select name="horariosParadeloSelect" id="horariosParadeloSelect" class="form-select form-select-lg mb-4"><option>Horario</option>';
+echo '<select name="horariosParadeloSelect" id="horariosParadeloSelect" class="form-select form-select-lg mb-4" style="display: none;"><option>Horario</option>';
 
 foreach ($horariosParadeloSelect as $horario) {
 
