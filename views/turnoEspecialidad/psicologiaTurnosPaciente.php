@@ -367,6 +367,9 @@ if ($rol != 2 || empty($id)) {
                 imagenGonzalez.style.display = "none"
                 imagenMolina.style.display = "none"
                 imagenHerrera.style.display = "none"
+                diasParadeloSelect.style.display = "none"
+                horariosParadeloSelect.style.display = "none"
+                imagenParadelo.style.display = "none"
 
 
             } else if (apellido == 'Cano') {
@@ -388,6 +391,9 @@ if ($rol != 2 || empty($id)) {
                 imagenGonzalez.style.display = "none"
                 imagenMolina.style.display = "none"
                 imagenHerrera.style.display = "none"
+                diasParadeloSelect.style.display = "none"
+                horariosParadeloSelect.style.display = "none"
+                imagenParadelo.style.display = "none"
 
 
             } else if (apellido == 'Gonzalez') {
@@ -409,6 +415,9 @@ if ($rol != 2 || empty($id)) {
                 imagenGonzalez.style.display = "block"
                 imagenMolina.style.display = "none"
                 imagenHerrera.style.display = "none"
+                diasParadeloSelect.style.display = "none"
+                horariosParadeloSelect.style.display = "none"
+                imagenParadelo.style.display = "none"
 
 
             } else if (apellido == 'Molina') {
@@ -430,6 +439,9 @@ if ($rol != 2 || empty($id)) {
                 imagenGonzalez.style.display = "none"
                 imagenMolina.style.display = "block"
                 imagenHerrera.style.display = "none"
+                diasParadeloSelect.style.display = "none"
+                horariosParadeloSelect.style.display = "none"
+                imagenParadelo.style.display = "none"
 
 
             } else if (apellido == 'Herrera') {
@@ -451,7 +463,14 @@ if ($rol != 2 || empty($id)) {
                 imagenGonzalez.style.display = "none"
                 imagenMolina.style.display = "none"
                 imagenHerrera.style.display = "block"
+                diasParadeloSelect.style.display = "none"
+                horariosParadeloSelect.style.display = "none"
+                imagenParadelo.style.display = "none"
 
+            } else if (apellido == 'Paradelo'){
+                diasParadeloSelect.style.display = "block"
+                horariosParadeloSelect.style.display = "block"
+                imagenParadelo.style.display = "block"
             }
 
 
