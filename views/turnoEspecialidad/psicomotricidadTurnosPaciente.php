@@ -155,6 +155,7 @@ if ($rol != 2 || empty($id)) {
                         $fecha = $_POST["diasZabalaSelect"];
                         $dateObj = date("Y:m:d", strtotime($fecha));
                         $dia_de_la_semana = date("l", strtotime($fecha));
+                        
                         if ($dia_de_la_semana == 'Tuesday') {
 
                             $timeObj = date("H:i:s", strtotime($martes));
@@ -166,7 +167,7 @@ if ($rol != 2 || empty($id)) {
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                                
                             }
                         } elseif ($dia_de_la_semana == 'Wednesday') {
                            

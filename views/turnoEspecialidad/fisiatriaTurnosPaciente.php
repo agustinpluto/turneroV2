@@ -137,6 +137,7 @@ if ($rol != 2 || empty($id)) {
                         $apellido_medico = $_POST['fisiatriaSelect'];
                         $dia_seleccionado = $_POST['diasMichelloudSelect'];
                         $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
+                        
                         $timeObj = date("H:i:s", strtotime($horario_seleccionado));
                         $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
                         $apellido_p = getApellidoPaciente($dni, $conexion);
