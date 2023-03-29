@@ -5,7 +5,7 @@ use PHPMailer\PHPMailer\Exception;
 // getcomposer.org
 // composer update
 // Load Composer's autoloader
-require 'vendor/autoload.php';
+require './vendor/autoload.php';
 
 $verifcode = sha1(microtime(true));
 $to      = 'fidosma@gmail.com';
