@@ -157,7 +157,7 @@ if ($rol != 2 || empty($id)) {
                                     $email = $row['email'];
                                 }
                             }
-                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=".$dni."&fecha=".$fecha."&hora=".$hora."");
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=".$dni."&fecha=".$dateObj."&hora=".$timeObj."");
                         }
                     }
                 }
