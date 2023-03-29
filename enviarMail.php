@@ -22,17 +22,18 @@ Tenes un nuevo turno para el: ".$fecha."
 <br>A la hora: ".$hora."
 </html>";
 
-mail_me($to, $subject, $msg);
-
-function mail_me($to, $subject, $message) {
-
 $headers = [
-        'From' => 'agustin no-reply@turnero-integra.com.ar',
-    'content-type' => 'text/html',
-    'MIME-Version' => '1.0',
-    'Date' => date('r'),
-    'Message-ID' => '<'.sha1(microtime(true)).'@turnero-integra.com.ar>'
+    'From' => 'agustin no-reply@turnero-integra.com.ar',
+'content-type' => 'text/html',
+'MIME-Version' => '1.0',
+'Date' => date('r'),
+'Message-ID' => '<'.sha1(microtime(true)).'@turnero-integra.com.ar>'
 ];
+
+mail_me($to, $subject, $msg, $headers);
+
+function mail_me($to, $subject, $message, $headers) {
+
     try {
         $mail = new PHPMailer(true);
         $mail->isSMTP();  
