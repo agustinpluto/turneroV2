@@ -132,24 +132,21 @@ if ($rol != 2 || empty($id)) {
             //BALSAMO
             include "../selects/balsamo/imagenBalsamo.php";
             include "../selects/balsamo/diasBalsamoSelect.php";
-
             include "../selects/balsamo/horariosBalsamoJuevesSelect.php";
+
             //CANO
             include "../selects/cano/imagenCano.php";
             include "../selects/cano/diasCanoSelect.php";
             include "../selects/cano/horariosMiercolesCanoSelect.php";
 
-            include "../selects/cano/horariosMiercolesCanoSelect.php";
             //GONZALEZ
             include "../selects/gonzalez/imagenGonzalez.php";
             include "../selects/gonzalez/diasGonzalezSelect.php";
-
             include "../selects/gonzalez/horariosMiercolesGonzalezSelect.php";
             include "../selects/gonzalez/horariosJuevesGonzalezSelect.php";
             //MOLINA
             include "../selects/molina/imagenMolina.php";
             include "../selects/molina/diasMolinaSelect.php";
-
             include "../selects/molina/horariosMartesMolinaSelect.php";
             include "../selects/molina/horariosJuevesMolinaSelect.php";
             //HERRERA
@@ -198,7 +195,7 @@ if ($rol != 2 || empty($id)) {
                         $dia_de_la_semana = date("l", strtotime($fecha));
                         if ($dia_de_la_semana == 'Wednesday') {
 
-                            $miercoles = $_POST['horariosMiercolesGonzalezSelect'];
+                            $miercoles = $_POST['horariosMiercolesCanoSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
