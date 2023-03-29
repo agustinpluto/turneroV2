@@ -304,9 +304,11 @@ if ($rol != 2 || empty($id)) {
                             
                             }
                         } elseif ($apellido_medico == "Paradelo") {
+
                             $fecha = $_POST["diasParadeloSelect"];
                             $dia_de_la_semana = date("l", strtotime($fecha));
                             if ($dia_de_la_semana == 'Wednesday') {
+
                                 $miercoles = $_POST['horariosParadeloSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
                                     echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
@@ -318,6 +320,8 @@ if ($rol != 2 || empty($id)) {
                                     $email_medico = getMail($apellido_m, $conexion);
                                     echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
                                 }
+                            } else {
+                                echo"no";
                             }
                         }
                     }
