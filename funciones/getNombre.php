@@ -35,7 +35,7 @@ function getMatricula($apellido, $conexion)
 
 function getMail($apellido, $conexion)
 {   
-    $matricula = null;
+    $email = null;
     $sql_medico = "SELECT * FROM medicos WHERE apellido = '$apellido'";
     $resultado_medico = mysqli_query($conexion, $sql_medico);
 
