@@ -151,7 +151,7 @@ if ($rol != 2 || empty($id)) {
                         $fecha = $_POST["diasZabalaSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
                         if ($dia_de_la_semana == 'Tuesday') {
-                            $martes = $_POST['horariosMartesZabalaSelect'];
+                            $hora = $_POST['horariosMartesZabalaSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $hora)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
@@ -163,7 +163,7 @@ if ($rol != 2 || empty($id)) {
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $hora . "");
                             }
                         } elseif ($dia_de_la_semana == 'Wednesday') {
-                            $miercoles = $_POST['horariosMiercolesZabalaSelect'];
+                            $hora = $_POST['horariosMiercolesZabalaSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $hora)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
@@ -175,7 +175,7 @@ if ($rol != 2 || empty($id)) {
                                 header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $hora . "");
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosJuevesZabalaSelect'];
+                            $hora = $_POST['horariosJuevesZabalaSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $hora)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
