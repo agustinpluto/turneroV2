@@ -5,16 +5,16 @@ echo '<select name="diasCacciavillaniSelect" id="diasCacciavillaniSelect" class=
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();
 $fecha_limite = strtotime('+1 month', $fecha_actual);
-$lunes = strtotime('next monday', $fecha_actual);
+$martes = strtotime('next tuesday', $fecha_actual);
 
 
-while ($lunes <= $fecha_limite) {
+while ($martes <= $fecha_limite) {
     
-    $lunes_es = strftime('%A %d/%m', $lunes);
+    $martes_es = strftime('%A %d/%m', $martes);
 
-    echo '<option value="' . date('Y-m-d', $lunes) . '">' . ucfirst($lunes_es) . '</option>';
+    echo '<option value="' . date('Y-m-d', $martes) . '">' . ucfirst($martes_es) . '</option>';
 
-    $lunes = strtotime('+1 week', $lunes);
+    $martes = strtotime('+1 week', $martes);
 }
 
 
