@@ -344,6 +344,7 @@ if ($rol != 2 || empty($id)) {
             var diasCanoSelect = document.getElementById('diasCanoSelect')
             var diasGonzalezSelect = document.getElementById('diasGonzalezSelect')
             var diasMolinaSelect = document.getElementById('diasMolinaSelect')
+            var diasParadeloSelect = document.getElementById('diasParadeloSelect')
 
             var apellido = psicologiaSelect.value;
             console.log(apellido)
