@@ -147,22 +147,17 @@ if ($rol != 2 || empty($id)) {
                         } else {
                             $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
                             $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
-
                             $resultado = mysqli_query($conexion, $sql);
-
                             $resultado2 = mysqli_query($conexion, $sql2);
                             while ($row = mysqli_fetch_assoc($resultado2)) {
                                 $id_usuario = $row['id_usuario'];
+                                $sql3 = "SELECT * FROM usuarios WHERE id='$id_usuario'";
+                                $resultado3 = mysqli_query($conexion, $sql3);
+                                while ($row = mysqli_fetch_assoc($resultado3)) {
+                                    $email = $row['email'];
+                                }
                             }
-                            echo $id_usuario;
-                            $sql3 = "SELECT * FROM usuarios WHERE id='$id_usuario'";
-                            $resultado3 = mysqli_query($conexion, $sql3);
-                            while ($row = mysqli_fetch_assoc($resultado3)) {
-                                $email = $row['email'];
-                            }
-                            echo $email;
-
-                            echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
+                            header("location: https://turnero-integra.com.ar/views/turnoRegistrado.php?email=agustinpluto@gmail.com&paciente=".$dni."&fecha=".$fecha."&hora=".$hora."");
                         }
                     }
                 }
