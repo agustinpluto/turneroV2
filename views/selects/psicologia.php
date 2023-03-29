@@ -1,7 +1,7 @@
 <?php
 
-$apellidosPsicologia = ['Bálsamo','Cano', 'Gonzalez', 'Herrera','Molina'];
-$nombresPsicologia = ['Viviana','Patricia','Iris','Lucas','Romina'];
+$apellidosPsicologia = ['Bálsamo','Cano', 'Gonzalez', 'Herrera','Molina', 'Paradelo'];
+$nombresPsicologia = ['Viviana','Patricia','Iris','Lucas','Romina', 'Constanza'];
 
 
 echo '<select name="psicologiaSelect" id="psicologiaSelect" class="form-select form-select-lg mb-4"><option>Profesional</option>';
