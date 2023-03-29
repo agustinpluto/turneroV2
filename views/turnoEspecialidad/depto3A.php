@@ -80,7 +80,7 @@ if (empty($id)) {
 </head>
 
 <body class="text-center">
-    
+
     <main class="form-signin w-50 m-auto">
 
         <form method="post">
@@ -89,17 +89,17 @@ if (empty($id)) {
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h1 class="h3 mb-3 fw-normal">Turnos para el Departamento de Selectividad y Aprehensión Alimentaria - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
-                                                                            }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                                                                            function obtenerNombre($id_usuario)
+                                                                                                                            {
+                                                                                                                                include "../../database/conexion.php";
+                                                                                                                                $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                                                                $resultado = mysqli_query($conexion, $sql);
+                                                                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                                                                    $nombre = $row['nombre'];
+                                                                                                                                }
+                                                                                                                                return strtoupper($nombre);
+                                                                                                                            }
+                                                                                                                            echo obtenerNombre($id); ?></h1>
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -113,43 +113,9 @@ if (empty($id)) {
             </div>
 
             <?php
-            include "../selects/fisiatria.php";
-            include "../selects/michelloud/imagenMichelloud.php";
-            include "../selects/michelloud/diasMichelloudSelect.php";
-            include "../selects/michelloud/horariosMiercolesMichelloud.php";
-
-
             if (isset($_POST['botonRegistro'])) {
-                $sql = "SELECT COUNT(*) as total FROM turnos WHERE fecha = '$fecha' AND hora = '$hora'"; /// BUSCO SI EL TURNO NO SE ENCUENTRA REGISTRADO
-                $disponibilidad = mysqli_query($conn, $sql);
-                $registro = mysqli_fetch_assoc($disponibilidad);
 
-                if ($registro['total'] > 0) {
-                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                } else {
-                    if ($_POST['diasMichelloudSelect'] != 'no') {
-                        include "../../database/conexion.php";
-
-                        include "../../funciones/getNombre.php";
-
-                        $dni = $_POST['dni'];
-
-                        $apellido_medico = $_POST['fisiatriaSelect'];
-
-                        $dia_seleccionado = $_POST['diasMichelloudSelect'];
-
-                        $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
-
-                        $timeObj = date("H:i:s", strtotime($horario_seleccionado));
-                        $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
-
-                        $apellido_p = getApellidoPaciente($dni, $conexion);
-                        $apellido_m = getMatricula($apellido_medico, $conexion);
-
-                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
-                        $resultado = mysqli_query($conexion, $sql);
-                    }
-                }
+                echo "AGENDAR TURNO EN TURNOSDEPTO";
             }
 
             ?>

@@ -113,43 +113,11 @@ if (empty($id)) {
             </div>
 
             <?php
-            include "../selects/nutricion.php";
-            include "../selects/cacciavillani/imagenCacciavillani.php";
-            include "../selects/cacciavillani/diasCacciavillaniSelect.php";
-            include "../selects/cacciavillani/horariosCacciavillani.php";
-
 
             if (isset($_POST['botonRegistro'])) {
-                $sql = "SELECT COUNT(*) as total FROM turnos WHERE fecha = '$fecha' AND hora = '$hora'"; /// BUSCO SI EL TURNO NO SE ENCUENTRA REGISTRADO
-                $disponibilidad = mysqli_query($conn, $sql);
-                $registro = mysqli_fetch_assoc($disponibilidad);
-
-                if ($registro['total'] > 0) {
-                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                } else {
-                    if ($_POST['diasMichelloudSelect'] != 'no') {
-                        include "../../database/conexion.php";
-
-                        include "../../funciones/getNombre.php";
-
-                        $dni = $_POST['dni'];
-
-                        $apellido_medico = $_POST['fisiatriaSelect'];
-
-                        $dia_seleccionado = $_POST['diasMichelloudSelect'];
-
-                        $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
-
-                        $timeObj = date("H:i:s", strtotime($horario_seleccionado));
-                        $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
-
-                        $apellido_p = getApellidoPaciente($dni, $conexion);
-                        $apellido_m = getMatricula($apellido_medico, $conexion);
-
-                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
-                        $resultado = mysqli_query($conexion, $sql);
-                    }
-                }
+               
+                echo "AGENDAR TURNO EN TURNOSDEPTO";
+            
             }
 
             ?>
