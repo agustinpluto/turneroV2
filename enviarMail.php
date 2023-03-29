@@ -19,7 +19,7 @@ $subject = 'Nuevo turno';
 $msg = "<html>
 Tenes un nuevo turno para el: ".$fecha."
 <br>Con el paciente: ".$paciente."
-<br>A la hora:".$hora."
+<br>A la hora: ".$hora."
 </html>";
 
 mail_me($to, $subject, $msg, $headers);
