@@ -310,6 +310,7 @@ if ($rol != 2 || empty($id)) {
                             if ($dia_de_la_semana == 'Wednesday') {
 
                                 $miercoles = $_POST['horariosParadeloSelect'];
+                                
                                 if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
                                     echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                 } else {
