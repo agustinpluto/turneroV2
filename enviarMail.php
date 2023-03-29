@@ -7,12 +7,14 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'vendor/autoload.php';
 
+
+$email = $_GET['email'];
 $paciente = $_GET['paciente'];
 $fecha = $_GET['fecha'];
 $hora = $_GET['hora'];
 
 $verifcode = sha1(microtime(true));
-$to      = 'agustinpluto@gmail.com';
+$to      = $email;
 $subject = 'Nuevo turno';
 $msg = "<html>Tenes un nuevo turno para: ".$fecha."<br>Con el paciente: ".$paciente."</html>";
 
