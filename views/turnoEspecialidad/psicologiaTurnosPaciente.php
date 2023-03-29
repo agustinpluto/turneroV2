@@ -137,6 +137,7 @@ if ($rol != 2 || empty($id)) {
             //CANO
             include "../selects/cano/imagenCano.php";
             include "../selects/cano/diasCanoSelect.php";
+            include "../selects/cano/horariosMiercolesCanoSelect.php";
 
             include "../selects/cano/horariosMiercolesCanoSelect.php";
             //GONZALEZ

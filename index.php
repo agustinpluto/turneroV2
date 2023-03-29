@@ -1,3 +1,17 @@
+<?php
+
+session_start();
+$rol = $_SESSION["rol"];
+
+if ($rol == 1){
+  header("location: ./views/administrador/index.php");
+} else if ($rol == 2){
+  header("location: ./views/pacientes/index.php");
+} else if ($rol == 3){
+  header("location: ./views/medicos/index.php");
+}
+
+?>
 <!doctype html>
 <html lang="en">
 
