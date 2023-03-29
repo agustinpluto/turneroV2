@@ -22,7 +22,7 @@ Tenes un nuevo turno para el: ".$fecha."
 <br>A la hora: ".$hora."
 </html>";
 
-mail_me($to, $subject, $msg, $headers);
+mail_me($to, $subject, $msg);
 
 function mail_me($to, $subject, $message) {
 
