@@ -157,6 +157,11 @@ if ($rol != 2 || empty($id)) {
             include "../selects/herrera/horariosMartesHerreraSelect.php";
             include "../selects/herrera/horariosMiercolesHerreraSelect.php";
 
+            // PARADELO
+            include "../selects/paradelo/imagenParadelo.php";
+            include "../selects/paradelo/diasParadeloSelect.php";
+            include "../selects/paradelo/horariosParadeloSelect.php";
+
             if (isset($_POST['botonRegistro'])) {
 
                 if ($_POST['psicologiaSelect'] != 'no') {
