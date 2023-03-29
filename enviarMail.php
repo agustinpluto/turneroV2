@@ -17,7 +17,7 @@ mail_me($to, $subject, $msg, $headers);
 function mail_me($to, $subject, $message) {
 
 $headers = [
-        'From' => 'agustin <no-reply@em1753.turnero-integra.com.ar>',
+        'From' => 'agustin <agustinpluto.sv@gmail.com>',
     'content-type' => 'text/html',
     'MIME-Version' => '1.0',
     'Date' => date('r'),
@@ -39,7 +39,7 @@ $headers = [
         $mail->Subject = $subject;
         $mail->Body = $message;
 
-        $mail->setFrom('<no-reply@em1753.turnero-integra.com.ar>', 'agustin');
+        $mail->setFrom('<agustinpluto.sv@gmail.com>', 'agustin');
         $mail->addAddress($to); // Add a recipient
         $mail->send();
        echo 'Message has been sent';
