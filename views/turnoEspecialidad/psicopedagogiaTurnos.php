@@ -151,8 +151,7 @@ if (empty($id)) {
                                  $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                             }
                         }
                     } elseif ($apellido_medico == "Fernandez") {
@@ -168,8 +167,7 @@ if (empty($id)) {
                                  $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Tuesday') {
                             $martes = $_POST['horariosMartesFernandezSelect'];
@@ -181,8 +179,7 @@ if (empty($id)) {
                                  $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "");
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
                             $jueves = $_POST['horariosJuevesFernandezSelect'];
@@ -194,8 +191,7 @@ if (empty($id)) {
                                  $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", 
-                            " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "");
                             }
                         }
                     }
