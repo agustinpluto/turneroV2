@@ -7,17 +7,21 @@ use PHPMailer\PHPMailer\Exception;
 // Load Composer's autoloader
 require 'vendor/autoload.php';
 
+$paciente = $_GET['paciente'];
+$fecha = $_GET['fecha'];
+$hora = $_GET['hora'];
+
 $verifcode = sha1(microtime(true));
 $to      = 'agustinpluto@gmail.com';
-$subject = 'Verificar Cuenta para Turnero';
-$msg = "<html>Hola, aaaaa</html>";
+$subject = 'Nuevo turno';
+$msg = "<html>Tenes un nuevo turno para: ".$fecha."<br>Con el paciente: ".$paciente."</html>";
 
 mail_me($to, $subject, $msg, $headers);
 
 function mail_me($to, $subject, $message) {
 
 $headers = [
-        'From' => 'agustin noreply@turnero-integra.com.ar',
+        'From' => 'agustin no-reply@turnero-integra.com.ar',
     'content-type' => 'text/html',
     'MIME-Version' => '1.0',
     'Date' => date('r'),
@@ -39,7 +43,7 @@ $headers = [
         $mail->Subject = $subject;
         $mail->Body = $message;
 
-        $mail->setFrom('noreply@turnero-integra.com.ar', 'agustin');
+        $mail->setFrom('no-reply@turnero-integra.com.ar', 'agustin');
         $mail->addAddress($to); // Add a recipient
         $mail->send();
        echo 'Message has been sent';
