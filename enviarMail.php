@@ -10,7 +10,7 @@ require 'vendor/autoload.php';
 $verifcode = sha1(microtime(true));
 $to      = 'agustinpluto@gmail.com';
 $subject = 'Verificar Cuenta para Turnero';
-$msg = "<html>Hola, hace click aca: https://lalala/verify/$verifcode</html>";
+$msg = "<html>Hola, aaaaa</html>";
 
 mail_me($to, $subject, $msg, $headers);
 
