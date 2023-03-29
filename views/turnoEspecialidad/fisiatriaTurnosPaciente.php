@@ -205,13 +205,13 @@ if ($rol != 2 || empty($id)) {
                             while ($row = mysqli_fetch_assoc($resultado2)) {
                                 $id_usuario = $row['id_usuario'];
                             }
-
+                            echo $id_usuario;
                             $sql3 = "SELECT * FROM usuarios WHERE id='$id_usuario'";
                             $resultado3 = mysqli_query($conexion, $sql3);
                             while ($row = mysqli_fetch_assoc($resultado3)) {
                                 $email = $row['email'];
                             }
-                            enviarEmail($email, $dni, $fecha, $hora);
+                            echo $email;
 
                             echo "<br><div class='alert alert-success'>TURNO AGENDADO</div><br>";
                         }
