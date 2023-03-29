@@ -8,7 +8,7 @@ use PHPMailer\PHPMailer\Exception;
 require 'vendor/autoload.php';
 
 $verifcode = sha1(microtime(true));
-$to      = 'fidosma@gmail.com';
+$to      = 'agustinpluto.sv@gmail.com';
 $subject = 'Verificar Cuenta para Turnero';
 $msg = "<html>Hola, hace click aca: https://lalala/verify/$verifcode</html>";
 
@@ -29,8 +29,8 @@ $headers = [
         $mail->SMTPDebug = 0;
         $mail->Host = 'smtp.sendgrid.net';
         $mail->SMTPAuth = true; // Enable SMTP authentication
-        $mail->Username = 'apikey';
-        $mail->Password = 'SG.alNLf_**************ujzaiJ9E-PYk';
+        $mail->Username = 'centrointegra2023';
+        $mail->Password = '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';
         $mail->SMTPSecure = 'tls';//PHPMailer::ENCRYPTION_STARTTLS; Enable TLS encryption,
         $mail->Port = 587; // TCP port to connect to
         $mail->CharSet = 'UTF-8';
