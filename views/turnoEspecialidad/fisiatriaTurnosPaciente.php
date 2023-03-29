@@ -149,11 +149,12 @@ if ($rol != 2 || empty($id)) {
                             $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
                             $resultado = mysqli_query($conexion, $sql);
                             
-                            $nombre_paciente = getNombrePaciente($dni, $conexion);
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                             $email_medico = getMail($apellido_m, $conexion);
 
 
-                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=".$nombre_paciente."&fecha=".$dateObj."&hora=".$timeObj."");
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=".$nombre_paciente.",".$apellido_paciente."&fecha=".$dateObj."&hora=".$timeObj."");
                         }
                     }
                 }

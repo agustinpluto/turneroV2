@@ -20,7 +20,6 @@ function getNombrePaciente($dni, $conexion)
     }
     return $nombre;
 }
-
 function getMatricula($apellido, $conexion)
 {   
     $matricula = null;
