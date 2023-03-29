@@ -16,7 +16,11 @@ $hora = $_GET['hora'];
 $verifcode = sha1(microtime(true));
 $to      = $email;
 $subject = 'Nuevo turno';
-$msg = "<html>Tenes un nuevo turno para: ".$fecha."<br>Con el paciente: ".$paciente."</html>";
+$msg = "<html>
+Tenes un nuevo turno para el: ".$fecha."
+<br>Con el paciente: ".$paciente."
+<br>A la hora:".$hora."
+</html>";
 
 mail_me($to, $subject, $msg, $headers);
 
