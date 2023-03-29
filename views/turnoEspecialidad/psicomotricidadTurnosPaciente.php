@@ -147,15 +147,20 @@ if ($rol != 2 || empty($id)) {
                     $apellido_medico = $_POST['psicomotricidadSelect'];
                     $apellido_m = getMatricula($apellido_medico, $conexion);
 
+
                     if ($apellido_medico == "Zabala") {
+                        
                         $fecha = $_POST["diasZabalaSelect"];
+                        
+                        $dateObj = date("Y:m:d", strtotime($fecha));
                         $dia_de_la_semana = date("l", strtotime($fecha));
                         if ($dia_de_la_semana == 'Tuesday') {
                             $martes = $_POST['horariosMartesZabalaSelect'];
+                            $timeObj = date("H:i:s", strtotime($martes));
                             if (repetido($conexion, $apellido_m, $fecha, $martes)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
                                 $resultado = mysqli_query($conexion, $sql);
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
@@ -172,7 +177,6 @@ if ($rol != 2 || empty($id)) {
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                
                             }
                         } elseif ($dia_de_la_semana == 'Thursday') {
                             $hora = $_POST['horariosJuevesZabalaSelect'];
@@ -184,11 +188,8 @@ if ($rol != 2 || empty($id)) {
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
-                                
                             }
                         }
-                        
-                        
                     }
                 }
             }
