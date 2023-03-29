@@ -272,6 +272,7 @@ if ($rol != 2 || empty($id)) {
             <p class="card-text">- Evaluaciones Neurocognitivas(ADOS - ADIR)</p>
             <p class="card-text">- Evaluaciones Perfil Sensorial</p>
             <p class="card-text">- Evaluaciones Neuromotoras(Kinesiología)</p>
+            <p class="card-text">Presionar para turno</p>
           </a>
         </div>
       </div>
