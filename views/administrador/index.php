@@ -265,7 +265,7 @@ if ($rol != 1 || empty($id)) {
       </div>
       <div class="col">
         <div class="card m-1">
-          <a href="../turnoEspecialidad/depto1.php" class="card-body">
+          <a href="../turnoEspecialidad/depto1A.php" class="card-body">
             <h3 class="card-title">Departamento de Evaluaciones</h3>
             <p class="card-text">- Evaluaciones Neurocognitivas(ADOS - ADIR)</p>
             <p class="card-text">- Evaluaciones Perfil Sensorial</p>
@@ -275,7 +275,7 @@ if ($rol != 1 || empty($id)) {
       </div>
       <div class="col">
         <div class="card m-1">
-          <a href="../turnoEspecialidad/depto2.php" class="card-body">
+          <a href="../turnoEspecialidad/depto2A.php" class="card-body">
             <h3 class="card-title">Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</h3>
             <p class="card-text">Presionar para turno</p>
           </a>
@@ -283,7 +283,7 @@ if ($rol != 1 || empty($id)) {
       </div>
       <div class="col">
         <div class="card m-1">
-          <a href="../turnoEspecialidad/depto1.php" class="card-body">
+          <a href="../turnoEspecialidad/depto3A.php" class="card-body">
             <h3 class="card-title">Departamento de Selectividad y Aprehensión Alimentaria</h3>
             <p class="card-text">Presionar para turno</p>
           </a>
