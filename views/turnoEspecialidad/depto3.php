@@ -1,6 +1,7 @@
 <?php
 session_start();
 $id = $_SESSION["id"];
+$dni = $_SESSION["dni"];
 if (empty($id)) {
 
     header("location: ../../index.php");
