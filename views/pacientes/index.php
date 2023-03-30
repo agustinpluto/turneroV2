@@ -151,7 +151,8 @@ if ($rol != 2 || empty($id)) {
       <div>
         <?php
         include "../../database/conexion.php";
-        $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+        $dni = $_SESSION['dni'];
+        $sql = "SELECT * FROM pacientes WHERE dni='$dni'";
         $resultado = mysqli_query($conexion, $sql);
         while($row= mysqli_fetch_row($resultado)){
           $celular = $row['celular'];
