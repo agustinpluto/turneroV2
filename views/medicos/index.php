@@ -127,12 +127,10 @@ if ($rol != 3 || empty($id)) {
 
     <div class="row g-5 d-flex">
 
-      <div class="container-fluid justify-content-center align-items-center flex-row">
-      <form method="get">
+      <form method="get" class="mt-2">
         <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
         <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
       </form>
-      </div>
 
       <?php
       include "../../database/conexion.php";
