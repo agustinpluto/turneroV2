@@ -151,11 +151,6 @@ if ($rol != 2 || empty($id)) {
         <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis pagos</a>
       </div>
       <div>
-        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-          <h5>Es necesario abonar el 50% del servicio</h5>
-          <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
-          <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
-        </div>
         <?php
         include "../../database/conexion.php";
         $dni = $_SESSION['dni'];
@@ -182,7 +177,11 @@ if ($rol != 2 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
-
+          <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
+            <h5>Es necesario abonar el 50% del servicio</h5>
+            <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
+            <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
+          </div>
         </div>
         <div class="container-fluid">
           <div class="row">
