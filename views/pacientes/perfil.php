@@ -215,7 +215,7 @@ if ($rol != 2 || empty($id)) {
 
                     $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular',obra='$obra' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
-                    
+                    echo $sql;   
                 }
             }
 
