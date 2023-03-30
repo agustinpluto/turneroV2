@@ -129,52 +129,43 @@ if ($rol != 2 || empty($id)) {
 
             include "../../funciones/repetido.php";
 
-
             if (isset($_POST['botonRegistro'])) {
-
 
                 if ($_POST['diasMichelloudSelect'] != 'no') {
                     include "../../database/conexion.php";
 
                     include "../../funciones/getNombre.php";
 
+
+
                     $apellido_medico = $_POST['fisiatriaSelect'];
+
                     $dia_seleccionado = $_POST['diasMichelloudSelect'];
+
                     $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
 
                     $timeObj = date("H:i:s", strtotime($horario_seleccionado));
                     $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
+
                     $apellido_p = getApellidoPaciente($dni, $conexion);
                     $apellido_m = getMatricula($apellido_medico, $conexion);
-                    $id_compra = $_POST['ID_compra'];
-                    echo $id_compra;
-                    $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra'";
-                    $comprobacion = mysqli_query($conexion, $comprobar_pago);
-                    while ($row = mysqli_fetch_row($comprobacion)) {
-                        $estado = $row['Estado'];
-                        
-                        if ($estado == 'approved') {
-                            if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora, id_pago) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj', '$id_compra')";
-                                $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-                                $cambiar_estado = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago='$id_compra' AND Estado = 'approved'";
-                                $cambiar = mysqli_query($conexion, $cambiar);
-                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
-                            }
-                        } else {
-                            echo 'Pago no encontrado. Revise el estado del mismo en "Mis Pagos".';
-                        }
-                    }
 
-                }}
-                    
-              
+                    if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
+                        echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                    } else {
+                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
+                        $resultado = mysqli_query($conexion, $sql);
+                        $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                        $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                        $email_medico = getMail($apellido_m, $conexion);
+                        ob_start();
+                        readfile("https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        ob_end_clean();
+                    }
+                }
+            }
+
+
 
 
             ?>
