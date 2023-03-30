@@ -26,9 +26,10 @@ $item = new MercadoPago\Item();
 $item->title = 'Consulta';
 $item->quantity = 1;
 $item->unit_price = 2000;
-
 $preference->items = array($item);
+$preference->purpose = 'wallet_purchase';
 $preference->save();
+
 
 ?>
 
