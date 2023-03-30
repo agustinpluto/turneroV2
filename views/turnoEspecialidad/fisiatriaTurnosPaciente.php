@@ -31,8 +31,9 @@ $item2 = new MercadoPago\Item();
 $item2->title = 'Evaluacion';
 $item2->quantity = 1;
 $item2->unit_price = 7000;
-
-$preference->items = array($item, $item1);
+$productos = [];
+array_push($productos, $item);
+array_push($productos, $item2);
 $preference->save();
 
 
