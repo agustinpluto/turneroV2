@@ -158,16 +158,17 @@ if ($rol != 2 || empty($id)) {
             <?php
             echo $id;
             include "../../database/conexion.php";
+
             $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
             $resultado = mysqli_query($conexion, $sql);
-            while ($row = mysqli_fetch_row($resultado)) {
+            while ($row = mysqli_fetch_assoc($resultado)) {
                 $nombre = $row['nombre'];
                 $apellido = $row['apellido'];
                 $dni = $row['dni'];
                 $apodo = $row['apodo'];
                 $celular = $row['celular'];
             }
-
+            echo $sql;
             echo '<form method="POST">
                 <p>Nombre<p>
                 <input type="text" class="form-control" name="nombre" id="" value="' . $nombre . '">
@@ -181,7 +182,7 @@ if ($rol != 2 || empty($id)) {
                 <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
                 <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                <input type="submit" class="btn btn-danger" value="Cambiar datos">
+                <input type="submit" class="btn btn-warning" value="Cambiar datos">
                 </div>
 
             </form>';
