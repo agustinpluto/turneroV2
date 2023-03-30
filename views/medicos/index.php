@@ -112,8 +112,6 @@ if ($rol != 3 || empty($id)) {
     <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
       <i class="fa fa-whatsapp my-float"></i>
     </a>
-    <div class="col-lg-8 mx-auto p-4 py-md-5 ">
-
       <main class="form-signin w-50 m-auto">
         <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
           <div class="container">
