@@ -26,11 +26,15 @@ $item = new MercadoPago\Item();
 $item->title = 'Consulta';
 $item->quantity = 1;
 $item->unit_price = 2000;
+
 $item2 = new MercadoPago\Item();
 $item2->title = 'Evaluacion';
 $item2->quantity = 1;
 $item2->unit_price = 2000;
-$preference->items = array($item, $item2);
+
+$prod = [$item1, $item];
+
+$preference->items = array($prod);
 $preference->save();
 
 
