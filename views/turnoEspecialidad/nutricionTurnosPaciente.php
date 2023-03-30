@@ -144,7 +144,7 @@ if ($rol != 2 || empty($id)) {
 
                     $apellido_m = getMatricula($apellido_medico, $conexion);
 
-                    if ($apellido_medico = "Ros") {
+                    if ($apellido_medico = "Cacciavillani") {
                         $fecha = $_POST["diasCacciavillaniSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
                         if ($dia_de_la_semana == 'Monday') {
