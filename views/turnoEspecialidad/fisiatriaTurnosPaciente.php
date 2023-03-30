@@ -19,7 +19,7 @@ $preference->back_urls=array(
     "success" => "https://turnero-integra.com.ar/pagar.php",
     "failure" => "https://turnero-integra.com.ar/fallo.php"
 );
-
+ 
 $preference->auto_return = "approved";
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
