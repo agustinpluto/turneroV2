@@ -156,6 +156,7 @@ if ($rol != 2 || empty($id)) {
 
             </div>
             <?php
+            echo $id;
             include "../../database/conexion.php";
             $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
             $resultado = mysqli_query($conexion, $sql);
@@ -180,7 +181,7 @@ if ($rol != 2 || empty($id)) {
                 <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
                 <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                <input type="submit" value="Cambiar datos">
+                <input type="submit" class="btn btn-danger" value="Cambiar datos">
                 </div>
 
             </form>';
