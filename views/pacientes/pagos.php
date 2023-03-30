@@ -180,10 +180,10 @@ if ($rol != 2 || empty($id)) {
                             <thead>
                                 <tr>
                                    
-                                    <th>ID del Pago</th>
-                                    <th>ID de la Orden</th>
-                                    <th>Estado</th>
-                                    <th>Fecha/Hora</th>
+                                    <th class="text-center">ID del Pago</th>
+                                    <th class="text-center">ID de la Orden</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">Fecha/Hora</th>
                                     
                                 </tr>
                             </thead>
@@ -198,10 +198,10 @@ if ($rol != 2 || empty($id)) {
 
                         echo '<tr>    
                                 
-                                <td>' .$id_pago.'</td>
-                                <td>' .$id_orden.'</td>
-                                <td> ' . $estado . ' </td>
-                                <td> ' . $fecha_hora . ' </td>
+                                <td class="text-center">' .$id_pago.'</td>
+                                <td class="text-center">' .$id_orden.'</td>
+                                <td class="text-center"> ' . $estado . ' </td>
+                                <td class="text-center"> ' . $fecha_hora . ' </td>
                                 
                             </tr>';
                     }
