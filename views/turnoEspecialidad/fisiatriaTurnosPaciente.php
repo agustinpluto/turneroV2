@@ -180,6 +180,9 @@ $preference->save();
 
 
             ?>
+
+
+
             <div class="cho-container"></div>
             <script src="https://sdk.mercadopago.com/js/v2"></script>
             <script>
