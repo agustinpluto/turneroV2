@@ -88,18 +88,7 @@ if (empty($id)) {
             <div class="container-fluid d-flex">
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <h1 class="h3 mb-3 fw-normal">Turnos para el Departamento de Selectividad y Aprehensión Alimentaria - <?php
-                                                                                                                            function obtenerNombre($id_usuario)
-                                                                                                                            {
-                                                                                                                                include "../../database/conexion.php";
-                                                                                                                                $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                                                                                $resultado = mysqli_query($conexion, $sql);
-                                                                                                                                while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                                                                    $nombre = $row['nombre'];
-                                                                                                                                }
-                                                                                                                                return strtoupper($nombre);
-                                                                                                                            }
-                                                                                                                            echo obtenerNombre($id); ?></h1>
+                    <h1 class="h3 mb-3 fw-normal">Turnos para el Departamento de Selectividad y Aprehensión Alimentaria</h1>
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
