@@ -245,7 +245,7 @@ if ($rol != 2 || empty($id)) {
                             </div>';
                 }
                 ?>
-                <div class="container-fluid">
+                <div class="container-fluid d-flex justify-content-center align-items-center">
                 <a href="index.php" class="btn btn-primary btn-lg px-4 mx-3 w-75" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
                 </div>
  
