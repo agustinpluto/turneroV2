@@ -139,9 +139,11 @@ if ($rol != 3 || empty($id)) {
           $busqueda = $_GET['busqueda'];
           $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
           while($row = $consulta->fetch_array()){
+            echo'<div class="container-fluid">';
             echo $row['nombre'].'<br>';
             echo $row['apellido'].'<br>';
             echo $row['dni'].'<br>';
+            echo '</div>'
           }
          
       }
