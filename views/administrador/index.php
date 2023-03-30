@@ -148,14 +148,14 @@ if ($rol != 1 || empty($id)) {
 
       <hr class="col-2 col-md-2 mb-5">
       <div class="row g-5 d-flex justify-content-center align-items-center">
-        <div class="container-fluid text-center mt-5">
+
           <form method="get">
             <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
             <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
           </form>
           <br>
           <br>
-          <div class="container-fluid d-flex justify-content-center align-items-center">
+
           <?php
           include "../../database/conexion.php";
 
@@ -175,8 +175,6 @@ if ($rol != 1 || empty($id)) {
           }
 
           ?>
-          </div>
-        </div>
         <div class="col">
           <div class="row">
             <div class="col">
