@@ -15,6 +15,12 @@ MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
+$preference->back_urls=array(
+    "success" => "https://turnero-integra.com/pagar.php",
+    "failure" => "https://turnero-integra.com/fallo.php"
+);
+
+$preference->auto_return = "approved";
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
 $item->title = 'Consulta';
