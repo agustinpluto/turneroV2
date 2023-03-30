@@ -210,10 +210,11 @@ if ($rol != 2 || empty($id)) {
                     $apodo = $_POST['apodo'];
                     $celular = $_POST['celular'];
 
-                    $sql = "UPDATE pacientes SET nombre='$nombre', apellido='$apellido', apodo='$apodo', celular='$celular', obra='' WHERE dni='$dni'";
+                    $sql = "UPDATE pacientes SET nombre='$nombre', apellido='$apellido' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
-                    
-                    echo $sql;   
+                    $sql2 = "UPDATE pacientes SET apodo='$apodo', celular='$celular', obra='$obraSocial' WHERE dni='$dni'";
+                    $result = mysqli_query($conexion, $sql2);
+
                 }
             }
 
