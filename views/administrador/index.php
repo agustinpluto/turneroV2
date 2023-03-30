@@ -160,15 +160,15 @@ if ($rol != 1 || empty($id)) {
             $busqueda = $_GET['busqueda'];
             $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
             while ($row = $consulta->fetch_array()) {
-              echo'<div class="container-fluid d-flex">';
-              echo '<div class="container-fluid"></div>';
-              echo '<div class="container-fluid">';
-              echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
-              echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
-              echo 'DNI:   ' . $row['dni'] . '<br>';
-              echo 'Quiero que me llamen:   ' . $row['apodo'] . '<br>';
-              echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
-              echo '</div>';
+              echo'<div class="container-fluid d-flex flex-row">';
+                    echo '<div class="container-fluid"> - </div>';
+                    echo '<div class="container-fluid">';
+                          echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
+                          echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
+                          echo 'DNI:   ' . $row['dni'] . '<br>';
+                          echo 'Quiero que me llamen:   ' . $row['apodo'] . '<br>';
+                          echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
+                    echo '</div>';
               echo'</div>';
             }
           }
