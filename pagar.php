@@ -9,8 +9,17 @@ $order_id = $_GET['merchant_order_id'];
 $fecha_hora = date("Y-m-d H:i:s");
 
 include "./database/conexion.php";
-$sql = "INSERT INTO pagos (ID_pago, ID_orden, Estado, ID_paciente, Fecha_Hora) VALUES('$payment','$order_id','$status','$id','$fecha_hora')";
-$resultado = mysqli_query($conexion, $sql);
+
+$sql1 = "SELECT * FROM pagos WHERE ID_pago ='$payment' AND ID_paciente = '$id'";
+$result = mysqli_query($conexion, $sql1);
+if (mysqli_num_rows($result) > 0) {
+    echo 'Pago existente.';
+} else {
+
+    $sql = "INSERT INTO pagos (ID_pago, ID_orden, Estado, ID_paciente, Fecha_Hora) VALUES('$payment','$order_id','$status','$id','$fecha_hora')";
+    $resultado = mysqli_query($conexion, $sql);
+}
+
 
 ?>
 
