@@ -1,4 +1,22 @@
 <?php
+
+echo '<br>';
+echo '<select name="modoBalsamo" id="modoBalsamo" style="display:none" required>
+<option value="no" selected> - </option>
+<option value="virtual">Virtual</option>
+<option value="presencial">Presencial</option>
+
+</select>';
+
+echo '<br>';
+echo '<select name="tipoBalsamo" id="tipoBalsamo" style="display:none" required>
+<option value="no" selected> - </option>
+<option value="clinica">Clínica de Niños, Adolescentes y Adultos</option>
+<option value="orientacion">Orientación a padres</option>
+
+</select>';
+
+
 echo '';
 echo '<select name="diasBalsamoSelect" id="diasBalsamoSelect" class="form-select form-select-lg mb-4" style="display: none"><option value="no">Día</option>';
 

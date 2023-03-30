@@ -344,6 +344,8 @@ if ($rol != 2 || empty($id)) {
             console.log(apellido)
 
             if (apellido == 'Bálsamo') {
+                tipoBalsamo.style.display = "block"
+                modoBalsamo.style.display = "block"
                 diasBalsamoSelect.style.display = "block"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -368,6 +370,8 @@ if ($rol != 2 || empty($id)) {
 
 
             } else if (apellido == 'Cano') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "block"
                 diasGonzalezSelect.style.display = "none"
@@ -392,6 +396,8 @@ if ($rol != 2 || empty($id)) {
 
 
             } else if (apellido == 'Gonzalez') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "block"
@@ -416,6 +422,8 @@ if ($rol != 2 || empty($id)) {
 
 
             } else if (apellido == 'Molina') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -440,6 +448,8 @@ if ($rol != 2 || empty($id)) {
 
 
             } else if (apellido == 'Herrera') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -463,6 +473,8 @@ if ($rol != 2 || empty($id)) {
                 imagenParadelo.style.display = "none"
 
             } else if (apellido == 'Paradelo') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasParadeloSelect.style.display = "block"
                 horariosParadeloSelect.style.display = "block"
                 imagenParadelo.style.display = "block"

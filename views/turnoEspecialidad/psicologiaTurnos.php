@@ -167,12 +167,18 @@ if (empty($id)) {
 
                         if ($apellido_medico == "Bálsamo") {
                             $fecha = $_POST["diasBalsamoSelect"];
+
+                            $tipo = $_POST["tipoBalsamo"]; /// clinica /orientacion
+                            $modo = $_POST["modoBalsamo"]; /// virtual /presencial
+
+
                             $dia_de_la_semana = date("l", strtotime($fecha));
                             if ($dia_de_la_semana == 'Thursday') {
                                 $jueves = $_POST['horariosBalsamoJuevesSelect'];
                                 if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
                                     echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                 } else {
+
                                     $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
                                     $resultado = mysqli_query($conexion, $sql);
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
@@ -335,6 +341,8 @@ if (empty($id)) {
             console.log(apellido)
 
             if (apellido == 'Bálsamo') {
+                tipoBalsamo.style.display = "block"
+                modoBalsamo.style.display = "block"
                 diasBalsamoSelect.style.display = "block"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -359,6 +367,8 @@ if (empty($id)) {
 
 
             } else if (apellido == 'Cano') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "block"
                 diasGonzalezSelect.style.display = "none"
@@ -383,6 +393,8 @@ if (empty($id)) {
 
 
             } else if (apellido == 'Gonzalez') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "block"
@@ -407,6 +419,8 @@ if (empty($id)) {
 
 
             } else if (apellido == 'Molina') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -431,6 +445,8 @@ if (empty($id)) {
 
 
             } else if (apellido == 'Herrera') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasBalsamoSelect.style.display = "none"
                 diasCanoSelect.style.display = "none"
                 diasGonzalezSelect.style.display = "none"
@@ -454,6 +470,8 @@ if (empty($id)) {
                 imagenParadelo.style.display = "none"
 
             } else if (apellido == 'Paradelo') {
+                tipoBalsamo.style.display = "none"
+                modoBalsamo.style.display = "none"
                 diasParadeloSelect.style.display = "block"
                 horariosParadeloSelect.style.display = "block"
                 imagenParadelo.style.display = "block"
