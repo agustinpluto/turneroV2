@@ -173,6 +173,9 @@ if ($rol != 2 || empty($id)) {
                             $estado = $row['Estado'];
                         }
 
+                        $tipoBarroso = $_POST['tipoBarroso'];
+                        $modoBarroso = $_POST['modoBarroso'];
+
                         if ($estado == 'approved') {
                             $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
                             $actualizacion = mysqli_query($conexion, $sql_actualizar);
@@ -189,8 +192,7 @@ if ($rol != 2 || empty($id)) {
 
                                 if ($dia_de_la_semana == 'Thursday') {
                                     $jueves = $_POST['horariosBarrosoJuevesSelect'];
-                                    $tipoBalsamo = $_POST['tipoBarroso'];
-                                    $modoBalsamo = $_POST['modoBarroso'];
+                                   
                                     if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
                                         echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                     } else {
@@ -203,7 +205,7 @@ if ($rol != 2 || empty($id)) {
                                             $id_turno = $row['id'];
                                         }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBarroso', '$modoBarroso')";
                                         $resultado1 = mysqli_query($conexion, $sql1);
 
                                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
@@ -213,8 +215,7 @@ if ($rol != 2 || empty($id)) {
                                     }
                                 } elseif ($dia_de_la_semana == 'Tuesday') {
                                     $martes = $_POST['horariosMartesBarrosoSelect'];
-                                    $tipoBalsamo = $_POST['tipoBarroso'];
-                                    $modoBalsamo = $_POST['modoBarroso'];
+
                                     if (repetido($conexion, $apellido_m, $fecha, $martes)) {
                                         echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                     } else {
@@ -228,7 +229,7 @@ if ($rol != 2 || empty($id)) {
                                             $id_turno = $row['id'];
                                         }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBarroso', '$modoBarroso')";
                                         $resultado1 = mysqli_query($conexion, $sql1);
 
                                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
