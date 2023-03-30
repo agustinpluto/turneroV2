@@ -2,10 +2,10 @@
 session_start();
 $id = $_SESSION["id"];
 $rol = $_SESSION["rol"];
-if ($rol != 2 || empty($id)){
+$dni  = $_SESSION["dni"];
+if ($rol != 2 || empty($id)) {
 
-  header("location: ../../index.php");
-
+    header("location: ../../index.php");
 }
 ?>
 
@@ -83,13 +83,51 @@ if ($rol != 2 || empty($id)){
             <form method="post">
 
                 <img class="mb-4" src="../../integra.png" alt="" width="80">
-                <h1 class="h3 mb-3 fw-normal">Mis perfil</h1>
+                <h1 class="h3 mb-3 fw-normal">Mi perfil</h1>
+
+
 
                 <?php
-                
+                include "../../database/conexion.php";
+                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+                $resultado = mysqli_query($conexion, $sql);
+                while($row = mysqli_fetch_row($resultado)){
+                    $nombre = $row['nombre']; 
+                    $apellido = $row['apellido'];
+                    $dni = $row['dni']; 
+                    $apodo = $row['apodo']; 
+                    $celular = $row['celular'];
+                }
+
+                echo '<form method="POST">
+                <p>Nombre<p>
+                <input type="text" name="nombre" id="" value="'.$nombre.'">
+                <p>Apellido<p>
+                <input type="text" name="apellido" id="" value="'.$apellido.'">
+                <p>DNI<p>
+                <input type="text" name="dni" id="" value="'.$dni.'" disabled>
+                <p>Como quiero que me llamen<p>
+                <input type="text" name="apodo" id="" value="'.$apodo.'">
+                <p>Celular/Teléfono<p>
+                <input type="text" name="celular" id="" value="'.$celular.'">
+                <input type="submit" value="Cambiar datos">
+
+            </form>';
+
                 
 
+                if (isset($_POST['button'])) {
+
+                    $nombre = $_POST['nombre'];
+                    $apellido = $_POST['apellido'];
+                    $apodo = $_POST['apodo'];
+                    $celular = $_POST['celular'];
+                    $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
+                }
+
                 ?>
+
+
 
         </main>
     </div>

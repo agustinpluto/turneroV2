@@ -149,12 +149,10 @@ if ($rol != 1 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row g-5 d-flex flex-column justify-content-center align-items-center">
 
-        <form method="get">
+        <form method="get" class="mt- d-flex justify-content-center align-items-center flex-row">
           <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
           <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
         </form>
-        <br>
-        <br>
 
         <?php
         include "../../database/conexion.php";
@@ -163,15 +161,13 @@ if ($rol != 1 || empty($id)) {
           $busqueda = $_GET['busqueda'];
           $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
           while ($row = $consulta->fetch_array()) {
-
-
-            echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
-            echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
-            echo 'DNI:   ' . $row['dni'] . '<br>';
-            echo 'Quiero que me llamen:   ' . $row['apodo'] . '<br>';
-            echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
-
-            
+            echo '<div class="container-fluid text-center">';
+            echo 'Nombre:    ' . strtoupper($row['nombre']) . '<br>';
+            echo 'Apellido:    ' . strtoupper($row['apellido']) . '<br>';
+            echo 'DNI:    ' . $row['dni'] . '<br>';
+            echo 'Quiero que me llamen:    ' . $row['apodo'] . '<br>';
+            echo 'Celular/Teléfono:    ' . $row['celular'] . '<br>';
+            echo '</div>';
           }
         }
 
