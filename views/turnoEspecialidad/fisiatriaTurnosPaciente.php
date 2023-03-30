@@ -26,24 +26,14 @@ $item = new MercadoPago\Item();
 $item->title = 'Consulta';
 $item->quantity = 1;
 $item->unit_price = 2000;
-$preference->items = array($item);
+$item2 = new MercadoPago\Item();
+$item2->title = 'Evaluacion';
+$item2->quantity = 1;
+$item2->unit_price = 2000;
+$preference->items = array($item, $item2);
 $preference->save();
 
-$preference2 = new MercadoPago\Preference();
 
-$preference2->back_urls=array(
-    "success" => "https://turnero-integra.com.ar/pagar.php",
-    "failure" => "https://turnero-integra.com.ar/fallo.php"
-);
-
-$preference2->auto_return = "approved";
-// Crea un ítem en la preferencia
-$item = new MercadoPago\Item();
-$item->title = 'Consulta';
-$item->quantity = 1;
-$item->unit_price = 7500;
-$preference2->items = array($item);
-$preference2->save();
 
 ?>
 
@@ -215,7 +205,7 @@ $preference2->save();
             
             <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
             <div class="cho-container btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
-            <div class="cho-container2 btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
+         
         </div>
         
         <script>
@@ -233,19 +223,7 @@ $preference2->save();
                 }
             });
 
-            const mp2 = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
-                locale: 'es-AR'
-            });
-
-            mp.checkout({
-                preference: {
-                    id: '<?php echo $preference->id; ?>'
-                },
-                render: {
-                    container: '.cho-container2',
-                    label: 'Abonar evaluacion 50%',
-                }
-            });
+            
         </script>
 
     </main>
