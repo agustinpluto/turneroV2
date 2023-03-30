@@ -166,12 +166,12 @@ $resultado = mysqli_query($conexion, $sql);
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
 
-                        <a href="" class="container p-2 m-1">
-                            <h3 class="card-title text-center">DATOS DE  LA TRANSACCIÓN</h3>
-                            <H5 class="card-title text-center"><strong><code><?php echo 'ID de Pago: '.$payment?></code></strong></H5>
-                            <H5 class="card-title text-center"><strong><code><?php echo 'ID de Orden: '.$order_id?></code></strong></H5>
+                        <div class="container p-2 m-1">
+                            <h3 class="card-title text-center">DATOS DE LA TRANSACCIÓN</h3>
+                            <H5 class="card-title text-center"><strong><code><?php echo 'ID de Pago: ' . $payment ?></code></strong></H5>
+                            <H5 class="card-title text-center"><strong><code><?php echo 'ID de Orden: ' . $order_id ?></code></strong></H5>
                             <p class="card-text text-center">No se olvide de copiar el ID DE PAGO, lo podra ver nuevamente en la sección "Mis Pagos".</p>
-                        </a>
+                        </div>
                     </div>
                 </div>
 
