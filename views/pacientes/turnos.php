@@ -214,10 +214,10 @@ if ($rol != 2 || empty($id)) {
                             <table class="table table-warning">
                             <thead>
                                 <tr>
-                                    <th class="text-center>Profesional</th>
-                                    <th class="text-center>Fecha</th>
-                                    <th class="text-center>Hora</th>
-                                    <th class="text-center>Acciones</th>
+                                    <th class="text-center">Profesional</th>
+                                    <th class="text-center">Fecha</th>
+                                    <th class="text-center">Hora</th>
+                                    <th class="text-center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>';
@@ -228,9 +228,9 @@ if ($rol != 2 || empty($id)) {
                         $nombre = strtoupper(traerNombreMedico($matricula));
 
                         echo '<tr>    
-                                <td class="text-center>' . $apellido .', '.$nombre . '</td>
-                                <td class="text-center> ' . $row['fecha'] . ' </td>
-                                <td class="text-center> ' . $row['hora'] . ' </td>
+                                <td class="text-center">' . $apellido .', '.$nombre . '</td>
+                                <td class="text-center"> ' . $row['fecha'] . ' </td>
+                                <td class="text-center"> ' . $row['hora'] . ' </td>
                                 <th class="text-center"><a href="http://turnero-integra.com.ar/eliminarTurno.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><i class="material-icons-outlined">delete</i>
                                 </a></th>
                             </tr>';
