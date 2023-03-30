@@ -171,7 +171,7 @@ $preference->save();
 
                 </div>
 
-                <<div class="container w-50">
+                <div class="container w-50">
                     <div class="cho-container"></div>
                 </div>
 
