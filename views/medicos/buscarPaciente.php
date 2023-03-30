@@ -106,11 +106,18 @@
                 <h1>Turnos Integra</h1>
                 <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
             </div>
+
             <img src="../../logointegra2.png" alt="" style="width:170px">
         </div>
         <div class="mb-5">
             <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+            <div class="mb-3">
+                <label for="" class="form-label">Name</label>
+                <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
+                <small id="helpId" class="form-text text-muted">Help text</small>
+            </div>
         </div>
+
         <hr class="col-3 col-md-2 mb-5">
 
         <div class="row g-5">
@@ -126,8 +133,8 @@
             while ($row = mysqli_fetch_assoc($result)) {
                 $nombre = $row['nombre'];
                 $apellido = $row['apellido'];
-                $dni = $row['dni']; 
-                echo '<li>Nombre: '.$nombre.' - Apellido: '.$apellido.' - DNI: '.$dni.'</li>'
+                $dni = $row['dni'];
+                echo '<li>Nombre: ' . $nombre . ' - Apellido: ' . $apellido . ' - DNI: ' . $dni . '</li>';
             }
             echo '</ul>';
             ?>
@@ -137,7 +144,6 @@
     <footer class="pt-5 my-5 text-center border-top">
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
     </footer>
-
 
 
     <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
