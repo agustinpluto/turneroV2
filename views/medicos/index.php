@@ -129,7 +129,7 @@ if ($rol != 3 || empty($id)) {
 
       <form method="get">
         <input class="form-controls" name="busqueda" placeholder="Buscar por apellido" type="text">
-        <input class="btn btn-warning m-1" type="submit" name="button">Buscar</input>
+        <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar">
       </form>
 
       <?php
