@@ -172,19 +172,19 @@ if ($rol != 2 || empty($id)) {
             <form method="POST">
                 <p>Nombre
                 <p>
-                    <input type="text" class="form-control" name="nombre" id="" value="'<?php echo $nombre ?>'">
+                    <input type="text" class="form-control" name="nombre" id="" value="<?php echo strtoupper($nombre) ?>">
                 <p>Apellido
                 <p>
-                    <input type="text" class="form-control" name="apellido" id="" value="'<?php echo $apellido ?>'">
+                    <input type="text" class="form-control" name="apellido" id="" value="<?php echo strtoupper($apellido) ?>">
                 <p>DNI
                 <p>
-                    <input type="text" class="form-control" name="dni" id="" value="'<?php echo $dni ?>'" disabled>
+                    <input type="text" class="form-control" name="dni" id="" value="<?php echo $dni ?>">
                 <p>Como quiero que me llamen
                 <p>
-                    <input type="text" class="form-control" name="apodo" id="" value="'<?php echo $apodo ?>'">
+                    <input type="text" class="form-control" name="apodo" id="" value="<?php echo strtoupper($apodo) ?>">
                 <p>Celular/Teléfono
                 <p>
-                    <input type="text" class="form-control" name="celular" id="" value="'<?php echo $celular ?>'">
+                    <input type="text" class="form-control" name="celular" id="" value="<?php echo $celular ?>">
                     <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
