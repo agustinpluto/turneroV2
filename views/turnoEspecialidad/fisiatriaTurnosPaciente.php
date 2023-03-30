@@ -17,11 +17,17 @@ $preference = new MercadoPago\Preference();
 
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Mi producto';
+$item->title = 'Consulta';
 $item->quantity = 1;
 $item->unit_price = 2000;
+$item2 = new MercadoPago\Item();
+$item2->title = 'Evaluación';
+$item2->quantity = 1;
+$item2->unit_price = 7500;
 $preference->items = array($item);
+$preference->items = array($item2);
 $preference->save();
+
 ?>
 
 <!doctype html>
