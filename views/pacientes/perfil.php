@@ -153,42 +153,48 @@ if ($rol != 2 || empty($id)) {
                 <div class="container-fluid text-center my-2">
 
                 </div>
+                <?php
 
+                include "../../database/conexion.php";
+
+                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+                $resultado = mysqli_query($conexion, $sql);
+                while ($row = mysqli_fetch_assoc($resultado)) {
+                    $nombre = $row['nombre'];
+                    $apellido = $row['apellido'];
+                    $dni = $row['dni'];
+                    $apodo = $row['apodo'];
+                    $celular = $row['celular'];
+                }
+
+                ?>
             </div>
-            <?php
-
-            include "../../database/conexion.php";
-
-            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
-            $resultado = mysqli_query($conexion, $sql);
-            while ($row = mysqli_fetch_assoc($resultado)) {
-                $nombre = $row['nombre'];
-                $apellido = $row['apellido'];
-                $dni = $row['dni'];
-                $apodo = $row['apodo'];
-                $celular = $row['celular'];
-            }
-
-            echo '<form method="POST">
-                <p>Nombre<p>
-                <input type="text" class="form-control" name="nombre" id="" value="' . $nombre . '">
-                <p>Apellido<p>
-                <input type="text" class="form-control" name="apellido" id="" value="' . $apellido . '">
-                <p>DNI<p>
-                <input type="text" class="form-control" name="dni" id="" value="' . $dni . '" disabled>
-                <p>Como quiero que me llamen<p>
-                <input type="text" class="form-control" name="apodo" id="" value="' . $apodo . '">
-                <p>Celular/Teléfono<p>
-                <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
-                <br>
+            <form method="POST">
+                <p>Nombre
+                <p>
+                    <input type="text" class="form-control" name="nombre" id="" value="'<?php echo $nombre ?>'">
+                <p>Apellido
+                <p>
+                    <input type="text" class="form-control" name="apellido" id="" value="'<?php echo $apellido ?>'">
+                <p>DNI
+                <p>
+                    <input type="text" class="form-control" name="dni" id="" value="'<?php echo $dni ?>'" disabled>
+                <p>Como quiero que me llamen
+                <p>
+                    <input type="text" class="form-control" name="apodo" id="" value="'<?php echo $apodo ?>'">
+                <p>Celular/Teléfono
+                <p>
+                    <input type="text" class="form-control" name="celular" id="" value="'<?php echo $celular ?>'">
+                    <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
+                    <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
                 </div>
 
-            </form>';
+            </form>
 
 
 
+            <?php
             if (isset($_POST['button'])) {
 
                 if (!empty($_POST['button'])) {
