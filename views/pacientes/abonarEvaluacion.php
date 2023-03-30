@@ -19,7 +19,7 @@ $preference->auto_return = "approved";
 $item0 = new MercadoPago\Item;
 $item0->title = "Consulta";
 $item0->quantity = 1;
-$item0->unit_price = 2000;
+$item0->unit_price = 7500;
 $preference->items = array($item0);
 # Guardar y postear la preferencia
 $preference->save();
