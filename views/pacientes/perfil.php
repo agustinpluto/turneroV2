@@ -165,6 +165,7 @@ if ($rol != 2 || empty($id)) {
                     $dni = $row['dni'];
                     $apodo = $row['apodo'];
                     $celular = $row['celular'];
+                    $obra = $row['obra'];
                 }
 
                 ?>
