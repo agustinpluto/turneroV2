@@ -127,12 +127,9 @@ if ($rol != 3 || empty($id)) {
 
     <div class="row g-5 d-flex">
 
-        <div class="mb-6">
-       
-          <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Buscar por apellido">
-          <button name="button" id="button" type="submit"class="btn btn-primary" href="#" role="button">Button</button>
-
-        </div>
+      <form action="get">
+        <input class="form-controls" name="busqueda">
+      </form>
 
       <?php
       include "../../database/conexion.php";
