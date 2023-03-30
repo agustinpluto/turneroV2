@@ -161,7 +161,7 @@ if ($rol != 2 || empty($id)) {
 
           if ($apodo == null || $celular == null) {
 
-            echo "<div class='alert alert-danger'>
+            echo "<div class='alert alert-warning'>
             <strong>Por favor, terminá de completar tus datos, nos encantaría saber como te gusta que se dirijan hacia vos!</strong>
           </div>";
           } elseif ($obra == null){
