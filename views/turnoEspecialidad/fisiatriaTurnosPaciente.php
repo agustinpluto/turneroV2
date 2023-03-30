@@ -27,16 +27,8 @@ $item->title = 'Consulta';
 $item->quantity = 1;
 $item->unit_price = 2000;
 
-$item2 = new MercadoPago\Item();
-$item2->title = 'Evaluacion';
-$item2->quantity = 1;
-$item2->unit_price = 7000;
-$productos = [];
-array_push($productos, $item);
-array_push($productos, $item2);
+$preference->items = array($item);
 $preference->save();
-
-
 
 ?>
 
