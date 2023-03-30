@@ -5,7 +5,7 @@ $rol = $_SESSION["rol"];
 
 if ($rol != 3 || empty($id)) {
   header("location: ../../index.php");
-} 
+}
 
 ?>
 
@@ -76,6 +76,7 @@ if ($rol != 3 || empty($id)) {
       white-space: nowrap;
       -webkit-overflow-scrolling: touch;
     }
+
     .float {
       position: fixed;
       width: 60px;
@@ -113,7 +114,7 @@ if ($rol != 3 || empty($id)) {
     </a>
     <div class="col-lg-8 mx-auto p-4 py-md-5 ">
 
-      <main>
+      <main class="form-signin w-50 m-auto">
         <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
           <div class="container">
             <h1>Turnos Integra</h1>
@@ -169,6 +170,7 @@ if ($rol != 3 || empty($id)) {
           $sql = "SELECT * FROM turnos WHERE medico = '$matricula'";
           $result = mysqli_query($conexion, $sql);
 
+
           if (mysqli_num_rows($result) > 0) {
 
             echo '<br><div class="d-flex">
@@ -176,6 +178,8 @@ if ($rol != 3 || empty($id)) {
                             <thead>
                                 <tr>
                                     <th>Paciente</th>
+                                    <th>Modo</th>
+                                    <th>Tipo</th>
                                     <th>Fecha</th>
                                     <th>Hora</th>
 
@@ -186,12 +190,20 @@ if ($rol != 3 || empty($id)) {
               $id_turno = $row['id'];
               $nombre = strtoupper(traerNombrePaciente($row['paciente']));
               $apellido = strtoupper(traerApellidoPaciente($row['paciente']));
-              echo '<tr>    
-                                <td>' .  $apellido . ', ' . $nombre . '</td>
-                                <td> ' . $row['fecha'] . ' </td>
-                                <td> ' . $row['hora'] . ' </td>
 
-                            </tr>';
+              $sql_turno = "SELECT FROM turnost WHERE id_turno = '$id_turno'";
+              $result1 = mysqli_query($conexion, $sql_turno);
+              while ($row = mysqli_fetch_assoc($result1)) {
+
+                echo '<tr>    
+                <td>' .  $apellido . ', ' . $nombre . '</td>
+                <td>' .  strtoupper($row['modo']) . '</td>
+                <td>' .  strtoupper($row['tipo']) . '</td>
+                <td> ' . $row['fecha'] . ' </td>
+                <td> ' . $row['hora'] . ' </td>
+
+            </tr>';
+              }
             }
             echo '</tbody></table></div>';
 
