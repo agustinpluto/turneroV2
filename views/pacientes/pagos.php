@@ -157,7 +157,7 @@ if ($rol != 2 || empty($id)) {
                 <a href="../../funciones/logout.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
             </div>
         </div>
-        <main class="form-signin w-50 m-auto">
+        <main class="form-signin w-75 m-auto">
         <hr class="col-2 col-md-2 mb-5 w-100">
             <div class="row  d-flex justify-content-center align-items-center">
                 <div class="container-fluid text-center my-2">
