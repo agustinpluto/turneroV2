@@ -171,7 +171,8 @@ $preference->save();
 
                 </div>
 
-                <div class="container w-50">
+                <div class="container w-50 card-body">
+                    <h3>Presione el boton "Señar consulta" para acceder a MercadoPago</h3>
                     <div class="cho-container"></div>
                 </div>
 
