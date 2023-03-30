@@ -171,11 +171,11 @@ if ($rol != 2 || empty($id)) {
                         }
                     } else {
                         if ($estado == 'USADO'){
-                            echo "El ID de Pago ha sido usado";
+                            echo "El ID de Pago ha sido usado<br>";
                         } elseif ($estado == 'rejected') {
-                            echo "El pago fue rechazado";
+                            echo "El pago fue rechazado<br>";
                         } elseif ($estado == 'pending'){
-                            echo "El pago esta pendiente, intentelo mas tarde utilizando el mismo ID de Pago";
+                            echo "El pago esta pendiente, intentelo mas tarde utilizando el mismo ID de Pago<br>";
                         }
                     }
                 }

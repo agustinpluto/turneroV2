@@ -9,7 +9,8 @@ $preference = new MercadoPago\Preference();
 
 $preference->back_urls = array(
     "success" => "https://turnero-integra.com.ar/pagar.php",
-    "failure" => "https://turnero-integra.com.ar/fallo.php"
+    "failure" => "https://turnero-integra.com.ar/pagar.php",
+    "pending" => "https://turnero-integra.com.ar/pagar.php"
 );
 
 $preference->auto_return = "approved";

@@ -180,6 +180,7 @@ if (mysqli_num_rows($result) > 0) {
                             <h3 class="card-title text-center">DATOS DE LA TRANSACCIÓN</h3>
                             <H5 class="card-title text-center"><strong><code><?php echo 'ID de Pago: ' . $payment ?></code></strong></H5>
                             <H5 class="card-title text-center"><strong><code><?php echo 'ID de Orden: ' . $order_id ?></code></strong></H5>
+                            <h4 class="card-title text-center"><strong><code><?php echo 'Estado de la transacción: ' . $status ?></code></strong></h4>
                             <p class="card-text text-center">No se olvide de copiar el ID DE PAGO, lo podrá ver nuevamente en la sección "Mis Pagos".</p>
                         </div>
                     </div>
