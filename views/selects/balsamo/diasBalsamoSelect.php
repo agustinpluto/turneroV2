@@ -2,7 +2,7 @@
 
 echo '<br>';
 echo '<select name="modoBalsamo" id="modoBalsamo" style="display:none" required>
-<option value="no" selected> - </option>
+<option value="no" selected>Modalidad</option>
 <option value="virtual">Virtual</option>
 <option value="presencial">Presencial</option>
 
@@ -10,7 +10,7 @@ echo '<select name="modoBalsamo" id="modoBalsamo" style="display:none" required>
 
 echo '<br>';
 echo '<select name="tipoBalsamo" id="tipoBalsamo" style="display:none" required>
-<option value="no" selected> - </option>
+<option value="no" selected>Servicio</option>
 <option value="clinica">Clínica de Niños, Adolescentes y Adultos</option>
 <option value="orientacion">Orientación a padres</option>
 
