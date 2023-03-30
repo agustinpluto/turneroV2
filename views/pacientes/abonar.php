@@ -153,46 +153,37 @@ if ($rol != 2 || empty($id)) {
             <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
         </div>
         <main class="form-signin">
-        <hr class="col mb-5 w-100">
+            <hr class="col mb-5 w-100">
             <div class="row  d-flex justify-content-center align-items-center">
                 <div class="container-fluid text-center my-2">
 
                 </div>
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="row">
-                        
-                        <div class="col col-sm-1 w-50 justify-content-center align-items-center">
-                            <div class="card m-1">
-                                <a href="./abonarEvaluacion.php" class="card-body">
-                                    <h3 class="card-title">Señar consulta</h3>
-
-                                    <p class="card-text">$2000</p>
-                                    <p class="card-text">Débito / Crédito</p>
-                                </a>
-                            </div>
+                    <div class="col col-sm-1 w-50 justify-content-center align-items-center">
+                        <div class="card m-1">
+                            <a href="./abonarEvaluacion.php" class="card-body">
+                                <h3 class="card-title">Señar consulta</h3>
+                                <p class="card-text">$2000</p>
+                                <p class="card-text">Débito / Crédito</p>
+                            </a>
                         </div>
-                        
-
                     </div>
                 </div>
                 <div class="container-fluid justify-content-center align-items-center">
-                    <div class="row">
-                        
                     <div class="col col-sm-1 w-50 justify-content-center align-items-center">
-                            <div class="card m-1">
-                                <a href="./abonarEvaluacion.php" class="card-body">
-                                    <h3 class="card-title">Señar evaluación</h3>
-
-                                    <p class="card-text">$7500</p>
-                                    <p class="card-text">Débito / Crédito</p>
-                                </a>
-                            </div>
+                        <div class="card m-1">
+                            <a href="./abonarEvaluacion.php" class="card-body">
+                                <h3 class="card-title">Señar evaluación</h3>
+                                <p class="card-text">$7500</p>
+                                <p class="card-text">Débito / Crédito</p>
+                            </a>
                         </div>
-
                     </div>
-                </div>
 
-                
+                </div>
+            </div>
+
+
 
 
         </main>
