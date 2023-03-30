@@ -159,7 +159,7 @@ if ($rol != 2 || empty($id)) {
           $celular = $row['celular'];
           $apodo = $row['apodo'];
           $obra = $row['obra'];
-
+          var_dump($obra);
           if ($apodo == null || $celular == null) {
 
             echo "<div class='alert alert-warning'>
