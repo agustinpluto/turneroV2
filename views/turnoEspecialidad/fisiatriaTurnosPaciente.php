@@ -129,33 +129,30 @@ if ($rol != 2 || empty($id)) {
 
             include "../../funciones/repetido.php";
 
+
             if (isset($_POST['botonRegistro'])) {
 
 
-                if (isset($_POST['botonRegistro'])) {
+                if ($_POST['diasMichelloudSelect'] != 'no') {
+                    include "../../database/conexion.php";
 
+                    include "../../funciones/getNombre.php";
 
-                    if ($_POST['diasMichelloudSelect'] != 'no') {
-                        include "../../database/conexion.php";
+                    $apellido_medico = $_POST['fisiatriaSelect'];
+                    $dia_seleccionado = $_POST['diasMichelloudSelect'];
+                    $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
 
-                        include "../../funciones/getNombre.php";
+                    $timeObj = date("H:i:s", strtotime($horario_seleccionado));
+                    $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
+                    $apellido_p = getApellidoPaciente($dni, $conexion);
+                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                    $id_compra = $_POST['ID_compra'];
 
-                        $apellido_medico = $_POST['fisiatriaSelect'];
-                        $dia_seleccionado = $_POST['diasMichelloudSelect'];
-                        $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
-
-                        $timeObj = date("H:i:s", strtotime($horario_seleccionado));
-                        $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
-                        $apellido_p = getApellidoPaciente($dni, $conexion);
-                        $apellido_m = getMatricula($apellido_medico, $conexion);
-                        $id_compra = $_POST['ID_compra'];
-
-                        $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra' AND Estado = 'approved'";
-                        $comprobacion = mysqli_query($conexion, $comprobar_pago);
-                        echo $comprobar_pago;
-
-                        if ($comprobacion) {
-                            echo "hola";
+                    $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra'";
+                    $comprobacion = mysqli_query($conexion, $comprobar_pago);
+                    while ($row = mysqli_fetch_row($comprobacion)) {
+                        $estado = $row['Estado'];
+                        if ($estado == 'approved') {
                             if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
@@ -173,8 +170,12 @@ if ($rol != 2 || empty($id)) {
                             echo 'Pago no encontrado. Revise el estado del mismo en "Mis Pagos".';
                         }
                     }
-                }
-            }
+
+                }}
+                    
+              
+
+
             ?>
 
 
