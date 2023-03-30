@@ -179,6 +179,9 @@ if ($rol != 2 || empty($id)) {
                 <p>DNI
                 <p>
                     <input type="text" class="form-control" name="dni" id="" value="<?php echo $dni ?>">
+                <p>Obra Social
+                <p>
+                    <input type="text" class="form-control" name="obra" id="" value="<?php echo $obra ?>">
                 <p>Como quiero que me llamen
                 <p>
                     <input type="text" class="form-control" name="apodo" id="" value="<?php echo strtoupper($apodo) ?>">
@@ -187,11 +190,11 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" name="celular" id="" value="<?php echo $celular ?>">
                     <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    
+
                     <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="button" style="background-color: #905597;border-color: #8e8db7;">Cambiar datos</button>
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                    <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
                 </div>
 
             </form>
@@ -206,8 +209,9 @@ if ($rol != 2 || empty($id)) {
                     $apellido = $_POST['apellido'];
                     $apodo = $_POST['apodo'];
                     $celular = $_POST['celular'];
-                    
-                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular' WHERE dni='$dni'";
+                    $obra = $_POST['obra'];
+
+                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular', obra='$obra' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
                 }
             }

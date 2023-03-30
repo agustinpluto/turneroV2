@@ -148,7 +148,21 @@ if ($rol != 2 || empty($id)) {
         <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
         <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
       </div>
+      <div>
+        <?php
+        include "../../database/conexion.php";
+        $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+        $resultado = mysqli_query($conexion, $sql);
+        while($row= mysqli_fetch_row($resultado)){
+          $celular = $row['celular'];
+          $apodo = $row['apodo'];
+        }
+        if ($apodo == null || $celular == null){
+          echo "Por favor termina de completar tus datos en la sección Mis datos, queremos saber tu celular y como queres que nos dirijamos hacia vos :)";
+        }
 
+        ?>
+      </div>
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
