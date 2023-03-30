@@ -152,6 +152,9 @@ if (empty($id)) {
                     $apellido_p = getApellidoPaciente($dni, $conexion);
                     $apellido_m = getMatricula($apellido_medico, $conexion);
 
+                    
+
+
                     if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                         echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                     } else {

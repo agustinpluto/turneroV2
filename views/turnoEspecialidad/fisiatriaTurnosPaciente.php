@@ -117,7 +117,7 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
             echo '<div class="form-floating my-5">
-                    <input type="text" class="form-control" id="id_compra" name="id_compra" value="" required>
+                    <input type="text" class="form-control" id="id_compra" name="id_pago" value="" required>
                     <label for="ID_compra">Tu ID de Compra</label>
                 </div>';
 
@@ -135,8 +135,10 @@ if ($rol != 2 || empty($id)) {
                     include "../../database/conexion.php";
 
                     include "../../funciones/getNombre.php";
-
-
+                    $id_pago = $_POST['id_pago'];
+                    $sql_comprobar = "SELECT * FROM pagos WHERE ID_pago = '$id_pago'";
+                    $comprobacion = mysqli_query($conexion, $sql_comprobar);
+                    echo $sql_comprobar;
 
                     $apellido_medico = $_POST['fisiatriaSelect'];
 
@@ -160,7 +162,7 @@ if ($rol != 2 || empty($id)) {
                         $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
 
                         $email_medico = getMail($apellido_m, $conexion);
-                        echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
+                        // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                     }
                 }
             }
