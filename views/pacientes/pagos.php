@@ -183,7 +183,6 @@ if ($rol != 2 || empty($id)) {
                                     <th>ID del Pago</th>
                                     <th>ID de la Orden</th>
                                     <th>Estado</th>
-                                    <th>DNI Paciente</th>
                                     <th>Fecha/Hora</th>
                                     
                                 </tr>
