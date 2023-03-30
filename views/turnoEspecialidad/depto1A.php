@@ -80,7 +80,7 @@ if (empty($id)) {
 </head>
 
 <body class="text-center">
-    
+
     <main class="form-signin w-50 m-auto">
 
         <form method="post">
@@ -89,17 +89,17 @@ if (empty($id)) {
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h1 class="h3 mb-3 fw-normal">Turnos para el Departamento de Evaluaciones - <?php
-                                                                        function obtenerNombre($id_usuario)
-                                                                        {
-                                                                            include "../../database/conexion.php";
-                                                                            $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
-                                                                            $resultado = mysqli_query($conexion, $sql);
-                                                                            while ($row = mysqli_fetch_assoc($resultado)) {
-                                                                                $nombre = $row['nombre'];
-                                                                            }
-                                                                            return strtoupper($nombre);
-                                                                        }
-                                                                        echo obtenerNombre($id); ?></h1>
+                                                                                                function obtenerNombre($id_usuario)
+                                                                                                {
+                                                                                                    include "../../database/conexion.php";
+                                                                                                    $sql = "SELECT * FROM admin WHERE id_usuario='$id_usuario'";
+                                                                                                    $resultado = mysqli_query($conexion, $sql);
+                                                                                                    while ($row = mysqli_fetch_assoc($resultado)) {
+                                                                                                        $nombre = $row['nombre'];
+                                                                                                    }
+                                                                                                    return strtoupper($nombre);
+                                                                                                }
+                                                                                                echo obtenerNombre($id); ?></h1>
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -115,12 +115,11 @@ if (empty($id)) {
             <?php
             if (isset($_POST['botonRegistro'])) {
                 include "../../database/conexion.php";
- 
-                     $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','','')";
-                     $resultado = mysqli_query($conexion, $sql);
-     
-     
-             }
+                $date = new DateTime();
+                $time = new DateTime();
+                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$date','$time')";
+                $resultado = mysqli_query($conexion, $sql);
+            }
 
             ?>
 

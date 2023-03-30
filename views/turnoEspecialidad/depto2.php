@@ -117,8 +117,9 @@ if (empty($id)) {
         </div>';
             if (isset($_POST['botonRegistro'])) {
                 include "../../database/conexion.php";
-
-                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '2' ,'','')";
+                $date = new DateTime();
+                $time = new DateTime();
+                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '2','$date','$time')";
                 $resultado = mysqli_query($conexion, $sql);
             }
             ?>
