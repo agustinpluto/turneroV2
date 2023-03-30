@@ -116,6 +116,10 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
                     <label for="dni">Tu DNI</label>
                 </div>';
+                echo '<div class="form-floating my-5">
+                    <input type="text" class="form-control" id="id_compra" name="id_compra" value="">
+                    <label for="ID_compra">Tu ID de Compra</label>
+                </div>';
 
 
             include "../selects/fisiatria.php";
