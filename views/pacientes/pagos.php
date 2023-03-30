@@ -171,7 +171,7 @@ if ($rol != 2 || empty($id)) {
                 $id_usuario = $_SESSION['id'];
 
                 echo $id_usuario;
-                echo $dni;
+                
 
                 $sql = "SELECT * FROM pagos WHERE ID_paciente = '$dni'";
                 $result = mysqli_query($conexion, $sql);

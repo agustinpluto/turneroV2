@@ -144,192 +144,197 @@ if ($rol != 2 || empty($id)) {
       </div>
 
       <div class="container-fluid">
-            <div class="d-flex justify-content-center flex-wrap">
-                <a href="./index.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
-                <a href="./turnos.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
-                <a href="./pagos.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
-                <a href="./perfil.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
-                <a href="./abonar.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
-                <a href="../../funciones/logout.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
-            </div>
+        <div class="d-flex justify-content-center flex-wrap">
+          <a href="./index.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
+          <a href="./turnos.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
+          <a href="./pagos.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
+          <a href="./perfil.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
+          <a href="./abonar.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
+          <a href="../../funciones/logout.php" class="btn btn-primary btn-lg flex-grow-1 my-1 mx-1" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
         </div>
-        <?php
-        include "../../database/conexion.php";
-        $dni = $_SESSION['dni'];
-        $sql = "SELECT * FROM pacientes WHERE dni='$dni'";
-        $resultado = mysqli_query($conexion, $sql);
+      </div>
 
-        while ($row = mysqli_fetch_assoc($resultado)) {
-          $celular = $row['celular'];
-          $apodo = $row['apodo'];
-          if ($apodo == null || $celular == null) {
+      <?php
+      include "../../database/conexion.php";
+      $dni = $_SESSION['dni'];
+      $sql = "SELECT * FROM pacientes WHERE dni='$dni'";
+      $resultado = mysqli_query($conexion, $sql);
 
-            echo "<div class='alert alert-warning'>
+      while ($row = mysqli_fetch_assoc($resultado)) {
+        $celular = $row['celular'];
+        $apodo = $row['apodo'];
+        if ($apodo == null || $celular == null) {
+
+          echo "<div class='alert alert-warning'>
             <strong>Por favor, terminá de completar tus datos, nos encantaría saber como te gusta que se dirijan hacia vos!</strong>
           </div>";
-          }
         }
+      }
 
 
-        ?>
+      ?>
 
 
+      
 
+  </div>
+  
+  <hr class="col-2 col-md-2 mb-5 w-100">
+  <main class="container-fluid">
+  <div class="row  d-flex justify-content-center align-items-center">
+    <div class="container-fluid text-center my-2">
+      <div class="container-fluid d-flex flex-column justify-content-center align-items-center p-4 mb-4" style="background-color: #90559730">
+        <h5 class="text-center">Es necesario abonar el 50% del servicio</h5>
+        <p class="text-center"><strong>Para comenzar toca en "Abonar Seña".</strong></p>
+        <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
+        <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
       </div>
-      <hr class="col-2 col-md-2 mb-5 w-100">
-      <div class="row  d-flex justify-content-center align-items-center">
-        <div class="container-fluid text-center my-2">
-          <div class="container-fluid d-flex flex-column justify-content-center align-items-center p-4 mb-4" style="background-color: #90559730">
-            <h5 class="text-center">Es necesario abonar el 50% del servicio</h5>
-            <p class="text-center"><strong>Para comenzar toca en "Abonar Seña".</strong></p>
-            <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
-            <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
-          </div>
-        </div>
-        <div class="container-fluid">
-          <div class="row">
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/fisiatriaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Fisiatría</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/fonoaudiologiaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Fonoaudiología</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/kinesiologiaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Kinesiología</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="row  d-flex justify-content-center align-items-center">
+    </div>
+    <div class="container-fluid">
+      <div class="row">
         <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/neurologiaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Neurología</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/nutricionTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Nutrición</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/psicologiaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Psicología</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/fisiatriaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Fisiatría</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="row  d-flex justify-content-center align-items-center">
         <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/psicomotricidadTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Psicomotricidad</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/psicopedagogiaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Psicopedagogía</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/psiquiatriaTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Psiquiatría</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/fonoaudiologiaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Fonoaudiología</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
           </div>
         </div>
-      </div>
-      <div class="row  d-flex justify-content-center align-items-center">
         <div class="col">
-          <div class="row">
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/terapiaOcupacionalTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Terapia Ocupacional</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
-            <div class="col">
-              <div class="card m-1">
-                <a href="../turnoEspecialidad/trabajadoraSocialTurnosPaciente.php" class="card-body">
-                  <h3 class="card-title">Trabajadora Social</h3>
-                  <p class="card-text">Persionar para turno</p>
-                </a>
-              </div>
-            </div>
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/kinesiologiaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Kinesiología</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+  <div class="row  d-flex justify-content-center align-items-center">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/neurologiaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Neurología</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/nutricionTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Nutrición</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/psicologiaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Psicología</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row  d-flex justify-content-center align-items-center">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/psicomotricidadTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Psicomotricidad</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/psicopedagogiaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Psicopedagogía</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/psiquiatriaTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Psiquiatría</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
 
-      <div class="col">
-        <div class="card m-1">
-          <a href="../turnoEspecialidad/depto1.php" class="card-body">
-            <h3 class="card-title">Departamento de Evaluaciones</h3>
-            <p class="card-text">- Evaluaciones Neurocognitivas(ADOS - ADIR)</p>
-            <p class="card-text">- Evaluaciones Perfil Sensorial</p>
-            <p class="card-text">- Evaluaciones Neuromotoras(Kinesiología)</p>
-            <p class="card-text">Presionar para turno</p>
-          </a>
+      </div>
+    </div>
+  </div>
+  <div class="row  d-flex justify-content-center align-items-center">
+    <div class="col">
+      <div class="row">
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/terapiaOcupacionalTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Terapia Ocupacional</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card m-1">
+            <a href="../turnoEspecialidad/trabajadoraSocialTurnosPaciente.php" class="card-body">
+              <h3 class="card-title">Trabajadora Social</h3>
+              <p class="card-text">Persionar para turno</p>
+            </a>
+          </div>
         </div>
       </div>
-      <div class="col">
-        <div class="card m-1">
-          <a href="../turnoEspecialidad/depto2.php" class="card-body">
-            <h3 class="card-title">Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</h3>
-            <p class="card-text">Persionar para turno</p>
-          </a>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card m-1">
-          <a href="../turnoEspecialidad/depto3.php" class="card-body">
-            <h3 class="card-title">Departamento de Selectividad y Aprehensión Alimentaria</h3>
-            <p class="card-text">Persionar para turno</p>
-          </a>
-        </div>
-      </div>
+    </div>
+  </div>
+
+  <div class="col">
+    <div class="card m-1">
+      <a href="../turnoEspecialidad/depto1.php" class="card-body">
+        <h3 class="card-title">Departamento de Evaluaciones</h3>
+        <p class="card-text">- Evaluaciones Neurocognitivas(ADOS - ADIR)</p>
+        <p class="card-text">- Evaluaciones Perfil Sensorial</p>
+        <p class="card-text">- Evaluaciones Neuromotoras(Kinesiología)</p>
+        <p class="card-text">Presionar para turno</p>
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card m-1">
+      <a href="../turnoEspecialidad/depto2.php" class="card-body">
+        <h3 class="card-title">Departamento de Coordinación, Supervisión de Maestras de Apoyo y Acompañantes Terapéuticas</h3>
+        <p class="card-text">Persionar para turno</p>
+      </a>
+    </div>
+  </div>
+  <div class="col">
+    <div class="card m-1">
+      <a href="../turnoEspecialidad/depto3.php" class="card-body">
+        <h3 class="card-title">Departamento de Selectividad y Aprehensión Alimentaria</h3>
+        <p class="card-text">Persionar para turno</p>
+      </a>
+    </div>
   </div>
   </div>
   </div>
   </div>
+  </div>
+    </main>
 
 
   </main>
