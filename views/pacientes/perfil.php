@@ -78,58 +78,81 @@ if ($rol != 2 || empty($id)) {
 </head>
 
 <body class="text-center">
-    <div class="col mx-auto p-4 py-md-5">
-        <main class="form-signin w-50 m-auto">
-            <form method="post">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
+        <i class="fa fa-whatsapp my-float"></i>
+    </a>
 
-                <img class="mb-4" src="../../integra.png" alt="" width="80">
-                <h1 class="h3 mb-3 fw-normal">Mi perfil</h1>
+    <div class="col-lg-8 mx-auto p-4 py-md-5">
+
+
+        <main>
+            <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+                <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
+                    <h1 class="m-2">TURNOS INTEGRA</h1>
+                    <p>Centro de Rehabilitación Integral</p>
+                </div>
+                <div class="container-fluid d-flex justify-content-end">
+                    <img src="../../logointegra2.png" alt="" style="width:250px">
+                </div>
+            </div>
+
+            <div class="mb-5">
+                <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+                <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
+                <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
+            </div>
+            <main class="form-signin w-50 m-auto">
+                <form method="post">
+
+                    <img class="mb-4" src="../../integra.png" alt="" width="80">
+                    <h1 class="h3 mb-3 fw-normal">Mi perfil</h1>
 
 
 
-                <?php
-                include "../../database/conexion.php";
-                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
-                $resultado = mysqli_query($conexion, $sql);
-                while($row = mysqli_fetch_row($resultado)){
-                    $nombre = $row['nombre']; 
-                    $apellido = $row['apellido'];
-                    $dni = $row['dni']; 
-                    $apodo = $row['apodo']; 
-                    $celular = $row['celular'];
-                }
+                    <?php
+                    include "../../database/conexion.php";
+                    $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+                    $resultado = mysqli_query($conexion, $sql);
+                    while ($row = mysqli_fetch_row($resultado)) {
+                        $nombre = $row['nombre'];
+                        $apellido = $row['apellido'];
+                        $dni = $row['dni'];
+                        $apodo = $row['apodo'];
+                        $celular = $row['celular'];
+                    }
 
-                echo '<form method="POST">
+                    echo '<form method="POST">
                 <p>Nombre<p>
-                <input type="text" name="nombre" id="" value="'.$nombre.'">
+                <input type="text" name="nombre" id="" value="' . $nombre . '">
                 <p>Apellido<p>
-                <input type="text" name="apellido" id="" value="'.$apellido.'">
+                <input type="text" name="apellido" id="" value="' . $apellido . '">
                 <p>DNI<p>
-                <input type="text" name="dni" id="" value="'.$dni.'" disabled>
+                <input type="text" name="dni" id="" value="' . $dni . '" disabled>
                 <p>Como quiero que me llamen<p>
-                <input type="text" name="apodo" id="" value="'.$apodo.'">
+                <input type="text" name="apodo" id="" value="' . $apodo . '">
                 <p>Celular/Teléfono<p>
-                <input type="text" name="celular" id="" value="'.$celular.'">
+                <input type="text" name="celular" id="" value="' . $celular . '">
                 <input type="submit" value="Cambiar datos">
 
             </form>';
 
-                
-
-                if (isset($_POST['button'])) {
-
-                    $nombre = $_POST['nombre'];
-                    $apellido = $_POST['apellido'];
-                    $apodo = $_POST['apodo'];
-                    $celular = $_POST['celular'];
-                    $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
-                }
-
-                ?>
 
 
+                    if (isset($_POST['button'])) {
 
-        </main>
+                        $nombre = $_POST['nombre'];
+                        $apellido = $_POST['apellido'];
+                        $apodo = $_POST['apodo'];
+                        $celular = $_POST['celular'];
+                        $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
+                    }
+
+                    ?>
+
+
+
+            </main>
     </div>
     <footer class="pt-5 my-5 text-muted border-top">
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023

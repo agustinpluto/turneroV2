@@ -144,7 +144,7 @@ if ($rol != 3 || empty($id)) {
             echo 'Apellido:    '.strtoupper($row['apellido']).'<br>';
             echo 'DNI:    '.$row['dni'].'<br>';
             echo 'Quiero que me llamen:    '.$row['apodo'].'<br>';
-            echo 'Celular/Teléfono:    '.$row['celular'].'<br>';
+            echo 'Celular/Teléfono:   '.$row['celular'].'<br>';
             echo '</div>';
           }
          
