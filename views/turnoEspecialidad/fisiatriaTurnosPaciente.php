@@ -195,7 +195,7 @@ $preference->save();
         </form>
 
         <div class="container-fluid">
-            <div class="cho-container btn btn-lg btn-primary w-75 m-1" style="background-color: blue; border:2px solid #f2dc23;color: black;"></div>
+            <div class="cho-container btn btn-lg btn-primary w-75 m-1" style="background-color: #4287f5; border:2px solid #f2dc23;color: black;"></div>
             <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
 
         </div>
