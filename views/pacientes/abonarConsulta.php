@@ -172,8 +172,8 @@ $preference->save();
                 </div>
 
 
-                <div class="container w-50 card-body d-flex flex-column justify-content-center align-items-center mt-2">
-                    <h5>Presione el boton "Señar consulta" para acceder a MercadoPago</h5>
+                <div class="container w-50 card-body d-flex flex-column justify-content-center align-items-center mt-2 p-3">
+                    <h5>Presione el boton "Señar Consulta" para acceder a MercadoPago</h5>
                     <div class="cho-container mb-2"></div>
                 </div>
 
@@ -188,7 +188,7 @@ $preference->save();
                         },
                         render: {
                             container: '.cho-container',
-                            label: 'Señar consulta',
+                            label: 'Señar Consulta',
                         }
                     });
                 </script>
