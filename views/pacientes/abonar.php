@@ -161,8 +161,7 @@ if ($rol != 2 || empty($id)) {
                 <div class="container justify-content-center align-items-center">
                     <div class="row">
                         
-                        <div class="col">
-
+                        <div class="col w-50 justify-content-center align-items-center">
                             <div class="card m-1">
                                 <a href="./abonarEvaluacion.php" class="card-body">
                                     <h3 class="card-title">Señar consulta</h3>
@@ -172,7 +171,7 @@ if ($rol != 2 || empty($id)) {
                                 </a>
                             </div>
                         </div>
-                        <div class="col">
+                        <div class="col w-50 justify-content-center align-items-center">
                             <div class="card m-1">
                                 <a href="./abonarEvaluacion.php" class="card-body">
                                     <h3 class="card-title">Señar evaluación</h3>
