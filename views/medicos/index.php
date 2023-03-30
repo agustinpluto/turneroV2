@@ -125,7 +125,7 @@ if ($rol != 3 || empty($id)) {
     </div>
     <hr class="col-3 col-md-2 mb-5">
 
-    <div class="row g-5">
+    <div class="row g-5 d-flex">
 
 
       <?php
