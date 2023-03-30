@@ -119,7 +119,9 @@ if (empty($id)) {
 
             if (isset($_POST['botonRegistro'])) {
 
-                echo "AGENDAR TURNO EN TURNOSDEPTO";
+                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1')";
+                $resultado = mysqli_query($conexion, $sql);
+
             }
 
             ?>
