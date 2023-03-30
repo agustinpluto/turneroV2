@@ -131,43 +131,43 @@ if ($rol != 2 || empty($id)) {
 
     <div class="col-lg-8 mx-auto p-4 py-md-5">
 
-
-        <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-            <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
-                <h1 class="m-2">TURNOS INTEGRA</h1>
-                <p>Centro de Rehabilitación Integral</p>
-            </div>
-            <div class="container-fluid d-flex justify-content-end">
-                <img src="../../logointegra2.png" alt="" style="width:250px">
-            </div>
-        </div>
-
-        <div class="mb-5">
-            <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
-            <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
-            <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
-        </div>
-
-        <hr class="col-2 col-md-2 mb-5">
-        <div class="row  d-flex justify-content-center align-items-center">
-            <div class="container-fluid text-center my-2">
-
+        <main class="form-signin w-50 m-auto">
+            <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+                <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
+                    <h1 class="m-2">TURNOS INTEGRA</h1>
+                    <p>Centro de Rehabilitación Integral</p>
+                </div>
+                <div class="container-fluid d-flex justify-content-end">
+                    <img src="../../logointegra2.png" alt="" style="width:250px">
+                </div>
             </div>
 
-        </div>
-        <?php
-        include "../../database/conexion.php";
-        $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
-        $resultado = mysqli_query($conexion, $sql);
-        while ($row = mysqli_fetch_row($resultado)) {
-            $nombre = $row['nombre'];
-            $apellido = $row['apellido'];
-            $dni = $row['dni'];
-            $apodo = $row['apodo'];
-            $celular = $row['celular'];
-        }
+            <div class="mb-5">
+                <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+                <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
+                <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
+            </div>
 
-        echo '<form method="POST">
+            <hr class="col-2 col-md-2 mb-5">
+            <div class="row  d-flex justify-content-center align-items-center">
+                <div class="container-fluid text-center my-2">
+
+                </div>
+
+            </div>
+            <?php
+            include "../../database/conexion.php";
+            $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
+            $resultado = mysqli_query($conexion, $sql);
+            while ($row = mysqli_fetch_row($resultado)) {
+                $nombre = $row['nombre'];
+                $apellido = $row['apellido'];
+                $dni = $row['dni'];
+                $apodo = $row['apodo'];
+                $celular = $row['celular'];
+            }
+
+            echo '<form method="POST">
                 <p>Nombre<p>
                 <input type="text" class="form-control" name="nombre" id="" value="' . $nombre . '">
                 <p>Apellido<p>
@@ -178,22 +178,23 @@ if ($rol != 2 || empty($id)) {
                 <input type="text" class="form-control" name="apodo" id="" value="' . $apodo . '">
                 <p>Celular/Teléfono<p>
                 <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
+                <br>
                 <input type="submit" value="Cambiar datos">
 
             </form>';
 
 
 
-        if (isset($_POST['button'])) {
+            if (isset($_POST['button'])) {
 
-            $nombre = $_POST['nombre'];
-            $apellido = $_POST['apellido'];
-            $apodo = $_POST['apodo'];
-            $celular = $_POST['celular'];
-            $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
-        }
+                $nombre = $_POST['nombre'];
+                $apellido = $_POST['apellido'];
+                $apodo = $_POST['apodo'];
+                $celular = $_POST['celular'];
+                $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
+            }
 
-        ?>
+            ?>
 
 
         </main>
