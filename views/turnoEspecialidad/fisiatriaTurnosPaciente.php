@@ -117,7 +117,7 @@ if ($rol != 2 || empty($id)) {
                     <label for="dni">Tu DNI</label>
                 </div>';
             echo '<div class="form-floating my-5">
-                    <input type="text" class="form-control" id="id_compra" name="id_compra" value="">
+                    <input type="text" class="form-control" id="id_compra" name="id_compra" value="" required>
                     <label for="ID_compra">Tu ID de Compra</label>
                 </div>';
 
@@ -132,7 +132,7 @@ if ($rol != 2 || empty($id)) {
             if (isset($_POST['botonRegistro'])) {
 
 
-                if (isset($_POST['botonRegistro']) && !empty($_POST['ID_compra'])) {
+                if (isset($_POST['botonRegistro'])) {
 
 
                     if ($_POST['diasMichelloudSelect'] != 'no') {
@@ -153,6 +153,7 @@ if ($rol != 2 || empty($id)) {
                         $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra' AND Estado = 'approved'";
                         $comprobacion = mysqli_query($conexion, $comprobar_pago);
                         echo $comprobar_pago;
+
                         if ($row = mysqli_fetch_row($comprobacion) > 0) {
                             echo "hola";
                             if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
