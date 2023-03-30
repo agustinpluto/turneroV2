@@ -138,34 +138,37 @@ if ($rol != 2 || empty($id)) {
                     $id_pago = $_POST['id_pago'];
                     $sql_comprobar = "SELECT * FROM pagos WHERE ID_pago = '$id_pago'";
                     $comprobacion = mysqli_query($conexion, $sql_comprobar);
-                    while ($row=mysqli_fetch_assoc($comprobacion)){
+                    while ($row = mysqli_fetch_assoc($comprobacion)) {
                         $estado = $row['Estado'];
                     }
-                    var_dump($estado);
 
-                    $apellido_medico = $_POST['fisiatriaSelect'];
+                    if ($estado == 'approved') {
+                        $apellido_medico = $_POST['fisiatriaSelect'];
 
-                    $dia_seleccionado = $_POST['diasMichelloudSelect'];
+                        $dia_seleccionado = $_POST['diasMichelloudSelect'];
 
-                    $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
+                        $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
 
-                    $timeObj = date("H:i:s", strtotime($horario_seleccionado));
-                    $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
+                        $timeObj = date("H:i:s", strtotime($horario_seleccionado));
+                        $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
 
-                    $apellido_p = getApellidoPaciente($dni, $conexion);
-                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                        $apellido_p = getApellidoPaciente($dni, $conexion);
+                        $apellido_m = getMatricula($apellido_medico, $conexion);
 
-                    if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
-                        echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
+                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        } else {
+                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
+                            $resultado = mysqli_query($conexion, $sql);
+
+                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+
+                            $email_medico = getMail($apellido_m, $conexion);
+                            // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
+                        }
                     } else {
-                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
-                        $resultado = mysqli_query($conexion, $sql);
-
-                        $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                        $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-
-                        $email_medico = getMail($apellido_m, $conexion);
-                        // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
+                        echo "Pago no encontrado o no aprobado.";
                     }
                 }
             }
