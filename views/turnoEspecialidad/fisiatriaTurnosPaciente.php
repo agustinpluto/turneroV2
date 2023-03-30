@@ -23,14 +23,10 @@ $preference->back_urls=array(
 $preference->auto_return = "approved";
 // Crea un ítem en la preferencia
 $item = new MercadoPago\Item();
-$item->title = 'Consulta';
+$item->title = 'Mi producto';
 $item->quantity = 1;
 $item->unit_price = 2000;
-$item2 = new MercadoPago\Item();
-$item2->title = 'Evaluación';
-$item2->quantity = 1;
-$item2->unit_price = 7500;
-$preference->items = array($item, $item2);
+$preference->items = array($item);
 $preference->save();
 
 ?>
