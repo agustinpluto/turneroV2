@@ -1,7 +1,4 @@
 <?php
-
-echo '<select name="diasGrosSelect" id="diasGrosSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option>';
-
 echo '<br>';
 echo '<select name="modoGros" id="modoGros" class="form-select form-select-lg mb-4" style="display:none" required>
 <option value="no" selected>Modalidad</option>
@@ -17,6 +14,9 @@ echo '<select name="tipoGros" id="tipoGros" class="form-select form-select-lg mb
 
 
 </select>';
+echo '<select name="diasGrosSelect" id="diasGrosSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option>';
+
+
 
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();

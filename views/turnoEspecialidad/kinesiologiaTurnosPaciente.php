@@ -188,13 +188,13 @@ if ($rol != 2 || empty($id)) {
                                     $resultado = mysqli_query($conexion, $sql);
 
                                     $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
-                                        $buscarId = mysqli_query($conexion, $sql_id);
-                                        while ($row = mysqli_fetch_assoc($buscarId)) {
-                                            $id_turno = $row['id'];
-                                        }
+                                    $buscarId = mysqli_query($conexion, $sql_id);
+                                    while ($row = mysqli_fetch_assoc($buscarId)) {
+                                        $id_turno = $row['id'];
+                                    }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
-                                        $resultado1 = mysqli_query($conexion, $sql1);
+                                    $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                    $resultado1 = mysqli_query($conexion, $sql1);
 
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
@@ -212,13 +212,13 @@ if ($rol != 2 || empty($id)) {
                                     $resultado = mysqli_query($conexion, $sql);
 
                                     $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
-                                        $buscarId = mysqli_query($conexion, $sql_id);
-                                        while ($row = mysqli_fetch_assoc($buscarId)) {
-                                            $id_turno = $row['id'];
-                                        }
+                                    $buscarId = mysqli_query($conexion, $sql_id);
+                                    while ($row = mysqli_fetch_assoc($buscarId)) {
+                                        $id_turno = $row['id'];
+                                    }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
-                                        $resultado1 = mysqli_query($conexion, $sql1);
+                                    $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                    $resultado1 = mysqli_query($conexion, $sql1);
 
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
@@ -236,13 +236,13 @@ if ($rol != 2 || empty($id)) {
                                     $resultado = mysqli_query($conexion, $sql);
 
                                     $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
-                                        $buscarId = mysqli_query($conexion, $sql_id);
-                                        while ($row = mysqli_fetch_assoc($buscarId)) {
-                                            $id_turno = $row['id'];
-                                        }
+                                    $buscarId = mysqli_query($conexion, $sql_id);
+                                    while ($row = mysqli_fetch_assoc($buscarId)) {
+                                        $id_turno = $row['id'];
+                                    }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
-                                        $resultado1 = mysqli_query($conexion, $sql1);
+                                    $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                    $resultado1 = mysqli_query($conexion, $sql1);
 
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
@@ -391,12 +391,20 @@ if ($rol != 2 || empty($id)) {
                 diasJuarezSelect.style.display = "none";
                 imagenGros.style.display = "block"
                 imagenJuarez.style.display = "none"
+                tipoJuarez.style.display = "none"
+                modoJuarez.style.display = "none"
+                tipoGros.style.display = "block"
+                modoGros.style.display = "block"
 
             } else if (apellido == 'Juarez') {
                 diasGrosSelect.style.display = "none";
                 diasJuarezSelect.style.display = "block";
                 imagenGros.style.display = "none"
                 imagenJuarez.style.display = "block"
+                tipoJuarez.style.display = "block"
+                modoJuarez.style.display = "block"
+                tipoGros.style.display = "none"
+                modoGros.style.display = "none"
 
             }
         })
