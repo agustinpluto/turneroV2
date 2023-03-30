@@ -164,8 +164,6 @@ if ($rol != 2 || empty($id)) {
                 
                 <?php
                 include "../../database/conexion.php";
-
-                $dni = $_SESSION['dni'];
                 
                 $sql = "SELECT * FROM pagos";
                 $result = mysqli_query($conexion, $sql);
@@ -180,16 +178,17 @@ if ($rol != 2 || empty($id)) {
                                     <th>Estado</th>
                                     <th>ID Turno</th>
                                     <th>Fecha y Hora</th>
-                                    
+                                    <th>DNI Paciente</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>';
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id'];
+                        $id = $row['ID_pago'];
                         $estado = $row['estado'];
-                        $id_turno = $row['id_turno'];
+                        $id_turno = $row['ID_turno'];
                         $fecha_hora = $row['fecha_hora'];
+                        $id_turno = $row['ID_turno'];
 
                         echo '<tr>    
                                 <td>' .$id.'</td>

@@ -169,7 +169,7 @@ if ($rol != 2 || empty($id)) {
 
                 $dni = $_SESSION['dni'];
                 
-                $sql = "SELECT * FROM pagos WHERE paciente = '$dni'";
+                $sql = "SELECT * FROM pagos WHERE ID_paciente = '$dni'";
                 $result = mysqli_query($conexion, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -178,29 +178,30 @@ if ($rol != 2 || empty($id)) {
                             <table class="table table-warning">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
+                                   
                                     <th>ID del Pago</th>
                                     <th>ID de la Orden</th>
                                     <th>Estado</th>
-                                    <th>ID Turno</th>
+                                    <th>DNI Paciente</th>
                                     <th>Fecha/Hora</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>';
                     while ($row = mysqli_fetch_assoc($result)) {
-                        $id = $row['id'];
-                        $id_pago = $row['id_pago'];
-                        $id_orden = $row['id_orden'];
+                        
+                        $id_pago = $row['ID_pago'];
+                        $id_orden = $row['ID_orden'];
                         $estado = $row['estado'];
+                        
                         $fecha_hora = $row['fecha_hora'];
 
                         echo '<tr>    
-                                <td>' .$id.'</td>
+                                
                                 <td>' .$id_pago.'</td>
                                 <td>' .$id_orden.'</td>
                                 <td> ' . $estado . ' </td>
-                                <td> ' . $id_turno . ' </td>
+                                
                                 <td> ' . $fecha_hora . ' </td>
                                 
                             </tr>';
