@@ -134,7 +134,7 @@ if ($rol != 3 || empty($id)) {
       function traerNombrePaciente($dni)
       {
         include "../../database/conexion.php";
-
+        $nombre = null;
         $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
         $resultado = mysqli_query($conexion, $sql);
 
@@ -149,7 +149,7 @@ if ($rol != 3 || empty($id)) {
       function traerApellidoPaciente($dni)
       {
         include "../../database/conexion.php";
-
+        $apellido = null;
         $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
         $resultado = mysqli_query($conexion, $sql);
 
@@ -188,7 +188,7 @@ if ($rol != 3 || empty($id)) {
           $nombre = strtoupper(traerNombrePaciente($row['paciente']));
           $apellido = strtoupper(traerApellidoPaciente($row['paciente']));
 
-          $sql_turno = "SELECT FROM turnost WHERE id_turno = '$id_turno'";
+          $sql_turno = "SELECT * FROM turnost WHERE id_turno = '$id_turno'";
           $result1 = mysqli_query($conexion, $sql_turno);
           while ($row = mysqli_fetch_assoc($result1)) {
 
