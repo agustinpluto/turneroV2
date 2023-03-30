@@ -143,7 +143,7 @@ if ($rol != 3 || empty($id)) {
             echo $row['nombre'].'<br>';
             echo $row['apellido'].'<br>';
             echo $row['dni'].'<br>';
-            echo '</div>'
+            echo '</div>';
           }
          
       }
