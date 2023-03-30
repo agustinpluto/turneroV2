@@ -129,15 +129,21 @@ if ($rol != 3 || empty($id)) {
 
       <form action="get">
         <input class="form-controls" name="busqueda" placeholder="Buscar por apellido">
-        <button class="btn btn-warning m-1">Buscar</button>
+        <button class="btn btn-warning m-1" type="submit" name="button">Buscar</button>
       </form>
 
       <?php
       include "../../database/conexion.php";
 
       if (isset($_GET['button'])){
-          $boton = $_GET['busqueda'];
-          header("location: ./buscarPaciente.php?=".$boton."");
+          $busqueda = $_GET['busqueda'];
+          $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
+          while($row = $consulta->fetch_array()){
+            echo $row['nombre'].'<br>';
+            echo $row['apellido'].'<br>';
+            echo $row['dni'].'<br>';
+          }
+         
       }
 
       function traerNombrePaciente($dni)
