@@ -199,9 +199,9 @@ if ($rol != 2 || empty($id)) {
                                         $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
                                         $resultado = mysqli_query($conexion, $sql);
 
-                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$jueves'";
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$fecha'";
                                         $buscarId = mysqli_query($conexion, $sql_id);
-                                        echo $sql_id;
+                                        
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
 
@@ -225,11 +225,9 @@ if ($rol != 2 || empty($id)) {
                                         $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
                                         $resultado = mysqli_query($conexion, $sql);
 
-
-
-                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$martes'";
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$fecha'";
                                         $buscarId = mysqli_query($conexion, $sql_id);
-                                        echo $sql_id;
+                                        echo $dni;
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
 
