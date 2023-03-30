@@ -143,6 +143,8 @@ if ($rol != 2 || empty($id)) {
                     }
 
                     if ($estado == 'approved') {
+                        $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
+                        $actualizacion = mysqli_query($conexion, $sql_actualizar);
                         $apellido_medico = $_POST['fisiatriaSelect'];
 
                         $dia_seleccionado = $_POST['diasMichelloudSelect'];
