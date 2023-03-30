@@ -127,10 +127,19 @@ if ($rol != 3 || empty($id)) {
 
     <div class="row g-5 d-flex">
 
+        <div class="mb-6">
+          <input type="text" class="form-control" name="busqueda" id="busqueda" placeholder="Buscar por apellido">
+          <a name="button" id="button" class="btn btn-primary" href="#" role="button">Button</a>
+        </div>
 
       <?php
       include "../../database/conexion.php";
-      echo 'Buscar por apellido';
+
+      if (isset($_GET['button'])){
+          $boton = $_GET['button'];
+          header("location: ./buscarPaciente.php?=".$boton."");
+      }
+
       function traerNombrePaciente($dni)
       {
         include "../../database/conexion.php";
