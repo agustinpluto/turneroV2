@@ -138,7 +138,7 @@ if ($rol != 2 || empty($id)) {
                     $id_pago = $_POST['id_pago'];
                     $sql_comprobar = "SELECT * FROM pagos WHERE ID_pago = '$id_pago'";
                     $comprobacion = mysqli_query($conexion, $sql_comprobar);
-                    while ($row=mysqli_fetch_array($comprobacion)){
+                    while ($row=mysqli_fetch_assoc($comprobacion)){
                         $estado = $row['Estado'];
                     }
                     var_dump($estado);
