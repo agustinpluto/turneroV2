@@ -143,7 +143,7 @@ if ($rol != 2 || empty($id)) {
         </div>
 
         <div class="container-fluid">
-            <div class="text-center">
+            <div class="d-flex justify-content-center">
                 <a href="./index.php" class="btn btn-primary btn-lg flex-fill mx-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
                 <a href="./turnos.php" class="btn btn-primary btn-lg flex-fill mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
                 <a href="./pagos.php" class="btn btn-primary btn-lg flex-fill mx-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
