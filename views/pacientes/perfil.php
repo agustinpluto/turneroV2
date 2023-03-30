@@ -179,7 +179,9 @@ if ($rol != 2 || empty($id)) {
                 <p>Celular/Teléfono<p>
                 <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
                 <br>
+                <div class="container-fluid d-flex justify-content-center align-items-center">
                 <input type="submit" value="Cambiar datos">
+                </div>
 
             </form>';
 
