@@ -168,6 +168,7 @@ if ($rol != 2 || empty($id)) {
                                     <h3 class="card-title">Abonar consulta</h3>
                                     <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
                                     <p class="card-text">$2000</p>
+                                    <p class="card-text">Débito/Crédito</p>
                                 </a>
                             </div>
                         </div>
@@ -177,6 +178,7 @@ if ($rol != 2 || empty($id)) {
                                     <h3 class="card-title">Abonar evaluacion</h3>
                                     <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
                                     <p class="card-text">$7500</p>
+                                    <p class="card-text">Débito/Crédito</p>
                                 </a>
                             </div>
                         </div>
