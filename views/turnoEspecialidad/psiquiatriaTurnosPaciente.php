@@ -258,10 +258,10 @@ if ($rol != 2 || empty($id)) {
                 horariosMiercolesCastelariSelect.style.display = "block"
                 imagenCastelari.style.display = "block"
                 imagenReynolds.style.display = "none"
-                tipoCastelari.style.displey = "block"
-                modoCastelari.style.displey = "block"
-                tipoReynolds.style.displey = "none"
-                modoReynolds.style.displey = "none"
+                tipoCastelari.style.display = "block"
+                modoCastelari.style.display = "block"
+                tipoReynolds.style.display = "none"
+                modoReynolds.style.display = "none"
 
             } else if (apellido == 'Reynolds') {
 
@@ -271,10 +271,10 @@ if ($rol != 2 || empty($id)) {
                 horariosMiercolesCastelariSelect.style.display = "none"
                 imagenCastelari.style.display = "none"
                 imagenReynolds.style.display = "block"
-                tipoCastelari.style.displey = "none"
-                modoCastelari.style.displey = "none"
-                tipoReynolds.style.displey = "block"
-                modoReynolds.style.displey = "block"
+                tipoCastelari.style.display = "none"
+                modoCastelari.style.display = "none"
+                tipoReynolds.style.display = "block"
+                modoReynolds.style.display = "block"
             }
         })
     </script>
