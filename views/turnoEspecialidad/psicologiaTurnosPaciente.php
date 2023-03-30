@@ -126,7 +126,10 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
                     <label for="dni">Tu DNI</label>
                 </div>';
-
+                echo '<div class="form-floating my-5">
+                <input type="text" class="form-control" id="id_compra" name="id_pago" value="" required>
+                <label for="ID_compra">Tu ID de Compra</label>
+            </div>';
 
             include "../selects/psicologia.php";
             //BALSAMO
@@ -166,7 +169,16 @@ if ($rol != 2 || empty($id)) {
 
                     include "../../database/conexion.php";
                     include "../../funciones/getNombre.php";
+                    $id_pago = $_POST['id_pago'];
+                    $sql_comprobar = "SELECT * FROM pagos WHERE ID_pago = '$id_pago'";
+                    $comprobacion = mysqli_query($conexion, $sql_comprobar);
+                    while ($row = mysqli_fetch_assoc($comprobacion)) {
+                        $estado = $row['Estado'];
+                    }
 
+                    if ($estado == 'approved') {
+                        $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
+                        $actualizacion = mysqli_query($conexion, $sql_actualizar);
                     $apellido_medico = $_POST['psicologiaSelect'];
 
                     $dias = [$_POST['diasBalsamoSelect'], $_POST['diasCanoSelect'], $_POST['diasGonzalezSelect'], $_POST['diasMolinaSelect'], $_POST['diasHerreraSelect'], $_POST['diasParadeloSelect']];
@@ -328,7 +340,7 @@ if ($rol != 2 || empty($id)) {
                     }
                 }
             }
-
+        }
 
             ?>
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
