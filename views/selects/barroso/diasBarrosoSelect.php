@@ -1,12 +1,10 @@
 <?php
-echo '';
-echo '<select name="diasBarrosoSelect" id="diasBarrosoSelect" class="form-select form-select-lg mb-4" style="display: none"><option value="no">Día</option>';
-echo '<br>';
 echo '<select name="modoBarroso" id="modoBarroso" class="form-select form-select-lg mb-4" style="display:none" required>
 <option value="no" selected>Modalidad</option>
 <option value="virtual">Virtual</option>
 <option value="presencial">Presencial</option>
 </select>';
+
 echo '<select name="tipoBarroso" id="tipoBarroso" class="form-select form-select-lg mb-4" style="display:none" required>
 <option value="no" selected>Servicio</option>
 <option value="admisión">Entrevista inivial - Admisión (Virtual)</option>
@@ -15,6 +13,12 @@ echo '<select name="tipoBarroso" id="tipoBarroso" class="form-select form-select
 <option value="coordinacion">Coordinación de Equipos</option>
 <option value="asesoria">Asesoría de Terapia Ocupacional</option>
 </select>';
+
+echo '';
+echo '<select name="diasBarrosoSelect" id="diasBarrosoSelect" class="form-select form-select-lg mb-4" style="display: none"><option value="no">Día</option>';
+echo '<br>';
+
+
 
 
 setlocale(LC_TIME, "es_AR.UTF-8");
@@ -28,7 +32,7 @@ $jueves = strtotime('next Thursday', $fecha_actual);
 
 
 while ($martes <= $fecha_limite) {
-    
+
     $martes_es = strftime('%A %d/%m', $martes);
 
     echo '<option value="' . date('Y-m-d', $martes) . '">' . ucfirst($martes_es) . '</option>';
@@ -39,7 +43,7 @@ while ($martes <= $fecha_limite) {
 
 
 while ($jueves <= $fecha_limite) {
-    
+
     $jueves_es = strftime('%A %d/%m', $jueves);
 
     echo '<option value="' . date('Y-m-d', $jueves) . '">' . ucfirst($jueves_es) . '</option>';
