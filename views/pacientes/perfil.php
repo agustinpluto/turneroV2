@@ -190,7 +190,7 @@ if ($rol != 2 || empty($id)) {
                     <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <a href="https://turnero-integra.com.ar/views/pacientes/index.php" class="btn btn-white">Volver</a>
+                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
                 </div>
 
             </form>
