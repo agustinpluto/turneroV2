@@ -170,6 +170,7 @@ if ($rol != 2 || empty($id)) {
                 ?>
             </div>
             <form method="POST">
+                <h4>Datos Personales</h4>
                 <p>Nombre
                 <p>
                     <input type="text" class="form-control" name="nombre" id="" value="<?php echo strtoupper($nombre) ?>">
