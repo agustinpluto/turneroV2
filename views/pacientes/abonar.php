@@ -157,7 +157,9 @@ if ($rol != 2 || empty($id)) {
                 </div>
                 <div class="container-fluid">
                     <div class="row">
+                    <div class="container-fluid">
                     <h5>Es necesario abonar el 50% para poder agendar el turno</h5>
+                    </div>
                         <div class="col">
                             
                             <div class="card m-1">
