@@ -152,6 +152,7 @@ if ($rol != 2 || empty($id)) {
                     $comprobacion = mysqli_query($conexion, $comprobar_pago);
                     while ($row = mysqli_fetch_row($comprobacion)) {
                         $estado = $row['Estado'];
+                        echo $estado;
                         if ($estado == 'approved') {
                             if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
