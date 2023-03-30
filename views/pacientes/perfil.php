@@ -156,7 +156,7 @@ if ($rol != 2 || empty($id)) {
 
             </div>
             <?php
-           
+
             include "../../database/conexion.php";
 
             $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
@@ -168,7 +168,7 @@ if ($rol != 2 || empty($id)) {
                 $apodo = $row['apodo'];
                 $celular = $row['celular'];
             }
-            
+
             echo '<form method="POST">
                 <p>Nombre<p>
                 <input type="text" class="form-control" name="nombre" id="" value="' . $nombre . '">
@@ -182,7 +182,7 @@ if ($rol != 2 || empty($id)) {
                 <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
                 <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                <input type="submit" class="btn btn-warning" value="Cambiar datos">
+                <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
                 </div>
 
             </form>';
@@ -191,11 +191,13 @@ if ($rol != 2 || empty($id)) {
 
             if (isset($_POST['button'])) {
 
-                $nombre = $_POST['nombre'];
-                $apellido = $_POST['apellido'];
-                $apodo = $_POST['apodo'];
-                $celular = $_POST['celular'];
-                $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
+                if (!empty($_POST['button'])) {
+                    $nombre = $_POST['nombre'];
+                    $apellido = $_POST['apellido'];
+                    $apodo = $_POST['apodo'];
+                    $celular = $_POST['celular'];
+                    $consulta = $conexion->query("UPDATE pacientes SET nombre = '$nombre', apellido = '$apellido', apodo = '$apodo', celular = '$celular' WHERE dni ='$dni'");
+                }
             }
 
             ?>
