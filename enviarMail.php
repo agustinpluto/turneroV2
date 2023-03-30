@@ -14,13 +14,16 @@ $paciente = $_GET['paciente'];
 $fecha = $_GET['fecha'];
 $hora = $_GET['hora'];
 
+$formatted_date = $fecha->format('M-D');
+$formatted_time = $hora->format('H:I');
+
 $verifcode = sha1(microtime(true));
 $to      = $email;
 $subject = 'Nuevo turno';
 $msg = "<html>
-Tenes un nuevo turno para el: " . $fecha . "
+Tenes un nuevo turno para el: " . $formatted_date . "
 <br>Con el paciente: " . $paciente . "
-<br>A la hora: " . $hora . "
+<br>A la hora: " . $formatted_time . "
 </html>";
 
 
