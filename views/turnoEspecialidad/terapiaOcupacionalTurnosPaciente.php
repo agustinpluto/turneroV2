@@ -390,6 +390,8 @@ if ($rol != 2 || empty($id)) {
                 imagenBarroso.style.display = "block"
                 imagenDelrio.style.display = "none"
                 imagenMartinez.style.display = "none"
+                modoBarroso.style.display = "block"
+                tipoBarroso.style.display = "block"
 
             } else if (apellido == 'Del Río') {
 
