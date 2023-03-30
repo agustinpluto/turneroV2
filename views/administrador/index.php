@@ -159,10 +159,10 @@ if ($rol != 1 || empty($id)) {
           if (isset($_GET['button'])) {
             $busqueda = $_GET['busqueda'];
             $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
-            
+            echo '<br>';
+            echo '<br>';
             while ($row = $consulta->fetch_array()) {
-              echo '<br>';
-              echo '<br>';
+
               echo '<div class="container-fluid">';
               echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
               echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
@@ -171,7 +171,6 @@ if ($rol != 1 || empty($id)) {
               echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
               echo '</div>';
             }
-            
           }
 
           ?>
