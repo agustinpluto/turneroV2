@@ -123,6 +123,7 @@ if (empty($id)) {
                 $date = new DateTime();
                 $timezone = new DateTimeZone('America/Argentina/Buenos_Aires');
                 $date->setTimezone($timezone);
+                $time->setTimezone($timezone);
                 $formatted_date = $date->format('Y-m-d');
                 $formatted_time = $time->format('H:i:s');
                 $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$formatted_date','$formatted_time')";
