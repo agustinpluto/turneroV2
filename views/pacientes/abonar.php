@@ -172,7 +172,7 @@ if ($rol != 2 || empty($id)) {
                     <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
                         <a href="./abonarEvaluacion.php" class="container p-2 m-1">
                             <h3 class="card-title text-center">Señar Evaluación</h3>
-                            <h5 class="card-title text-center"><strong>CLICK AQUÍ</strong></h5>
+                            <h5 class="card-title text-center"><strong><code>CLICK AQUÍ</code></strong></h5>
                             <p class="card-text text-center">$7500</p>
                             <p class="card-text text-center">Débito / Crédito</p>
                         </a>
