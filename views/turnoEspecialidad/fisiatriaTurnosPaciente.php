@@ -9,7 +9,7 @@ if ($rol != 2 || empty($id)) {
 }
 
 // SDK de Mercado Pago
-require '../../'.__DIR__ .  '/vendor/autoload.php';
+require '../../' . __DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
 MercadoPago\SDK::setAccessToken('');
 // Crea un objeto de preferencia
@@ -98,7 +98,25 @@ $preference->save();
 
     <main class="form-signin w-50 m-auto">
 
-        <form method="post">
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
+        <script>
+            const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
+                locale: 'es-AR'
+            });
+
+            mp.checkout({
+                preference: {
+                    id: '<?php echo $preference->id; ?>'
+                },
+                render: {
+                    container: '.cho-container',
+                    label: 'Abonar turno',
+                }
+            });
+        </script>
+
+
+        <form method="post" class="mt-2">
             <div class="container-fluid d-flex">
 
                 <div class="container-fluid d-flex justify-content-center align-items-center">
@@ -181,8 +199,8 @@ $preference->save();
 
 
 
-            
-            
+
+
 
 
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
@@ -190,22 +208,7 @@ $preference->save();
                 <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
             </div>
         </form>
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
-            <script>
-                const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
-                    locale: 'es-AR'
-                });
 
-                mp.checkout({
-                    preference: {
-                        id: '<?php echo $preference->id; ?>'
-                    },
-                    render: {
-                        container: '.cho-container',
-                        label: 'Pagar',
-                    }
-                });
-            </script>
 
 
     </main>
