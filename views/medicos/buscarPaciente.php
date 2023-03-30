@@ -122,10 +122,13 @@
 
             $sql = "SELECT * FROM pacientes WHERE apellido = '$apellido'";
             $result = mysqli_query($conexion, $sql);
-
+            echo '<ul>';
             while ($row = mysqli_fetch_assoc($result)) {
-                echo $row['nombre'];
+                $nombre = $row['nombre'];
+                $apellido = $row['apellido'];
+                $dni = $row['dni']; 
             }
+            echo '</ul>';
             ?>
 
         </div>
