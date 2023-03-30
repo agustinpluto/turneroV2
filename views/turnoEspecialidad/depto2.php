@@ -115,13 +115,15 @@ if (empty($id)) {
             <input type="text" class="form-control" id="floatingInput" name="dni" value="' . $dni . '"disabled>
             <label for="floatingInput">DNI del Paciente</label>
         </div>';
-            if (isset($_POST['botonRegistro'])) {
-                include "../../database/conexion.php";
-                $date = new DateTime();
-                $time = new DateTime();
-                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '2','$date','$time')";
-                $resultado = mysqli_query($conexion, $sql);
-            }
+        if (isset($_POST['botonRegistro'])) {
+            include "../../database/conexion.php";
+            $time = new DateTime();
+            $date = new DateTime();
+            $formatted_date = $date->format('Y-m-d H:i:s');
+            $formatted_time = $time->format('H:i:s');
+            $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '2','$formatted_date','$formatted_time')";
+            $resultado = mysqli_query($conexion, $sql);
+        }
             ?>
 
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">

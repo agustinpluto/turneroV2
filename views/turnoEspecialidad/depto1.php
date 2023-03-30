@@ -119,10 +119,11 @@ if (empty($id)) {
 
             if (isset($_POST['botonRegistro'])) {
                 include "../../database/conexion.php";
-                $date = new DateTime();
                 $time = new DateTime();
-                var_dump($date);
-                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$date','$time')";
+                $date = new DateTime();
+                $formatted_date = $date->format('Y-m-d H:i:s');
+                $formatted_time = $time->format('H:i:s');
+                $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$formatted_date','$formatted_time')";
                 $resultado = mysqli_query($conexion, $sql);
             }
             ?>
