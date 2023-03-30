@@ -205,6 +205,7 @@ if ($rol != 2 || empty($id)) {
             if (isset($_POST['button'])) {
 
                 if (!empty($_POST['button'])) {
+
                     $nombre = $_POST['nombre'];
                     $apellido = $_POST['apellido'];
                     $apodo = $_POST['apodo'];
@@ -213,6 +214,8 @@ if ($rol != 2 || empty($id)) {
 
                     $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular', obra='$obra' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
+                    echo $obra;
+                    echo $nombre;
                 }
             }
 
