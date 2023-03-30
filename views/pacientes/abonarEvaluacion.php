@@ -171,9 +171,9 @@ $preference->save();
 
                 </div>
 
-                <div class="container w-50 card-body d-flex flex-column  justify-content-center align-items-center">
+                <div class="container w-50 card-body d-flex flex-column  justify-content-center align-items-center my-2">
                     <h5>Presione el boton "Señar consulta" para acceder a MercadoPago</h5>
-                    <div class="cho-container"></div>
+                    <div class="cho-container mb-2"></div>
                 </div>
 
                 <script>
