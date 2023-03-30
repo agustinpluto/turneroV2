@@ -153,14 +153,15 @@ if ($rol != 1 || empty($id)) {
             <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
             <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
           </form>
+          <br>
+          <br>
+          <div class="container-fluid d-flex justify-content-center align-items-center">
           <?php
           include "../../database/conexion.php";
 
           if (isset($_GET['button'])) {
             $busqueda = $_GET['busqueda'];
             $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
-            echo '<br>';
-            echo '<br>';
             while ($row = $consulta->fetch_array()) {
 
               echo '<div class="container-fluid">';
@@ -174,6 +175,7 @@ if ($rol != 1 || empty($id)) {
           }
 
           ?>
+          </div>
         </div>
         <div class="col">
           <div class="row">
