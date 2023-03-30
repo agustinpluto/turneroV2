@@ -158,6 +158,7 @@ if ($rol != 2 || empty($id)) {
         while ($row = mysqli_fetch_assoc($resultado)) {
           $celular = $row['celular'];
           $apodo = $row['apodo'];
+          $obra = $row['obra'];
 
           if ($apodo == null || $celular == null) {
 
