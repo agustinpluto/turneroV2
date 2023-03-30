@@ -184,7 +184,7 @@ $preference->save();
                         },
                         render: {
                             container: '.cho-container',
-                            label: 'Abonar evaluación 50%',
+                            label: 'Señar evaluación',
                         }
                     });
                 </script>

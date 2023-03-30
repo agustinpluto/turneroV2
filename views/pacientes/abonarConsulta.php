@@ -184,7 +184,7 @@ $preference->save();
                         },
                         render: {
                             container: '.cho-container',
-                            label: 'Abonar consulta 50%',
+                            label: 'Se{ar consulta',
                         }
                     });
                 </script>
