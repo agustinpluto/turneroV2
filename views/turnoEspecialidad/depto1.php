@@ -121,6 +121,7 @@ if (empty($id)) {
                 include "../../database/conexion.php";
                 $date = new DateTime();
                 $time = new DateTime();
+                var_dump($date);
                 $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$date','$time')";
                 $resultado = mysqli_query($conexion, $sql);
             }
