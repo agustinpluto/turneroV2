@@ -121,7 +121,9 @@ if (empty($id)) {
                 include "../../database/conexion.php";
                 $time = new DateTime();
                 $date = new DateTime();
-                $formatted_date = $date->format('Y-m-d H:i:s');
+                $timezone = new DateTimeZone('America/Argentina/Buenos_Aires');
+                $date->setTimezone($timezone);
+                $formatted_date = $date->format('Y-m-d');
                 $formatted_time = $time->format('H:i:s');
                 $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '1','$formatted_date','$formatted_time')";
                 $resultado = mysqli_query($conexion, $sql);
