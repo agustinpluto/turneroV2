@@ -157,8 +157,9 @@ if ($rol != 2 || empty($id)) {
                 </div>
                 <div class="container-fluid">
                     <div class="row">
+                    <h5>Es necesario abonar el 50% para poder agendar el turno</h5>
                         <div class="col">
-                            <h5>Es necesario abonar el 50% para poder agendar un turno</h5>
+                            
                             <div class="card m-1">
                                 <a href="./abonarEvaluacion.php" class="card-body">
                                     <h3 class="card-title">Señar consulta</h3>
