@@ -107,71 +107,70 @@ if ($rol != 3 || empty($id)) {
 
 <body>
 
-  <div class="col-lg-8 mx-auto p-4 py-md-5">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
-      <i class="fa fa-whatsapp my-float"></i>
-    </a>
-      <main class="form-signin w-50 m-auto">
-        <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-          <div class="container">
-            <h1>Turnos Integra</h1>
-            <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
-          </div>
-          <img src="../../logointegra2.png" alt="" style="width:170px">
-        </div>
-        <div class="mb-5">
-          <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
-          <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Turnos integra</a>
-        </div>
-        <hr class="col-3 col-md-2 mb-5">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <a href="https://api.whatsapp.com/send/?phone=543513138666&text&type=phone_number&app_absent=0" class="float" target="_blank">
+    <i class="fa fa-whatsapp my-float"></i>
+  </a>
+  <main class="form-signin w-50 m-auto">
+    <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+      <div class="container">
+        <h1>Turnos Integra</h1>
+        <p class="fs-5 col-md-8">Centro de Rehabilitación Integral</p>
+      </div>
+      <img src="../../logointegra2.png" alt="" style="width:170px">
+    </div>
+    <div class="mb-5">
+      <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+      <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Turnos integra</a>
+    </div>
+    <hr class="col-3 col-md-2 mb-5">
 
-        <div class="row g-5">
+    <div class="row g-5">
 
 
-          <?php
-          include "../../database/conexion.php";
+      <?php
+      include "../../database/conexion.php";
 
-          function traerNombrePaciente($dni)
-          {
-            include "../../database/conexion.php";
+      function traerNombrePaciente($dni)
+      {
+        include "../../database/conexion.php";
 
-            $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
-            $resultado = mysqli_query($conexion, $sql);
+        $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
+        $resultado = mysqli_query($conexion, $sql);
 
-            if (mysqli_num_rows($resultado) > 0) {
-              while ($fila = mysqli_fetch_assoc($resultado)) {
-                $nombre = $fila["nombre"];
-              }
-            }
-            return $nombre;
+        if (mysqli_num_rows($resultado) > 0) {
+          while ($fila = mysqli_fetch_assoc($resultado)) {
+            $nombre = $fila["nombre"];
           }
+        }
+        return $nombre;
+      }
 
-          function traerApellidoPaciente($dni)
-          {
-            include "../../database/conexion.php";
+      function traerApellidoPaciente($dni)
+      {
+        include "../../database/conexion.php";
 
-            $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
-            $resultado = mysqli_query($conexion, $sql);
+        $sql = "SELECT * FROM pacientes WHERE dni = '$dni'";
+        $resultado = mysqli_query($conexion, $sql);
 
-            if (mysqli_num_rows($resultado) > 0) {
+        if (mysqli_num_rows($resultado) > 0) {
 
-              while ($fila = mysqli_fetch_assoc($resultado)) {
-                $apellido = $fila["apellido"];
-              }
-            }
-            return $apellido;
+          while ($fila = mysqli_fetch_assoc($resultado)) {
+            $apellido = $fila["apellido"];
           }
+        }
+        return $apellido;
+      }
 
-          $matricula = $_SESSION['matricula'];
+      $matricula = $_SESSION['matricula'];
 
-          $sql = "SELECT * FROM turnos WHERE medico = '$matricula'";
-          $result = mysqli_query($conexion, $sql);
+      $sql = "SELECT * FROM turnos WHERE medico = '$matricula'";
+      $result = mysqli_query($conexion, $sql);
 
 
-          if (mysqli_num_rows($result) > 0) {
+      if (mysqli_num_rows($result) > 0) {
 
-            echo '<br><div class="d-flex">
+        echo '<br><div class="d-flex">
                             <table class="table table-warning">
                             <thead>
                                 <tr>
@@ -184,16 +183,16 @@ if ($rol != 3 || empty($id)) {
                                 </tr>
                             </thead>
                             <tbody>';
-            while ($row = mysqli_fetch_assoc($result)) {
-              $id_turno = $row['id'];
-              $nombre = strtoupper(traerNombrePaciente($row['paciente']));
-              $apellido = strtoupper(traerApellidoPaciente($row['paciente']));
+        while ($row = mysqli_fetch_assoc($result)) {
+          $id_turno = $row['id'];
+          $nombre = strtoupper(traerNombrePaciente($row['paciente']));
+          $apellido = strtoupper(traerApellidoPaciente($row['paciente']));
 
-              $sql_turno = "SELECT FROM turnost WHERE id_turno = '$id_turno'";
-              $result1 = mysqli_query($conexion, $sql_turno);
-              while ($row = mysqli_fetch_assoc($result1)) {
+          $sql_turno = "SELECT FROM turnost WHERE id_turno = '$id_turno'";
+          $result1 = mysqli_query($conexion, $sql_turno);
+          while ($row = mysqli_fetch_assoc($result1)) {
 
-                echo '<tr>    
+            echo '<tr>    
                 <td>' .  $apellido . ', ' . $nombre . '</td>
                 <td>' .  strtoupper($row['modo']) . '</td>
                 <td>' .  strtoupper($row['tipo']) . '</td>
@@ -201,28 +200,28 @@ if ($rol != 3 || empty($id)) {
                 <td> ' . $row['hora'] . ' </td>
 
             </tr>';
-              }
-            }
-            echo '</tbody></table></div>';
+          }
+        }
+        echo '</tbody></table></div>';
 
-            // Paso 5: cerrar la conexión
-            mysqli_close($conexion);
-          } else {
-            echo '<br><div class="alert alert-warning text-center" role="alert">
+        // Paso 5: cerrar la conexión
+        mysqli_close($conexion);
+      } else {
+        echo '<br><div class="alert alert-warning text-center" role="alert">
                                 <strong>¡</strong> No tenes turnos registrados <strong>!</strong> 
                             </div>';
-          }
-          ?>
+      }
+      ?>
 
-        </div>
-      </main>
-      <footer class="pt-5 my-5 text-muted border-top">
-        Todos los derechos reservados - Centro Integra &middot; &copy; 2023
-      </footer>
     </div>
+  </main>
+  <footer class="pt-5 my-5 text-muted border-top">
+    Todos los derechos reservados - Centro Integra &middot; &copy; 2023
+  </footer>
 
 
-    <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="../assets/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
