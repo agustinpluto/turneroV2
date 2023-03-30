@@ -164,6 +164,10 @@ if ($rol != 2 || empty($id)) {
             echo "<div class='alert alert-danger'>
             <strong>Por favor, terminá de completar tus datos, nos encantaría saber como te gusta que se dirijan hacia vos!</strong>
           </div>";
+          } elseif ($obra == null){
+            echo "<div class='alert alert-danger'>
+            <strong>Por favor, completá tu obra social en la seccion 'Mis datos'</strong>
+          </div>";
           }
         }
 
