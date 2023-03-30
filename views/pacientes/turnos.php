@@ -24,6 +24,8 @@ if ($rol != 2 || empty($id)) {
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/custom.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
     <script src="./js/bootstrap.min.js"></script>
 
 
@@ -160,55 +162,53 @@ if ($rol != 2 || empty($id)) {
                 </div>
                 <form method="post">
 
-                <img class="mb-4" src="../../integra.png" alt="" width="80">
-                <h1 class="h3 mb-3 fw-normal">Mis turnos</h1>
+                    <img class="mb-4" src="../../integra.png" alt="" width="80">
+                    <h1 class="h3 mb-3 fw-normal">Mis turnos</h1>
 
-                <?php
-                include "../../database/conexion.php";
-
-                function traerApellidoMedico($matricula)
-                {
+                    <?php
                     include "../../database/conexion.php";
 
-                    include "../../database/conexion.php";
-                    
-                    $sql = "SELECT * FROM medicos WHERE matricula = '$matricula'";
-                    $resultado = mysqli_query($conexion, $sql);
-                    
-                    if (mysqli_num_rows($resultado) > 0) {
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            $apellido = $fila["apellido"];
-                            return $apellido;
+                    function traerApellidoMedico($matricula)
+                    {
+                        include "../../database/conexion.php";
+
+                        include "../../database/conexion.php";
+
+                        $sql = "SELECT * FROM medicos WHERE matricula = '$matricula'";
+                        $resultado = mysqli_query($conexion, $sql);
+
+                        if (mysqli_num_rows($resultado) > 0) {
+                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                $apellido = $fila["apellido"];
+                                return $apellido;
+                            }
                         }
-                    } 
-                    
-                }
-                function traerNombreMedico($matricula)
-                {
-                    include "../../database/conexion.php";
+                    }
+                    function traerNombreMedico($matricula)
+                    {
+                        include "../../database/conexion.php";
 
-                    include "../../database/conexion.php";
-                    
-                    $sql = "SELECT * FROM medicos WHERE matricula = '$matricula'";
-                    $resultado = mysqli_query($conexion, $sql);
-                    
-                    if (mysqli_num_rows($resultado) > 0) {
-                        while ($fila = mysqli_fetch_assoc($resultado)) {
-                            $nombre = $fila["nombre"];
-                            return $nombre;
+                        include "../../database/conexion.php";
+
+                        $sql = "SELECT * FROM medicos WHERE matricula = '$matricula'";
+                        $resultado = mysqli_query($conexion, $sql);
+
+                        if (mysqli_num_rows($resultado) > 0) {
+                            while ($fila = mysqli_fetch_assoc($resultado)) {
+                                $nombre = $fila["nombre"];
+                                return $nombre;
+                            }
                         }
-                    } 
-                    
-                }
-                
-                $dni = $_SESSION['dni'];
-                
-                $sql = "SELECT * FROM turnos WHERE paciente = '$dni'";
-                $result = mysqli_query($conexion, $sql);
+                    }
 
-                if (mysqli_num_rows($result) > 0) {
-                    // Mostrar los resultados
-                    echo '<br><div class="d-flex">
+                    $dni = $_SESSION['dni'];
+
+                    $sql = "SELECT * FROM turnos WHERE paciente = '$dni'";
+                    $result = mysqli_query($conexion, $sql);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        // Mostrar los resultados
+                        echo '<br><div class="d-flex">
                             <table class="table table-warning">
                             <thead>
                                 <tr>
@@ -219,35 +219,34 @@ if ($rol != 2 || empty($id)) {
                                 </tr>
                             </thead>
                             <tbody>';
-                    while ($row = mysqli_fetch_assoc($result)) {
-                        $id_turno = $row['id'];
-                        $matricula = $row['medico'];
-                        $apellido = strtoupper(traerApellidoMedico($matricula));
-                        $nombre = strtoupper(traerNombreMedico($matricula));
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $id_turno = $row['id'];
+                            $matricula = $row['medico'];
+                            $apellido = strtoupper(traerApellidoMedico($matricula));
+                            $nombre = strtoupper(traerNombreMedico($matricula));
 
-                        echo '<tr>    
-                                <td>' . $apellido .', '.$nombre . '</td>
+                            echo '<tr>    
+                                <td>' . $apellido . ', ' . $nombre . '</td>
                                 <td> ' . $row['fecha'] . ' </td>
                                 <td> ' . $row['hora'] . ' </td>
-                                <th><a href="http://turnero-integra.com.ar/eliminarTurno.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
-                                delete
-                                </span></a></th>
+                                <th><a href="http://turnero-integra.com.ar/eliminarTurno.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><i class="material-icons-outlined">delete</i>
+                                </a></th>
                             </tr>';
-                    }
-                    echo '</tbody></table></div>';
+                        }
+                        echo '</tbody></table></div>';
 
-                    // Paso 5: cerrar la conexión
-                    mysqli_close($conexion);
-                } else {
-                    echo '<br><div class="alert alert-warning" role="alert">
+                        // Paso 5: cerrar la conexión
+                        mysqli_close($conexion);
+                    } else {
+                        echo '<br><div class="alert alert-warning" role="alert">
                                 <strong>¡</strong> No tenes turnos registrados <strong>!</strong> 
                             </div>';
-                }
-                ?>
-                <a href="index.php" class="btn btn-primary btn-lg px-4 mx-3 w-75" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
- 
-            </form>
-                
+                    }
+                    ?>
+                    <a href="index.php" class="btn btn-primary btn-lg px-4 mx-3 w-75" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
+
+                </form>
+
 
         </main>
         <footer class="pt-5 my-5 text-muted border-top">
