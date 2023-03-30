@@ -171,13 +171,11 @@ $preference->save();
 
                 </div>
 
-                <div class="container">
-                    <div class="col-4      ">
-                        <div class="container-fluid">
-                            <div class="cho-container"></div>
-                        </div>
-                    </div>
+
+                <div class="container w-50">
+                <div class="cho-container"></div>
                 </div>
+
                 <script>
                     const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
                         locale: 'es-AR'
