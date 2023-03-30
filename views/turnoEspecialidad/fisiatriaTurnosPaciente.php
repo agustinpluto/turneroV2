@@ -116,7 +116,7 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" id="dni" name="dni" value="' . $dni . '" disabled>
                     <label for="dni">Tu DNI</label>
                 </div>';
-                echo '<div class="form-floating my-5">
+            echo '<div class="form-floating my-5">
                     <input type="text" class="form-control" id="id_compra" name="id_compra" value="">
                     <label for="ID_compra">Tu ID de Compra</label>
                 </div>';
@@ -132,7 +132,7 @@ if ($rol != 2 || empty($id)) {
             if (isset($_POST['botonRegistro'])) {
 
 
-                if (isset($_POST['botonRegistro'])) {
+                if (isset($_POST['botonRegistro']) && !empty($_POST['ID_compra'])) {
 
 
                     if ($_POST['diasMichelloudSelect'] != 'no') {
@@ -148,20 +148,28 @@ if ($rol != 2 || empty($id)) {
                         $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
                         $apellido_p = getApellidoPaciente($dni, $conexion);
                         $apellido_m = getMatricula($apellido_medico, $conexion);
+                        $id_compra = $_POST['ID_compra'];
 
-                        if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
-                            echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                        $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra' AND Estado = 'approved'";
+                        $comprobacion = mysqli_query($conexion, $comprobar_pago);
+
+                        if ($row = mysqli_fetch_row($comprobacion) > 0) {
+                            
+                            if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
+                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                            } else {
+                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora, id_pago) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj', '$id_compra')";
+                                $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
+                                $resultado = mysqli_query($conexion, $sql);
+                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                $email_medico = getMail($apellido_m, $conexion);
+                                $cambiar_estado = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago='$id_compra' AND Estado = 'approved'";
+                                $cambiar = mysqli_query($conexion, $cambiar);
+                                header("location: https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            }
                         } else {
-                            $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
-                            $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
-                            $resultado = mysqli_query($conexion, $sql);
-
-                            $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                            $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                            $email_medico = getMail($apellido_m, $conexion);
-
-
-                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                            echo 'Pago no encontrado. Revise el estado del mismo en "Mis Pagos".';
                         }
                     }
                 }
