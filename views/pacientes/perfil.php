@@ -165,7 +165,7 @@ if ($rol != 2 || empty($id)) {
                     $dni = $row['dni'];
                     $apodo = $row['apodo'];
                     $celular = $row['celular'];
-                    $obra = $row['obra'];
+
                 }
 
                 ?>
@@ -182,7 +182,7 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" name="dni" id="" value="<?php echo $dni ?>">
                 <p>Obra Social
                 <p>
-                    <input type="text" class="form-control" name="obra" id="" value="<?php echo $obra ?>">
+                    <input type="text" class="form-control" name="obra" id="" value="">
                 <p>Como quiero que me llamen
                 <p>
                     <input type="text" class="form-control" name="apodo" id="" value="<?php echo strtoupper($apodo) ?>">
@@ -213,10 +213,9 @@ if ($rol != 2 || empty($id)) {
                     $celular = $_POST['celular'];
                     $obra = $_POST['obra'];
 
-                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular', obra='$obra' WHERE dni='$dni'";
+                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular',obra='$obra' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
-                    echo $obra;
-                    echo $nombre;
+                    
                 }
             }
 
