@@ -158,7 +158,7 @@ if ($rol != 2 || empty($id)) {
                 <div class="container-fluid text-center my-2">
 
                 </div>
-                <div class="container-fluid">
+                <div class="container-fluid d-flex justify-content-center align-items-center">
                     <div class="row">
                         
                         <div class="col">
