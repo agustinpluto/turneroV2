@@ -187,7 +187,8 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" name="celular" id="" value="<?php echo $celular ?>">
                     <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
+                    
+                    <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="button" style="background-color: #905597;border-color: #8e8db7;">Cambiar datos</button>
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
                 <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
