@@ -14,14 +14,3 @@ $resultado = mysqli_query($conexion, $sql);
 if ($resultado){
     echo "Pago guardado";
 }
-
-CREATE TABLE pagos (
-    ID INT NOT NULL AUTO_INCREMENT,
-    ID_pago INT NOT NULL,
-    ID_orden INT NOT NULL,
-    Estado VARCHAR(50) NOT NULL,
-    ID_paciente VARCHAR(8),
-    Fecha_Hora DATETIME NOT NULL,
-    PRIMARY KEY (ID)
-  );
-  
