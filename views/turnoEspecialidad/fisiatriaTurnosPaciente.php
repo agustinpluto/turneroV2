@@ -147,12 +147,12 @@ if ($rol != 2 || empty($id)) {
                     $apellido_p = getApellidoPaciente($dni, $conexion);
                     $apellido_m = getMatricula($apellido_medico, $conexion);
                     $id_compra = $_POST['ID_compra'];
-
+                    echo $id_compra;
                     $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra'";
                     $comprobacion = mysqli_query($conexion, $comprobar_pago);
                     while ($row = mysqli_fetch_row($comprobacion)) {
                         $estado = $row['Estado'];
-                        echo $estado;
+                        
                         if ($estado == 'approved') {
                             if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
