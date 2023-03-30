@@ -180,7 +180,7 @@ if ($rol != 2 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
-          <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="background-color: #90559730">
+          <div class="container-fluid d-flex flex-column justify-content-center align-items-center p-4" style="background-color: #90559730">
             <h5 class="text-center">Es necesario abonar el 50% del servicio</h5>
             <p class="text-center"><strong>Para comenzar toca en "Abonar Seña".</strong></p>
             <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
