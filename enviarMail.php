@@ -18,9 +18,9 @@ $verifcode = sha1(microtime(true));
 $to      = $email;
 $subject = 'Nuevo turno';
 $msg = "<html>
-Tenes un nuevo turno para el: " . $formatted_date . "
+Tenes un nuevo turno para el: " . $fecha . "
 <br>Con el paciente: " . $paciente . "
-<br>A la hora: " . $formatted_time . "
+<br>A la hora: " . $hora . "
 </html>";
 
 

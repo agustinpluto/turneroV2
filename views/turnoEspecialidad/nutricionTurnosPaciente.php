@@ -115,7 +115,7 @@ if ($rol != 2 || empty($id)) {
                 include "../../database/conexion.php";
                 $sql = "SELECT * FROM pacientes WHERE id_usuario='$id_usuario'";
                 $resultado = mysqli_query($conexion, $sql);
-                while ($row = mysqli_fetch_assoc($resultado)) {
+                while ($row = mysqli_fetch_row($resultado)) {
                     $dni = $row['dni'];
                 }
                 return $dni;
