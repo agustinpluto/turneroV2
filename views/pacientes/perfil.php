@@ -156,7 +156,7 @@ if ($rol != 2 || empty($id)) {
                 <?php
 
                 include "../../database/conexion.php";
-
+                $obra = null;
                 $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
                 $resultado = mysqli_query($conexion, $sql);
                 while ($row = mysqli_fetch_assoc($resultado)) {
@@ -202,7 +202,7 @@ if ($rol != 2 || empty($id)) {
 
             <?php
             if (isset($_POST['button'])) {
-                echo $_POST['obra'];
+                
                 if (!empty($_POST['button'])) {
 
                     $nombre = $_POST['nombre'];
