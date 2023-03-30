@@ -155,10 +155,13 @@ if ($rol != 2 || empty($id)) {
         $sql = "SELECT * FROM pacientes WHERE dni='$dni'";
         $resultado = mysqli_query($conexion, $sql);
 
-        while ($row = mysqli_fetch_row($resultado)) {
+        while ($row = mysqli_fetch_assoc($resultado)) {
           $celular = $row['celular'];
           $apodo = $row['apodo'];
+          var_dump($apodo);
+          var_dump($celular);
           if ($apodo == null || $celular == null) {
+
             echo "Por favor termina de completar tus datos en la sección Mis datos, queremos saber tu celular y como queres que nos dirijamos hacia vos :)";
           }
         }
