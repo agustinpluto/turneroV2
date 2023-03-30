@@ -205,7 +205,7 @@ if ($rol != 2 || empty($id)) {
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
 
-                                            $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBarroso', '$modoBarroso')";
+                                            $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('2', '$tipoBarroso', '$modoBarroso')";
                                             $resultado1 = mysqli_query($conexion, $sql1);
                                         }
 
