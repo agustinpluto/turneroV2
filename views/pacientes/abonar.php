@@ -154,7 +154,7 @@ if ($rol != 2 || empty($id)) {
         </div>
         <main class="form-signin">
             <hr class="col mb-5 w-100">
-            <div class="row  d-flex justify-content-center align-items-center">
+            <div class="row  d-flex flex-row justify-content-center align-items-center">
                 <div class="container-fluid text-center my-2">
 
                 </div>
