@@ -11,7 +11,7 @@ if ($rol != 2 || empty($id)) {
 // SDK de Mercado Pago
 require '../../vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('');
+MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6d34b6fa6820bf0-83722175');
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
@@ -174,9 +174,6 @@ $preference->save();
                     }
                 }
             }
-
-
-
             ?>
 
 
@@ -191,6 +188,8 @@ $preference->save();
             </div>
         </form>
 
+
+        <div class="cho-container"></div>
         <script src="https://sdk.mercadopago.com/js/v2"></script>
         <script>
             const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
