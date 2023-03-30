@@ -119,12 +119,11 @@ if ($rol != 3 || empty($id)) {
       </div>
       <img src="../../logointegra2.png" alt="" style="width:170px">
     </div>
-    <div class="mb-5">
+    <div class="mb-5 d-flex">
       <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
       <div class="mb-3">
-        <label for="" class="form-label">Name</label>
+        <label for="" class="form-label">Buscar por apellido</label>
         <input type="text" class="form-control" name="" id="" aria-describedby="helpId" placeholder="">
-        <small id="helpId" class="form-text text-muted">Help text</small>
       </div>
     </div>
     <hr class="col-3 col-md-2 mb-5">
