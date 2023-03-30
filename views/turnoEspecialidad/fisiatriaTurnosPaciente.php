@@ -152,9 +152,9 @@ if ($rol != 2 || empty($id)) {
 
                         $comprobar_pago = "SELECT * FROM pagos WHERE ID_compra = '$id_compra' AND Estado = 'approved'";
                         $comprobacion = mysqli_query($conexion, $comprobar_pago);
-
+                        echo $comprobar_pago;
                         if ($row = mysqli_fetch_row($comprobacion) > 0) {
-                            
+                            echo "hola";
                             if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                             } else {
