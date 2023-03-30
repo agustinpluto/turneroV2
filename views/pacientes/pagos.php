@@ -168,7 +168,10 @@ if ($rol != 2 || empty($id)) {
                 include "../../database/conexion.php";
 
                 $dni = $_SESSION['dni'];
-                
+                $id_usuario = $_SESSION['id'];
+
+                echo $id_usuario;
+
                 $sql = "SELECT * FROM pagos WHERE ID_paciente = '$dni'";
                 $result = mysqli_query($conexion, $sql);
 
