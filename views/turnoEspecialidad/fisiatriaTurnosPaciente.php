@@ -155,12 +155,12 @@ if ($rol != 2 || empty($id)) {
                     } else {
                         $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
                         $resultado = mysqli_query($conexion, $sql);
+
                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                         $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+
                         $email_medico = getMail($apellido_m, $conexion);
-                        ob_start();
-                        readfile("https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
-                        ob_end_clean();
+                        echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                     }
                 }
             }
