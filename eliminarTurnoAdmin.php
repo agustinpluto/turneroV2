@@ -4,7 +4,8 @@ function eliminar($id_turno)
     include "./database/conexion.php";
     $sql = "DELETE FROM turnos WHERE id = '$id_turno'";
     $result = mysqli_query($conexion, $sql);
-
+    $sql1 = "DELETE FROM turnost WHERE id_turno = '$id_turno'";
+    $result1 = mysqli_query($conexion, $sql1);
 }
 
 session_start();
