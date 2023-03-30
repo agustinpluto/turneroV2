@@ -1,7 +1,7 @@
 <?php
 
 echo '<br>';
-echo '<select name="modoBalsamo" id="modoBalsamo" style="display:none" required>
+echo '<select name="modoBalsamo" id="modoBalsamo" class="form-select form-select-lg mb-4" style="display:none" required>
 <option value="no" selected>Modalidad</option>
 <option value="virtual">Virtual</option>
 <option value="presencial">Presencial</option>
@@ -9,7 +9,7 @@ echo '<select name="modoBalsamo" id="modoBalsamo" style="display:none" required>
 </select>';
 
 echo '<br>';
-echo '<select name="tipoBalsamo" id="tipoBalsamo" style="display:none" required>
+echo '<select name="tipoBalsamo" id="tipoBalsamo" class="form-select form-select-lg mb-4" style="display:none" required>
 <option value="no" selected>Servicio</option>
 <option value="clinica">Clínica de Niños, Adolescentes y Adultos</option>
 <option value="orientacion">Orientación a padres</option>
