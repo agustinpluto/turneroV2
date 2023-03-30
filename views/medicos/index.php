@@ -189,7 +189,7 @@ if ($rol != 3 || empty($id)) {
 
       if (mysqli_num_rows($result) > 0) {
 
-        echo '<br><div class="d-flex">
+        echo '<div class="d-flex">
                             <table class="table table-warning">
                             <thead>
                                 <tr>
