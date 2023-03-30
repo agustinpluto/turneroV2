@@ -97,7 +97,7 @@ $preference->save();
 </head>
 
 <body class="text-center">
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
     <main class="form-signin w-50 m-auto">
 
         <form method="post">
@@ -180,8 +180,8 @@ $preference->save();
 
 
             ?>
-            
             <div class="cho-container"></div>
+            <script src="https://sdk.mercadopago.com/js/v2"></script>
             <script>
                 const mp = new MercadoPago('PUBLIC_KEY', {
                     locale: 'es-AR'
@@ -210,6 +210,7 @@ $preference->save();
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
     </footer>
     </div>
+
     <script>
         var fisiatriaSelect = document.getElementById('fisiatriaSelect');
 
