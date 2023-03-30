@@ -7,42 +7,22 @@ if ($rol != 2 || empty($id)) {
 
     header("location: ../../index.php");
 }
-// SDK de Mercado Pago
+
 require '../../vendor/autoload.php';
 // Agrega credenciales
-$access_token='';
-MercadoPago\SDK::setAccessToken($access_token);
-
+MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
-$preference->back_urls=array(
-   "success"=>"https://turnero-integra.com.ar/correcto.php",
-   "failure"=>"https://turnero-integra.com.ar/fallo.php"
-
-);
-$preference->auto_return = "approved";
-$preference->binary_mode= true;
-
 // Crea un ítem en la preferencia
-$productos = [];
 $item = new MercadoPago\Item();
-$item->title = 'Consulta';
+$item->title = 'Mi producto';
 $item->quantity = 1;
-$item->unit_price = 2000.00;
+$item->unit_price = 75.56;
 $preference->items = array($item);
 $preference->save();
-array_push($productos, $item);
-$item2 = new MercadoPago\Item();
-$item2->title = 'Consulta';
-$item2->quantity = 1;
-$item2->unit_price = 2000.00;
-$preference->items = array($item2);
-$preference->save();
-array_push($productos, $item2);
+?>
 
-$preference->items=$productos;
-$preference->save();
 
 ?>
 
