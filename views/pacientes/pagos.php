@@ -179,21 +179,29 @@ if ($rol != 2 || empty($id)) {
                             <thead>
                                 <tr>
                                     <th>ID</th>
+                                    <th>ID del Pago</th>
+                                    <th>ID de la Orden</th>
                                     <th>Estado</th>
                                     <th>ID Turno</th>
+                                    <th>Fecha/Hora</th>
                                     
                                 </tr>
                             </thead>
                             <tbody>';
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['id'];
+                        $id_pago = $row['id_pago'];
+                        $id_orden = $row['id_orden'];
                         $estado = $row['estado'];
-                        $id_turno = $row['id_turno'];
+                        $fecha_hora = $row['fecha_hora'];
 
                         echo '<tr>    
                                 <td>' .$id.'</td>
+                                <td>' .$id_pago.'</td>
+                                <td>' .$id_orden.'</td>
                                 <td> ' . $estado . ' </td>
                                 <td> ' . $id_turno . ' </td>
+                                <td> ' . $fecha_hora . ' </td>
                                 
                             </tr>';
                     }
@@ -203,7 +211,7 @@ if ($rol != 2 || empty($id)) {
                     mysqli_close($conexion);
                 } else {
                     echo '<br><div class="alert alert-warning" role="alert">
-                                <strong>¡</strong> No tenes turnos registrados <strong>!</strong> 
+                                <strong>¡</strong> No tenes pagos registrados <strong>!</strong> 
                             </div>';
                 }
                 ?>
