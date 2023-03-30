@@ -169,15 +169,15 @@ if ($rol != 2 || empty($id)) {
 
         echo '<form method="POST">
                 <p>Nombre<p>
-                <input type="text" name="nombre" id="" value="' . $nombre . '">
+                <input type="text" class="form-control" name="nombre" id="" value="' . $nombre . '">
                 <p>Apellido<p>
-                <input type="text" name="apellido" id="" value="' . $apellido . '">
+                <input type="text" class="form-control" name="apellido" id="" value="' . $apellido . '">
                 <p>DNI<p>
-                <input type="text" name="dni" id="" value="' . $dni . '" disabled>
+                <input type="text" class="form-control" name="dni" id="" value="' . $dni . '" disabled>
                 <p>Como quiero que me llamen<p>
-                <input type="text" name="apodo" id="" value="' . $apodo . '">
+                <input type="text" class="form-control" name="apodo" id="" value="' . $apodo . '">
                 <p>Celular/Teléfono<p>
-                <input type="text" name="celular" id="" value="' . $celular . '">
+                <input type="text" class="form-control" name="celular" id="" value="' . $celular . '">
                 <input type="submit" value="Cambiar datos">
 
             </form>';
