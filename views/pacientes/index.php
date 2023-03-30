@@ -2,10 +2,17 @@
 session_start();
 $id = $_SESSION["id"];
 $rol = $_SESSION["rol"];
-if ($rol != 2 || empty($id)) {
 
+if ($rol == 3) {
+  header("location: ../medicos/index.php");
+} elseif ($rol == 2){
+  header("location: ../pacientes/index.php");
+} elseif ($rol == 1){
+  header("location: ../administrador/index.php");
+} elseif ($rol != 1 || $rol !=2 || $rol !=3){
   header("location: ../../index.php");
 }
+
 
 ?>
 
