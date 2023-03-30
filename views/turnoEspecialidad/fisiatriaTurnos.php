@@ -161,7 +161,7 @@ if (empty($id)) {
                         $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                         $email_medico = getMail($apellido_m, $conexion);
                         ob_start();
-                        readfile("https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
+                        readfile("https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                         ob_end_clean();
                     }
                 }

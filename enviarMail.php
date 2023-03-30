@@ -182,6 +182,7 @@ function mail_me($to, $subject, $message)
       <div class="row g-5">
         
             Turno agendado
+            <a href="./index.php">Inicio</a>
         
       </div>
 

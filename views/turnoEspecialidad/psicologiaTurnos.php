@@ -184,7 +184,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
                                 }
                             }
                         } elseif ($apellido_medico == "Cano") {
@@ -201,7 +201,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
                                 }
                             }
                         } elseif ($apellido_medico == "Gonzalez") {
@@ -218,7 +218,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
                                 }
                             } elseif ($dia_de_la_semana == 'Wednesday') {
 
@@ -231,7 +231,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
                                 }
                             }
                         } elseif ($apellido_medico == "Molina") {
@@ -247,7 +247,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
                                 }
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesMolinaSelect'];
@@ -259,7 +259,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
                                 }
                             }
                         } elseif ($apellido_medico == "Herrera") {
@@ -275,7 +275,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $meircoles . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $meircoles . "'</script>";
                                 }
                             } elseif ($dia_de_la_semana == 'Tuesday') {
                                 $martes = $_POST['horariosMartesHerreraSelect'];
@@ -287,7 +287,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
                                 }
                             }
                         } elseif ($apellido_medico == "Paradelo") {
@@ -303,7 +303,7 @@ if (empty($id)) {
                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                     $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                     $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $mierdoles . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $mierdoles . "'</script>";
                                 }
                             }
                         }
