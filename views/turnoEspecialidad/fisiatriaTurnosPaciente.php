@@ -98,22 +98,24 @@ $preference->save();
 
     <main class="form-signin w-50 m-auto">
 
-        <script src="https://sdk.mercadopago.com/js/v2"></script>
-        <script>
-            const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
-                locale: 'es-AR'
-            });
+        <form action="">
+            <script src="https://sdk.mercadopago.com/js/v2"></script>
+            <script>
+                const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
+                    locale: 'es-AR'
+                });
 
-            mp.checkout({
-                preference: {
-                    id: '<?php echo $preference->id; ?>'
-                },
-                render: {
-                    container: '.cho-container',
-                    label: 'Abonar turno',
-                }
-            });
-        </script>
+                mp.checkout({
+                    preference: {
+                        id: '<?php echo $preference->id; ?>'
+                    },
+                    render: {
+                        container: '.cho-container',
+                        label: 'Abonar turno',
+                    }
+                });
+            </script>
+        </form>
 
 
         <form method="post" class="mt-2">
