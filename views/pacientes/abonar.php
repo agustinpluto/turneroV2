@@ -158,12 +158,12 @@ if ($rol != 2 || empty($id)) {
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col">
+                            <h5>Es necesario abonar el 50% para poder agendar un turno</h5>
                             <div class="card m-1">
                                 <a href="./abonarEvaluacion.php" class="card-body">
                                     <h3 class="card-title">Señar consulta</h3>
-                                    <p class="card-text">Necesario para agendar su turno.</p>
-                                    <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
-                                    <p class="card-text">$2000.</p>
+                                    
+                                    <p class="card-text">$2000</p>
                                     <p class="card-text">Débito / Crédito</p>
                                 </a>
                             </div>
@@ -172,9 +172,8 @@ if ($rol != 2 || empty($id)) {
                             <div class="card m-1">
                                 <a href="./abonarEvaluacion.php" class="card-body">
                                     <h3 class="card-title">Señar evaluación</h3>
-                                    <p class="card-text">Necesario para agendar su turno.</p>
-                                    <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
-                                    <p class="card-text">$7500.</p>
+                                    
+                                    <p class="card-text">$7500</p>
                                     <p class="card-text">Débito / Crédito</p>
                                 </a>
                             </div>
