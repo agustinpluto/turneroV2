@@ -1,6 +1,22 @@
 <?php
 
-echo '<select name="diasJuarezSelect" id="diasJuarezSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option>';
+echo '<select name="diasJuarezSelect" id="diasJuarezSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option><br>';
+
+echo '<br>';
+echo '<select name="modoJuarez" id="modoJuarez" class="form-select form-select-lg mb-4" style="display:none" required>
+<option value="no" selected>Modalidad</option>
+<option value="virtual">Virtual</option>
+<option value="presencial">Presencial</option>
+</select>';
+
+echo '<select name="tipoJuarez" id="tipoJuarez" class="form-select form-select-lg mb-4" style="display:none" required>
+<option value="no" selected>Servicio</option>
+<option value="pilates">Pilates Adaptado</option>
+<option value="intervencion">Intervención - (Evaluación y Tratamiento)</option>
+<option value="neurorehabilitacion">Neurorehabilitación en Niños y Adultos</option>
+
+</select>';
+
 
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();

@@ -158,49 +158,75 @@ if ($rol != 2 || empty($id)) {
                         while ($row = mysqli_fetch_assoc($comprobacion)) {
                             $estado = $row['Estado'];
                         }
-    
+
                         if ($estado == 'approved') {
                             $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
                             $actualizacion = mysqli_query($conexion, $sql_actualizar);
 
-                        $apellido_medico = $_POST['psiquiatriaSelect'];
-                        $apellido_m = getMatricula($apellido_medico, $conexion);
+                            $apellido_medico = $_POST['psiquiatriaSelect'];
+                            $apellido_m = getMatricula($apellido_medico, $conexion);
 
-                        if ($apellido_medico == "Castelari") {
-                            $fecha = $_POST["diasCastelariSelect"];
-                            $dia_de_la_semana = date("l", strtotime($fecha));
-                            if ($dia_de_la_semana == 'Wednesday') {
-                                $miercoles = $_POST['horariosMiercolesCastelariSelect'];
-                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                                } else {
-                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                    $resultado = mysqli_query($conexion, $sql);
-                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                    $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+                            if ($apellido_medico == "Castelari") {
+                                $fecha = $_POST["diasCastelariSelect"];
+                                $dia_de_la_semana = date("l", strtotime($fecha));
+                                $tipoBalsamo = $_POST['tipoCastelari'];
+                                $modoBalsamo = $_POST['modoCastelari'];
+                                if ($dia_de_la_semana == 'Wednesday') {
+                                    $miercoles = $_POST['horariosMiercolesCastelariSelect'];
+                                    if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                        echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                    } else {
+                                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                        $resultado = mysqli_query($conexion, $sql);
+
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
+                                        $buscarId = mysqli_query($conexion, $sql_id);
+                                        while ($row = mysqli_fetch_assoc($buscarId)) {
+                                            $id_turno = $row['id'];
+                                        }
+
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $resultado1 = mysqli_query($conexion, $sql1);
+
+                                        $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                        $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                        $email_medico = getMail($apellido_m, $conexion);
+                                        echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+                                    }
                                 }
-                            }
-                        } elseif ($apellido_medico == "Reynolds") {
-                            $fecha = $_POST["diasReynoldsSelect"];
-                            $dia_de_la_semana = date("l", strtotime($fecha));
-                            if ($dia_de_la_semana == 'Tuesday') {
-                                $martes = $_POST['horariosMartesReynoldsSelect'];
-                                if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                                } else {
-                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                    $resultado = mysqli_query($conexion, $sql);
-                                     $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                    $email_medico = getMail($apellido_m, $conexion);
-                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                            } elseif ($apellido_medico == "Reynolds") {
+                                $fecha = $_POST["diasReynoldsSelect"];
+                                $dia_de_la_semana = date("l", strtotime($fecha));
+                                $tipoBalsamo = $_POST['tipoReynolds'];
+                                $modoBalsamo = $_POST['modoReynolds'];
+                                if ($dia_de_la_semana == 'Tuesday') {
+                                    $martes = $_POST['horariosMartesReynoldsSelect'];
+                                    if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                                        echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                    } else {
+                                        $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                                        $resultado = mysqli_query($conexion, $sql);
+
+
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
+                                        $buscarId = mysqli_query($conexion, $sql_id);
+                                        while ($row = mysqli_fetch_assoc($buscarId)) {
+                                            $id_turno = $row['id'];
+                                        }
+
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $resultado1 = mysqli_query($conexion, $sql1);
+
+                                        $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                        $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                        $email_medico = getMail($apellido_m, $conexion);
+                                        echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                                    }
                                 }
                             }
                         }
                     }
-                }}
+                }
 
                 ?>
                 <div class="container-fluid d-flex justify-content-center align-items-center flex-column">

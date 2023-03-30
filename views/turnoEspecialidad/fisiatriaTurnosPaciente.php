@@ -149,6 +149,9 @@ if ($rol != 2 || empty($id)) {
 
                         $dia_seleccionado = $_POST['diasMichelloudSelect'];
 
+                        $modoBalsamo = $_POST["modoBalsamo"];
+                        $tipoBalsamo = $_POST["tipoBalsamo"]; 
+
                         $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
 
                         $timeObj = date("H:i:s", strtotime($horario_seleccionado));
@@ -157,17 +160,27 @@ if ($rol != 2 || empty($id)) {
                         $apellido_p = getApellidoPaciente($dni, $conexion);
                         $apellido_m = getMatricula($apellido_medico, $conexion);
 
+
                         if (repetido($conexion, $apellido_m, $dateObj, $timeObj)) {
                             echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                         } else {
                             $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
                             $resultado = mysqli_query($conexion, $sql);
 
+                            $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
+                            $buscarId = mysqli_query($conexion, $sql_id);
+                            while ($row = mysqli_fetch_assoc($buscarId)) {
+                                $id_turno = $row['id'];
+                            }
+
+                            $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                            $resultado1 = mysqli_query($conexion, $sql1);
+
                             $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                             $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
 
                             $email_medico = getMail($apellido_m, $conexion);
-                            // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
+                            echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                         }
                     } else {
                         if ($estado == 'USADO'){

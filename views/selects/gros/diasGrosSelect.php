@@ -1,6 +1,23 @@
 <?php
 
 echo '<select name="diasGrosSelect" id="diasGrosSelect" class="form-select form-select-lg mb-4" style="display:none" style="display:none"><option value="no">Dia</option>';
+
+echo '<br>';
+echo '<select name="modoGros" id="modoGros" class="form-select form-select-lg mb-4" style="display:none" required>
+<option value="no" selected>Modalidad</option>
+<option value="virtual">Virtual</option>
+<option value="presencial">Presencial</option>
+</select>';
+
+echo '<select name="tipoGros" id="tipoGros" class="form-select form-select-lg mb-4" style="display:none" required>
+<option value="no" selected>Servicio</option>
+<option value="consulta">Consulta Presencial</option>
+<option value="postural">Re-Educación Postural</option>
+<option value="ktr">Kinesio Respiratoria(KTR)</option>
+
+
+</select>';
+
 setlocale(LC_TIME, "es_AR.UTF-8");
 $fecha_actual = time();
 $fecha_limite = strtotime('+1 month', $fecha_actual);
