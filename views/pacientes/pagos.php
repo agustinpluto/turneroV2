@@ -167,13 +167,10 @@ if ($rol != 2 || empty($id)) {
                 <?php
                 include "../../database/conexion.php";
 
-                $dni = $_SESSION['dni'];
+                
                 $id_usuario = $_SESSION['id'];
 
-                echo $id_usuario;
-                
-
-                $sql = "SELECT * FROM pagos WHERE ID_paciente = '$dni'";
+                $sql = "SELECT * FROM pagos WHERE ID_paciente = '$id_usuario'";
                 $result = mysqli_query($conexion, $sql);
 
                 if (mysqli_num_rows($result) > 0) {
@@ -205,7 +202,6 @@ if ($rol != 2 || empty($id)) {
                                 <td>' .$id_pago.'</td>
                                 <td>' .$id_orden.'</td>
                                 <td> ' . $estado . ' </td>
-                                
                                 <td> ' . $fecha_hora . ' </td>
                                 
                             </tr>';
