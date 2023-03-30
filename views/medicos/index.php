@@ -187,7 +187,8 @@ if ($rol != 3 || empty($id)) {
           $id_turno = $row['id'];
           $nombre = strtoupper(traerNombrePaciente($row['paciente']));
           $apellido = strtoupper(traerApellidoPaciente($row['paciente']));
-
+          $fecha = $row['fecha'];
+          $hora = $row['hora'];
           $sql_turno = "SELECT * FROM turnost WHERE id_turno = '$id_turno'";
           $result1 = mysqli_query($conexion, $sql_turno);
           while ($row = mysqli_fetch_assoc($result1)) {
@@ -196,8 +197,8 @@ if ($rol != 3 || empty($id)) {
                 <td>' .  $apellido . ', ' . $nombre . '</td>
                 <td>' .  strtoupper($row['modo']) . '</td>
                 <td>' .  strtoupper($row['tipo']) . '</td>
-                <td> ' . $row['fecha'] . ' </td>
-                <td> ' . $row['hora'] . ' </td>
+                <td> ' . $fecha . ' </td>
+                <td> ' . $hora . ' </td>
 
             </tr>';
           }
