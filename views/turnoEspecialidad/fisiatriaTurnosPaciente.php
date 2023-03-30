@@ -9,7 +9,7 @@ if ($rol != 2 || empty($id)) {
 }
 
 // SDK de Mercado Pago
-require __DIR__ .  '../../vendor/autoload.php';
+require '../../'.__DIR__ .  '/vendor/autoload.php';
 // Agrega credenciales
 MercadoPago\SDK::setAccessToken('');
 // Crea un objeto de preferencia
