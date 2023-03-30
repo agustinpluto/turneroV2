@@ -184,25 +184,28 @@ if ($rol != 2 || empty($id)) {
                             } else {
                                 $tipo = $_POST['tipoBalsamo'];
                                 $modo = $_POST['modoBalsamo'];
+
                                 $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
                                 $resultado = mysqli_query($conexion, $sql);
+
                                 $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+
                                 $email_medico = getMail($apellido_m, $conexion);
-                                $sql1 = "SELECT * FROM turnos WHERE paciente='$dni' AND medico = '$apellido_m' AND fecha='$fecha'";
+
+                                $sql1 = "SELECT * FROM turnos WHERE paciente ='$dni' AND hora = '$jueves' AND fecha='$fecha'";
                                 $resultado1 = mysqli_query($conexion, $sql1);
+
                                 while ($row = mysqli_fetch_assoc($resultado1)) {
                                     $id_turno = $row['id'];
-                                    $sql2 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES ('$id_turno', '$tipo', '$modo')";
-                                    $resultado2 = mysqli_query($conexion, $sql2);
                                 }
+                                $sql2 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES ('$id_turno', '$tipo', '$modo')";
+                                $resultado2 = mysqli_query($conexion, $sql2);
 
-                                
 
                                 echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
                             }
                         }
-
                     } elseif ($apellido_medico == "Cano") {
                         $fecha = $_POST["diasCanoSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
@@ -220,7 +223,6 @@ if ($rol != 2 || empty($id)) {
                                 echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
                             }
                         }
-
                     } elseif ($apellido_medico == "Gonzalez") {
                         $fecha = $_POST["diasGonzalezSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
@@ -251,7 +253,6 @@ if ($rol != 2 || empty($id)) {
                                 echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
                             }
                         }
-                        
                     } elseif ($apellido_medico == "Molina") {
                         $fecha = $_POST["diasMolinaSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
@@ -280,7 +281,6 @@ if ($rol != 2 || empty($id)) {
                                 echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
                             }
                         }
-
                     } elseif ($apellido_medico == "Herrera") {
                         $fecha = $_POST["diasHerreraSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
@@ -309,7 +309,6 @@ if ($rol != 2 || empty($id)) {
                                 echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=agustinpluto@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
                             }
                         }
-
                     } elseif ($apellido_medico == "Paradelo") {
                         $fecha = $_POST["diasParadeloSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
