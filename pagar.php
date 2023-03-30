@@ -170,7 +170,7 @@ $resultado = mysqli_query($conexion, $sql);
                             <h3 class="card-title text-center">DATOS DE LA TRANSACCIÓN</h3>
                             <H5 class="card-title text-center"><strong><code><?php echo 'ID de Pago: ' . $payment ?></code></strong></H5>
                             <H5 class="card-title text-center"><strong><code><?php echo 'ID de Orden: ' . $order_id ?></code></strong></H5>
-                            <p class="card-text text-center">No se olvide de copiar el ID DE PAGO, lo podra ver nuevamente en la sección "Mis Pagos".</p>
+                            <p class="card-text text-center">No se olvide de copiar el ID DE PAGO, lo podrá ver nuevamente en la sección "Mis Pagos".</p>
                         </div>
                     </div>
                 </div>
