@@ -177,7 +177,7 @@ if ($rol != 2 || empty($id)) {
 
 
       </div>
-      <hr class="col-2 col-md-2 mb-5">
+      <hr class="col-2 col-md-2 mb-5 w-100">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
           <div class="container-fluid d-flex flex-column justify-content-center align-items-center p-4 mb-4" style="background-color: #90559730">
