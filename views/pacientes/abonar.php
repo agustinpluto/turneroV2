@@ -142,13 +142,13 @@ if ($rol != 2 || empty($id)) {
             </div>
         </div>
 
-        <div class="container-fluid col-md-3 col-sm-1">
-            <div class="text-center col-md-3 col-sm-1">
-                <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
-                <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
-                <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
-                <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
-                <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
+        <div class="container-fluid d-flex flex-columncol-md-3 ">
+            <div class="text-center col-md-3 ">
+                <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 w-100 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
+                <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 w-100 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
+                <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 w-100 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
+                <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 w-100 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
+                <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 w-100 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
                 <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
             </div>
         </div>
