@@ -208,7 +208,7 @@ if ($rol != 3 || empty($id)) {
             // Paso 5: cerrar la conexión
             mysqli_close($conexion);
           } else {
-            echo '<br><div class="alert alert-warning" role="alert">
+            echo '<br><div class="alert alert-warning text-center" role="alert">
                                 <strong>¡</strong> No tenes turnos registrados <strong>!</strong> 
                             </div>';
           }
