@@ -155,13 +155,13 @@ if ($rol != 1 || empty($id)) {
           </form>
           <?php
           include "../../database/conexion.php";
-          echo '<div class="container-fluid d-flex flex-row justify-content-center align-items-center">';
+
           if (isset($_GET['button'])) {
             $busqueda = $_GET['busqueda'];
             $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
             while ($row = $consulta->fetch_array()) {
 
-              echo '<div class="container-fluid">';
+              echo '<div class="container-fluid justify-content-center align-items-center">';
               echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
               echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
               echo 'DNI:   ' . $row['dni'] . '<br>';
@@ -170,7 +170,7 @@ if ($rol != 1 || empty($id)) {
               echo '</div>';
             }
           }
-          echo '</div>';
+
           ?>
         </div>
         <div class="col">
