@@ -158,8 +158,6 @@ if ($rol != 2 || empty($id)) {
         while ($row = mysqli_fetch_assoc($resultado)) {
           $celular = $row['celular'];
           $apodo = $row['apodo'];
-          $obra = $row['obra'];
-          var_dump($obra);
           if ($apodo == null || $celular == null) {
 
             echo "<div class='alert alert-warning'>
