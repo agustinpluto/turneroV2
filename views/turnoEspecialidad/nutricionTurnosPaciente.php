@@ -147,7 +147,7 @@ if ($rol != 2 || empty($id)) {
                     if ($apellido_medico = "Cacciavillani") {
                         $fecha = $_POST["diasCacciavillaniSelect"];
                         $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Monday') {
+                        if ($dia_de_la_semana == 'Tuesday') {
                             $lunes = $_POST['horariosCacciavillaniSelect'];
                             if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
                                 echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
