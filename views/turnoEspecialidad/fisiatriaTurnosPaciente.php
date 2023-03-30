@@ -7,6 +7,21 @@ if ($rol != 2 || empty($id)) {
 
     header("location: ../../index.php");
 }
+// SDK de Mercado Pago
+require __DIR__ .  '/vendor/autoload.php';
+// Agrega credenciales
+MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
+
+// Crea un objeto de preferencia
+$preference = new MercadoPago\Preference();
+
+// Crea un ítem en la preferencia
+$item = new MercadoPago\Item();
+$item->title = 'Consulta';
+$item->quantity = 1;
+$item->unit_price = 4000.00;
+$preference->items = array($item);
+$preference->save();
 
 ?>
 
@@ -25,6 +40,7 @@ if ($rol != 2 || empty($id)) {
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -137,7 +153,7 @@ if ($rol != 2 || empty($id)) {
                         $apellido_medico = $_POST['fisiatriaSelect'];
                         $dia_seleccionado = $_POST['diasMichelloudSelect'];
                         $horario_seleccionado = $_POST['horariosMiercolesMichelloudSelect'];
-                        
+
                         $timeObj = date("H:i:s", strtotime($horario_seleccionado));
                         $dateObj = date("Y:m:d", strtotime($dia_seleccionado));
                         $apellido_p = getApellidoPaciente($dni, $conexion);
@@ -149,13 +165,13 @@ if ($rol != 2 || empty($id)) {
                             $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$dateObj', '$timeObj')";
                             $sql2 = "SELECT * FROM medicos WHERE matricula = '$apellido_m'";
                             $resultado = mysqli_query($conexion, $sql);
-                            
+
                             $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                             $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                             $email_medico = getMail($apellido_m, $conexion);
 
 
-                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=".$nombre_paciente.", ".$apellido_paciente."&fecha=".$dateObj."&hora=".$timeObj."");
+                            header("location: https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "");
                         }
                     }
                 }
@@ -164,6 +180,23 @@ if ($rol != 2 || empty($id)) {
 
 
             ?>
+            
+            <div class="cho-container"></div>
+            <script>
+                const mp = new MercadoPago('PUBLIC_KEY', {
+                    locale: 'es-AR'
+                });
+
+                mp.checkout({
+                    preference: {
+                        id: 'YOUR_PREFERENCE_ID'
+                    },
+                    render: {
+                        container: '.cho-container',
+                        label: 'Pagar',
+                    }
+                });
+            </script>
 
 
 
