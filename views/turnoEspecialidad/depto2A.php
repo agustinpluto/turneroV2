@@ -114,13 +114,11 @@ if (empty($id)) {
 
             <?php
             if (isset($_POST['botonRegistro'])) {
-               
-                if (isset($_POST['botonRegistro'])) {
+               include "../../database/conexion.php";
 
                     $sql = "INSERT INTO turnosd (paciente, departamento, fecha, hora) VALUES('$dni', '2')";
                     $resultado = mysqli_query($conexion, $sql);
     
-                }
     
             }
 
