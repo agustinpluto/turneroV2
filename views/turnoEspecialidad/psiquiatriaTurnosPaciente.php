@@ -169,8 +169,8 @@ if ($rol != 2 || empty($id)) {
                             if ($apellido_medico == "Castelari") {
                                 $fecha = $_POST["diasCastelariSelect"];
                                 $dia_de_la_semana = date("l", strtotime($fecha));
-                                $tipoBalsamo = $_POST['tipoCastelari'];
-                                $modoBalsamo = $_POST['modoCastelari'];
+                                $tipoCastelari = $_POST['tipoCastelari'];
+                                $modoCastelari = $_POST['modoCastelari'];
                                 if ($dia_de_la_semana == 'Wednesday') {
                                     $miercoles = $_POST['horariosMiercolesCastelariSelect'];
                                     if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
@@ -179,13 +179,13 @@ if ($rol != 2 || empty($id)) {
                                         $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
                                         $resultado = mysqli_query($conexion, $sql);
 
-                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$fecha' AND hora='$miercoles'";
                                         $buscarId = mysqli_query($conexion, $sql_id);
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
                                         }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoCastelari', '$modoCastelari')";
                                         $resultado1 = mysqli_query($conexion, $sql1);
 
                                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
@@ -197,8 +197,8 @@ if ($rol != 2 || empty($id)) {
                             } elseif ($apellido_medico == "Reynolds") {
                                 $fecha = $_POST["diasReynoldsSelect"];
                                 $dia_de_la_semana = date("l", strtotime($fecha));
-                                $tipoBalsamo = $_POST['tipoReynolds'];
-                                $modoBalsamo = $_POST['modoReynolds'];
+                                $tipoReynolds = $_POST['tipoReynolds'];
+                                $modoReynolds = $_POST['modoReynolds'];
                                 if ($dia_de_la_semana == 'Tuesday') {
                                     $martes = $_POST['horariosMartesReynoldsSelect'];
                                     if (repetido($conexion, $apellido_m, $fecha, $martes)) {
@@ -208,13 +208,13 @@ if ($rol != 2 || empty($id)) {
                                         $resultado = mysqli_query($conexion, $sql);
 
 
-                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
+                                        $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$fecha' AND hora='$martes'";
                                         $buscarId = mysqli_query($conexion, $sql_id);
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
                                         }
 
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBalsamo', '$modoBalsamo')";
+                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoReynolds', '$modoReynolds')";
                                         $resultado1 = mysqli_query($conexion, $sql1);
 
                                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
