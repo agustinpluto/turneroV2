@@ -159,15 +159,17 @@ if ($rol != 1 || empty($id)) {
           if (isset($_GET['button'])) {
             $busqueda = $_GET['busqueda'];
             $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
-            echo '<div class="container-fluid justify-content-center align-items-center">';
+            
             while ($row = $consulta->fetch_array()) {
+              echo '<div class="container-fluid justify-content-center align-items-center">';
               echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
               echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
               echo 'DNI:   ' . $row['dni'] . '<br>';
               echo 'Quiero que me llamen:   ' . $row['apodo'] . '<br>';
               echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
+              echo '</div>';
             }
-            echo '</div>';
+            
           }
 
           ?>
