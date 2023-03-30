@@ -159,19 +159,19 @@ if ($rol != 2 || empty($id)) {
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
+                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center" style="background-color: #90559730">
                         
                             <a href="./abonarEvaluacion.php" class="container p-2 m-1" style="background-color: #90559730">
-                                <h3 class="card-title text-center">Señar Consulta</h3>
-                                <p class="card-text text-center">$2000</p>
-                                <p class="card-text text-center">Débito / Crédito</p>
+                                <h3 class="card-title text-center" style="background-color: #90559730">Señar Consulta</h3>
+                                <p class="card-text text-center" style="background-color: #90559730">$2000</p>
+                                <p class="card-text text-center" style="background-color: #90559730">Débito / Crédito</p>
                             </a>
                     </div>
-                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
+                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center" style="background-color: #90559730">
                             <a href="./abonarEvaluacion.php" class="container p-2 m-1" style="background-color: #90559730">
-                                <h3 class="card-title text-center">Señar Evaluación</h3>
-                                <p class="card-text text-center">$7500</p>
-                                <p class="card-text text-center">Débito / Crédito</p>
+                                <h3 class="card-title text-center" style="background-color: #90559730">Señar Evaluación</h3>
+                                <p class="card-text text-center" style="background-color: #90559730">$7500</p>
+                                <p class="card-text text-center" style="background-color: #90559730">Débito / Crédito</p>
                             </a>
                 </div>
             </div>
