@@ -190,10 +190,11 @@ if ($rol != 2 || empty($id)) {
                                 $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
                                 $email_medico = getMail($apellido_m, $conexion);
                                 $sql1 = "SELECT * FROM turnos WHERE paciente='$dni' AND medico = '$apellido_m' AND fecha='$fecha'";
-                                $resultado1 = mysqli_query($conexion, $sql);
+                                $resultado1 = mysqli_query($conexion, $sql1);
                                 while ($row = mysqli_fetch_assoc($resultado1)) {
                                     $id_turno = $row['id'];
                                     $sql2 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES ('$id_turno', '$tipo', '$modo')";
+                                    $resultado2 = mysqli_query($conexion, $sql2);
                                 }
 
                                 
