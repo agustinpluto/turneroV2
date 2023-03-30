@@ -1,9 +1,4 @@
 <?php
-
-session_start();
-
-?>
-<?php
 session_start();
 $id = $_SESSION["id"];
 $rol = $_SESSION["rol"];
