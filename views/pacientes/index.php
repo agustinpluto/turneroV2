@@ -158,16 +158,20 @@ if ($rol != 2 || empty($id)) {
         while ($row = mysqli_fetch_assoc($resultado)) {
           $celular = $row['celular'];
           $apodo = $row['apodo'];
-          var_dump($apodo);
-          var_dump($celular);
+
           if ($apodo == null || $celular == null) {
 
-            echo "Por favor termina de completar tus datos en la sección Mis datos, queremos saber tu celular y como queres que nos dirijamos hacia vos :)";
+            echo "<div class='alert alert-danger'>
+            <strong>Por favor, terminá de completar tus datos, nos encantaría saber como te gusta que se dirijan hacia vos!</strong>
+          </div>";
           }
         }
 
 
         ?>
+
+
+
       </div>
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
