@@ -211,7 +211,7 @@ if ($rol != 2 || empty($id)) {
                     // Paso 5: cerrar la conexión
                     mysqli_close($conexion);
                 } else {
-                    echo '<br><div class="alert alert-warning" role="alert">
+                    echo '<br><div class="alert alert-warning text-center" role="alert">
                                 <strong>¡</strong> No tenes pagos registrados <strong>!</strong> 
                             </div>';
                 }
