@@ -8,35 +8,7 @@ if ($rol != 2 || empty($id)) {
     header("location: ../../index.php");
 }
 
-// SDK de Mercado Pago
-require '../../vendor/autoload.php';
-// Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6d34b6fa6820bf0-83722175');
-// Crea un objeto de preferencia
-$preference = new MercadoPago\Preference();
 
-$preference->back_urls=array(
-    "success" => "https://turnero-integra.com.ar/pagar.php",
-    "failure" => "https://turnero-integra.com.ar/fallo.php"
-);
-
-$preference->auto_return = "approved";
-
-
-# Crea ítems en la preferencia
-$item1 = new MercadoPago\Item;
-$item1->title = "Item de Prueba 1";
-$item1->quantity = 2;
-$item1->unit_price = 11.96;
-
-$item2= new MercadoPago\Item;
-$item2->title = "Item de Prueba 2";
-$item2->quantity = 1;
-$item2->unit_price = 11.96;
-
-$preference->items = array($item1,$item2);
-# Guardar y postear la preferencia
-$preference->save();
 
 ?>
 
@@ -54,7 +26,7 @@ $preference->save();
     <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/starter-template/">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <script src="../js/bootstrap.min.js"></script>
-    <script src="https://sdk.mercadopago.com/js/v2"></script>
+
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -205,29 +177,13 @@ $preference->save();
         </form>
 
         <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-            
+
             <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-            <div class="cho-container btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
-         
+
+
         </div>
-        
-        <script>
-            const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
-                locale: 'es-AR'
-            });
 
-            mp.checkout({
-                preference: {
-                    id: '<?php echo $preference->id; ?>'
-                },
-                render: {
-                    container: '.cho-container',
-                    label: 'Abonar consulta 50%',
-                }
-            });
 
-            
-        </script>
 
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
