@@ -128,8 +128,8 @@ if ($rol != 3 || empty($id)) {
     <div class="row g-5 d-flex">
 
       <form method="get">
-        <input class="form-controls" name="busqueda" placeholder="Buscar por apellido" type="text">
-        <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar">
+        <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
+        <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
       </form>
 
       <?php
