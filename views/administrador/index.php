@@ -5,7 +5,7 @@ $rol = $_SESSION["rol"];
 
 if ($rol != 1 || empty($id)) {
   header("location: ../../index.php");
-} 
+}
 
 ?>
 
@@ -131,15 +131,15 @@ if ($rol != 1 || empty($id)) {
 
 
     <main>
-    <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
-                <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
-                    <h1 class="m-2">TURNOS INTEGRA</h1>
-                    <p>Centro de Rehabilitación Integral</p>
-                </div>
-                <div class="container-fluid d-flex justify-content-end">
-                <img src="../../logointegra2.png" alt="" style="width:250px">
-                </div>
-            </div>
+      <div class="container-fluid d-flex justify-content-center align-items-center flex-row">
+        <div class="container-fluid d-flex flex-column px-2 justify-content-center align-items-center" style="background-color: #90559730">
+          <h1 class="m-2">TURNOS INTEGRA</h1>
+          <p>Centro de Rehabilitación Integral</p>
+        </div>
+        <div class="container-fluid d-flex justify-content-end">
+          <img src="../../logointegra2.png" alt="" style="width:250px">
+        </div>
+      </div>
 
       <div class="mb-5">
         <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
@@ -149,7 +149,30 @@ if ($rol != 1 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row g-5 d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center mt-5">
-          
+          <form method="get">
+            <input class="form-controls" name="busqueda" placeholder="Apellido del paciente" type="text">
+            <input class="btn btn-warning m-1" type="submit" name="button" value="Buscar datos">
+          </form>
+          <?php
+          include "../../database/conexion.php";
+
+          if (isset($_GET['button'])) {
+            $busqueda = $_GET['busqueda'];
+            $consulta = $conexion->query("SELECT * FROM pacientes WHERE apellido LIKE '%$busqueda'");
+            while ($row = $consulta->fetch_array()) {
+              echo'<div class="container-fluid d-flex">';
+              echo '<div class="container-fluid"></div>';
+              echo '<div class="container-fluid">';
+              echo 'Nombre:   ' . strtoupper($row['nombre']) . '<br>';
+              echo 'Apellido:   ' . strtoupper($row['apellido']) . '<br>';
+              echo 'DNI:   ' . $row['dni'] . '<br>';
+              echo 'Quiero que me llamen:   ' . $row['apodo'] . '<br>';
+              echo 'Celular/Teléfono:   ' . $row['celular'] . '<br>';
+              echo '</div>';
+              echo'</div>';
+            }
+          }
+          ?>
         </div>
         <div class="col">
           <div class="row">
