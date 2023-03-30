@@ -19,17 +19,24 @@ $preference->back_urls=array(
     "success" => "https://turnero-integra.com.ar/pagar.php",
     "failure" => "https://turnero-integra.com.ar/fallo.php"
 );
- 
-$preference->auto_return = "approved";
-// Crea un ítem en la preferencia
-$item = new MercadoPago\Item();
-$item->title = 'Consulta';
-$item->quantity = 1;
-$item->unit_price = 2000;
-$preference->items = array($item);
-$preference->purpose = 'services';
-$preference->save();
 
+$preference->auto_return = "approved";
+
+
+# Crea ítems en la preferencia
+$item1 = new MercadoPago\Item;
+$item1->title = "Item de Prueba 1";
+$item1->quantity = 2;
+$item1->unit_price = 11.96;
+
+$item2= new MercadoPago\Item;
+$item2->title = "Item de Prueba 2";
+$item2->quantity = 1;
+$item2->unit_price = 11.96;
+
+$preference->items = array($item1,$item2);
+# Guardar y postear la preferencia
+$preference->save();
 
 ?>
 
