@@ -159,6 +159,7 @@ if ($rol != 2 || empty($id)) {
                     <div class="row">
                     <div class="container-fluid d-flex justify-content-center align-items-center">
                     <h5>Es necesario abonar el 50% para poder agendar el turno</h5>
+                    <p>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</p>
                     </div>
                         <div class="col">
                             
