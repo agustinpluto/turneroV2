@@ -8,8 +8,7 @@ MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6
 $preference = new MercadoPago\Preference();
 
 $preference->back_urls = array(
-    "success" => "https://turnero-integra.com.ar/pagar.php",
-    "failure" => "https://turnero-integra.com.ar/fallo.php"
+    "success" => "https://turnero-integra.com.ar/pagar.php"
 );
 
 $preference->auto_return = "approved";
