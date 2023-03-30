@@ -193,11 +193,11 @@ if ($rol != 3 || empty($id)) {
                             <table class="table table-warning">
                             <thead>
                                 <tr>
-                                    <th>Paciente</th>
-                                    <th>Modo</th>
-                                    <th>Tipo</th>
-                                    <th>Fecha</th>
-                                    <th>Hora</th>
+                                    <th class="text-center">Paciente</th>
+                                    <th class="text-center">Modo</th>
+                                    <th class="text-center">Tipo</th>
+                                    <th class="text-center">Fecha</th>
+                                    <th class="text-center">Hora</th>
 
                                 </tr>
                             </thead>
@@ -213,11 +213,11 @@ if ($rol != 3 || empty($id)) {
           while ($row = mysqli_fetch_assoc($result1)) {
 
             echo '<tr>    
-                <td>' .  $apellido . ', ' . $nombre . '</td>
-                <td>' .  strtoupper($row['modo']) . '</td>
-                <td>' .  strtoupper($row['tipo']) . '</td>
-                <td> ' . $fecha . ' </td>
-                <td> ' . $hora . ' </td>
+                <td class="text-center">' .  $apellido . ', ' . $nombre . '</td>
+                <td class="text-center">' .  strtoupper($row['modo']) . '</td>
+                <td class="text-center">' .  strtoupper($row['tipo']) . '</td>
+                <td class="text-center"> ' . $fecha . ' </td>
+                <td class="text-center"> ' . $hora . ' </td>
 
             </tr>';
           }

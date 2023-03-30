@@ -166,10 +166,10 @@ if ($rol != 1 || empty($id)){
                     <thead>
                         <tr>
                             
-                            <th>Apellido, Nombre</th>
-                            <th>Profesional</th>
-                            <th>Fecha | Hora</th>
-                            <th>Acciones</th>
+                            <th class="text-center">Apellido, Nombre</th>
+                            <th class="text-center">Profesional</th>
+                            <th class="text-center">Fecha | Hora</th>
+                            <th class="text-center">Acciones</th>
                             
                         </tr>
                     </thead>
@@ -191,10 +191,10 @@ if ($rol != 1 || empty($id)){
 
                         echo '<tr>
                                 
-                                <td>' . $apellidoPaciente .', '.$nombrePaciente. ' </td>
-                                <td> ' . $apellidoMedico .', '.$nombreMedico. ' </td>
-                                <td> ' . $fecha .' | '.$hora. ' </td>
-                                <th><a href="http://turnero-integra.com.ar/eliminarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
+                                <td class="text-center">' . $apellidoPaciente .', '.$nombrePaciente. ' </td>
+                                <td class="text-center"> ' . $apellidoMedico .', '.$nombreMedico. ' </td>
+                                <td class="text-center"> ' . $fecha .' | '.$hora. ' </td>
+                                <th class="text-center"><a href="http://turnero-integra.com.ar/eliminarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-danger btn-sm" name="eliminar"><span class="material-symbols-outlined">
                                 delete
                                 </span></a>
                                 <a href="http://turnero-integra.com.ar/editarTurnoAdmin.php?id=' . $id_turno . '" class="btn btn-success btn-sm" name="eliminar"><span class="material-symbols-outlined">
@@ -222,7 +222,7 @@ if ($rol != 1 || empty($id)){
             </form>
         </main>
     </div>
-    <footer class="pt-5 my-5 text-muted border-top">
+    <footer class="pt-5 my-5 text-muted border-top text-center">
         
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
     </footer>

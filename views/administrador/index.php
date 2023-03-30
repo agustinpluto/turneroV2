@@ -313,7 +313,7 @@ if ($rol != 1 || empty($id)) {
       </div>
 
     </main>
-    <footer class="pt-5 my-5 text-muted border-top">
+    <footer class="pt-5 my-5 text-muted border-top text-center">
       Todos los derechos reservados - Centro Integra &middot; &copy; 2023
     </footer>
   </div>
