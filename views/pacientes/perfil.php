@@ -202,7 +202,7 @@ if ($rol != 2 || empty($id)) {
 
             <?php
             if (isset($_POST['button'])) {
-                
+                echo $_POST['obra'];
                 if (!empty($_POST['button'])) {
 
                     $nombre = $_POST['nombre'];
