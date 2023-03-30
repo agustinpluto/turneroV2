@@ -171,7 +171,9 @@ $preference->save();
 
                 </div>
 
-                <div class="cho-container" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
+                <div class="container-fluid">
+                    <div class="cho-container"></div>
+                </div>
 
                 <script>
                     const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
