@@ -181,8 +181,16 @@ $preference->save();
 
 
 
-            <div class="cho-container"></div>
-            <script src="https://sdk.mercadopago.com/js/v2"></script>
+            
+            
+
+
+            <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
+                <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
+                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+            </div>
+        </form>
+        <script src="https://sdk.mercadopago.com/js/v2"></script>
             <script>
                 const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
                     locale: 'es-AR'
@@ -200,12 +208,6 @@ $preference->save();
             </script>
 
 
-
-            <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-                <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>
-                <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-            </div>
-        </form>
     </main>
     <footer class="pt-5 my-5 text-muted border-top">
         Todos los derechos reservados - Centro Integra &middot; &copy; 2023
