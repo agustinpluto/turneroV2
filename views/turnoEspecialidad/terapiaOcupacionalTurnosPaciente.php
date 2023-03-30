@@ -192,7 +192,7 @@ if ($rol != 2 || empty($id)) {
 
                                 if ($dia_de_la_semana == 'Thursday') {
                                     $jueves = $_POST['horariosBarrosoJuevesSelect'];
-                                   
+
                                     if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
                                         echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
                                     } else {
@@ -223,14 +223,16 @@ if ($rol != 2 || empty($id)) {
                                         $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
                                         $resultado = mysqli_query($conexion, $sql);
 
+
+
                                         $sql_id = "SELECT * FROM turnos WHERE paciente='$dni' AND fecha='$dateObj'";
                                         $buscarId = mysqli_query($conexion, $sql_id);
+
                                         while ($row = mysqli_fetch_assoc($buscarId)) {
                                             $id_turno = $row['id'];
+                                            $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBarroso', '$modoBarroso')";
+                                            $resultado1 = mysqli_query($conexion, $sql1);
                                         }
-
-                                        $sql1 = "INSERT INTO turnost (id_turno, tipo, modo) VALUES('$id_turno', '$tipoBarroso', '$modoBarroso')";
-                                        $resultado1 = mysqli_query($conexion, $sql1);
 
                                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                                         $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
