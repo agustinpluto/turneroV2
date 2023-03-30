@@ -146,10 +146,10 @@ if ($rol != 2 || empty($id)) {
       <div class="container-fluid">
             <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
 
-            <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
-            <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis pagos</a>
-            <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
-            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar seña</a>
+            <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
+            <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
+            <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
+            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
 
             <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
         </div>
@@ -180,8 +180,9 @@ if ($rol != 2 || empty($id)) {
       <hr class="col-2 col-md-2 mb-5">
       <div class="row  d-flex justify-content-center align-items-center">
         <div class="container-fluid text-center my-2">
-          <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-            <h5>Es necesario abonar el 50% del servicio</h5>
+          <div class="container-fluid d-flex flex-column justify-content-center align-items-center" style="background-color: #90559730">
+            <h5 class="text-center">Es necesario abonar el 50% del servicio</h5>
+            <p class="text-center"><strong>Para comenzar toca en "Abonar Seña".</strong></p>
             <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
             <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
           </div>
