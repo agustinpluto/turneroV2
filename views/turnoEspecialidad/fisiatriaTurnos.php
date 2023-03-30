@@ -160,7 +160,7 @@ if (empty($id)) {
 
                         $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
                         $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-
+                        
                         $email_medico = getMail($apellido_m, $conexion);
                         echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                     }
