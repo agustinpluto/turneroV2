@@ -1,4 +1,9 @@
 <?php
+
+session_start();
+
+?>
+<?php
 session_start();
 $id = $_SESSION["id"];
 $rol = $_SESSION["rol"];
@@ -158,66 +163,57 @@ if ($rol != 2 || empty($id)) {
                 <div class="container-fluid text-center my-2">
 
                 </div>
+                
                 <?php
-
                 include "../../database/conexion.php";
 
-                $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
-                $resultado = mysqli_query($conexion, $sql);
-                while ($row = mysqli_fetch_assoc($resultado)) {
-                    $nombre = $row['nombre'];
-                    $apellido = $row['apellido'];
-                    $dni = $row['dni'];
-                    $apodo = $row['apodo'];
-                    $celular = $row['celular'];
-                }
+                $dni = $_SESSION['dni'];
+                
+                $sql = "SELECT * FROM pagos";
+                $result = mysqli_query($conexion, $sql);
 
+                if (mysqli_num_rows($result) > 0) {
+                    // Mostrar los resultados
+                    echo '<br><div class="d-flex">
+                            <table class="table table-warning">
+                            <thead>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Estado</th>
+                                    <th>ID Turno</th>
+                                    <th>Fecha y Hora</th>
+                                    
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>';
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        $id = $row['id'];
+                        $estado = $row['estado'];
+                        $id_turno = $row['id_turno'];
+                        $fecha_hora = $row['fecha_hora'];
+
+                        echo '<tr>    
+                                <td>' .$id.'</td>
+                                <td> ' . $estado . ' </td>
+                                <td> ' . $id_turno . ' </td>
+                                <td> ' . $fecha_hora . ' </td>
+                                
+                            </tr>';
+                    }
+                    echo '</tbody></table></div>';
+
+                    // Paso 5: cerrar la conexión
+                    mysqli_close($conexion);
+                } else {
+                    echo '<br><div class="alert alert-warning" role="alert">
+                                <strong>¡</strong> No tenes turnos registrados <strong>!</strong> 
+                            </div>';
+                }
                 ?>
-            </div>
-            <form method="POST">
-                <h4>Datos Personales</h4>
-                <p>Nombre
-                <p>
-                    <input type="text" class="form-control" name="nombre" id="" value="<?php echo strtoupper($nombre) ?>">
-                <p>Apellido
-                <p>
-                    <input type="text" class="form-control" name="apellido" id="" value="<?php echo strtoupper($apellido) ?>">
-                <p>DNI
-                <p>
-                    <input type="text" class="form-control" name="dni" id="" value="<?php echo $dni ?>">
-                <p>Como quiero que me llamen
-                <p>
-                    <input type="text" class="form-control" name="apodo" id="" value="<?php echo strtoupper($apodo) ?>">
-                <p>Celular/Teléfono
-                <p>
-                    <input type="text" class="form-control" name="celular" id="" value="<?php echo $celular ?>">
-                    <br>
-                <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <input type="submit" class="btn btn-lg btn-primary w-75 m-1" style="background-color: #905597;border-color: #8e8db7;" name="button" value="Cambiar datos">
-                </div>
-                <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-                </div>
-
-            </form>
 
 
 
-            <?php
-            if (isset($_POST['button'])) {
-
-                if (!empty($_POST['button'])) {
-                    $nombre = $_POST['nombre'];
-                    $apellido = $_POST['apellido'];
-                    $apodo = $_POST['apodo'];
-                    $celular = $_POST['celular'];
-
-                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular' WHERE dni='$dni'";
-                    $result = mysqli_query($conexion, $sql);
-                }
-            }
-
-            ?>
 
 
         </main>
