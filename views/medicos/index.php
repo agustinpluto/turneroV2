@@ -121,7 +121,6 @@ if ($rol != 3 || empty($id)) {
     </div>
     <div class="mb-5">
       <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
-      <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Turnos integra</a>
     </div>
     <hr class="col-3 col-md-2 mb-5">
 
