@@ -156,15 +156,15 @@ if ($rol != 2 || empty($id)) {
             </div>
         </div>
         <main class="form-signin w-75 m-auto">
-        <hr class="col-2 col-md-2 mb-5 w-100">
+            <hr class="col-2 col-md-2 mb-5 w-100">
             <div class="row  d-flex justify-content-center align-items-center">
                 <div class="container-fluid text-center my-2">
 
                 </div>
-                
+
                 <?php
                 include "../../database/conexion.php";
-                
+
                 $sql = "SELECT * FROM pagos";
                 $result = mysqli_query($conexion, $sql);
 
@@ -174,27 +174,28 @@ if ($rol != 2 || empty($id)) {
                             <table class="table table-warning">
                             <thead>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Estado</th>
-                                    <th>ID Turno</th>
-                                    <th>Fecha y Hora</th>
-                                    <th>DNI Paciente</th>
+                                <th class="text-center">ID Orden</th>
+                                    <th class="text-center">Estado</th>
+                                    <th class="text-center">ID Paciente</th>
+                                    <th class="text-center">Fecha y Hora</th>
+                                    
                                     
                                 </tr>
                             </thead>
                             <tbody>';
                     while ($row = mysqli_fetch_assoc($result)) {
                         $id = $row['ID_pago'];
+                        $id_orden = $row['ID_orden'];
                         $estado = $row['Estado'];
-                        $id_turno = $row['ID_turno'];
+                        $id_paciente = $row['ID_paciente'];
                         $fecha_hora = $row['Fecha_Hora'];
-                        $id_turno = $row['ID_turno'];
+
 
                         echo '<tr>    
-                                <td>' .$id.'</td>
-                                <td> ' . $estado . ' </td>
-                                <td> ' . $id_turno . ' </td>
-                                <td> ' . $fecha_hora . ' </td>
+                        <td class="text-center"> ' . $id_orden . ' </td>
+                                <td class="text-center"> ' . $estado . ' </td>
+                                <td class="text-center"> ' . $id_paciente . ' </td>
+                                <td class="text-center"> ' . $fecha_hora . ' </td>
                                 
                             </tr>';
                     }
