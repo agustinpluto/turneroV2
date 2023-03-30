@@ -144,12 +144,15 @@ if ($rol != 2 || empty($id)) {
       </div>
 
       <div class="container-fluid">
-        <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
-        <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
-        <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
-        <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar seña</a>
-        <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis pagos</a>
-      </div>
+            <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
+
+            <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
+            <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis pagos</a>
+            <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
+            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar seña</a>
+
+            <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+        </div>
       <div>
         <?php
         include "../../database/conexion.php";
