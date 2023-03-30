@@ -8,9 +8,10 @@ if ($rol != 2 || empty($id)) {
     header("location: ../../index.php");
 }
 
-require '../../vendor/autoload.php';
+// SDK de Mercado Pago
+require __DIR__ .  '../../vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
+MercadoPago\SDK::setAccessToken('');
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
@@ -22,7 +23,6 @@ $item->unit_price = 2000;
 $preference->items = array($item);
 $preference->save();
 ?>
-
 
 <!doctype html>
 <html lang="en">
@@ -190,7 +190,7 @@ $preference->save();
 
                 mp.checkout({
                     preference: {
-                        id: '<?php echo $preference->id;?>'
+                        id: '<?php echo $preference->id; ?>'
                     },
                     render: {
                         container: '.cho-container',
