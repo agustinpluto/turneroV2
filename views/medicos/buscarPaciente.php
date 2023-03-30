@@ -127,6 +127,7 @@
                 $nombre = $row['nombre'];
                 $apellido = $row['apellido'];
                 $dni = $row['dni']; 
+                echo '<li>Nombre: '.$nombre.' - Apellido: '.$apellido.' - DNI: '.$dni.'</li>'
             }
             echo '</ul>';
             ?>
