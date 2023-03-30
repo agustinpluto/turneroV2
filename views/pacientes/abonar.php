@@ -160,7 +160,29 @@ if ($rol != 2 || empty($id)) {
                 <div class="container-fluid text-center my-2">
 
                 </div>
-
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col">
+                            <div class="card m-1">
+                                <a href="./abonarEvaluacion.php" class="card-body">
+                                    <h3 class="card-title">Abonar consulta</h3>
+                                    <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
+                                    <p class="card-text">$2000</p>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="card m-1">
+                                <a href="./abonarEvaluacion.php" class="card-body">
+                                    <h3 class="card-title">Abonar evaluacion</h3>
+                                    <p class="card-text">El pago se realiza a través de Mercado Pago.</p>
+                                    <p class="card-text">$7500</p>
+                                </a>
+                            </div>
+                        </div>
+    
+                    </div>
+                </div>
 
 
 

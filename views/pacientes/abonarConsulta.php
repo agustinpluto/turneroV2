@@ -43,9 +43,6 @@ $preference->save();
     <link rel="stylesheet" href="../../css/custom.css">
     <script src="./js/bootstrap.min.js"></script>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-
-
-
     <style>
         .bd-placeholder-img {
             font-size: 1.125rem;
@@ -164,7 +161,7 @@ $preference->save();
             <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
             <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis turnos</a>
             <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis datos</a>
-            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Abonar seña</a>
+            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Abonar 50%</a>
             <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Mis pagos</a>
         </div>
         <main class="form-signin w-50 m-auto">
@@ -175,6 +172,7 @@ $preference->save();
                 </div>
 
                 <div class="cho-container btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
+
                 <script>
                     const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
                         locale: 'es-AR'
