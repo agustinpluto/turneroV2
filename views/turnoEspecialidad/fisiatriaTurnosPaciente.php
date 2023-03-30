@@ -41,7 +41,7 @@ $preference2->auto_return = "approved";
 $item = new MercadoPago\Item();
 $item->title = 'Consulta';
 $item->quantity = 1;
-$item->unit_price = 2000;
+$item->unit_price = 7500;
 $preference2->items = array($item);
 $preference2->save();
 
