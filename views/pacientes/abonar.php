@@ -143,14 +143,14 @@ if ($rol != 2 || empty($id)) {
         </div>
 
         <div class="container-fluid">
-            <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
-
-            <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
-            <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
-            <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
-            <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
-
-            <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+            <div class="text-center">
+                <a href="./index.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Inicio</a>
+                <a href="./turnos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Turnos</a>
+                <a href="./pagos.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Pagos</a>
+                <a href="./perfil.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Mis Datos</a>
+                <a href="./abonar.php" class="btn btn-primary btn-lg px-4 mx-3 mb-1" style="background-color: #905597;border-color: #8e8db7;">Abonar Seña</a>
+                <a href="../../funciones/logout.php" class="btn btn-primary btn-lg px-4 mx-3" style="background-color: #905597;border-color: #8e8db7;">Cerrar sesión</a>
+            </div>
         </div>
         <main class="form-signin">
             <hr class="col mb-5 w-100">
@@ -159,22 +159,22 @@ if ($rol != 2 || empty($id)) {
 
                 </div>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center" >
-                        
-                            <a href="./abonarEvaluacion.php" class="container p-2 m-1" >
-                                <h3 class="card-title text-center" >Señar Consulta</h3>
-                                <p class="card-text text-center" >$2000</p>
-                                <p class="card-text text-center" >Débito / Crédito</p>
-                            </a>
+                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
+
+                        <a href="./abonarEvaluacion.php" class="container p-2 m-1">
+                            <h3 class="card-title text-center">Señar Consulta</h3>
+                            <p class="card-text text-center">$2000</p>
+                            <p class="card-text text-center">Débito / Crédito</p>
+                        </a>
                     </div>
-                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center" >
-                            <a href="./abonarEvaluacion.php" class="container p-2 m-1" >
-                                <h3 class="card-title text-center" >Señar Evaluación</h3>
-                                <p class="card-text text-center" >$7500</p>
-                                <p class="card-text text-center" >Débito / Crédito</p>
-                            </a>
+                    <div class="col col-sm-1 w-50 h-50 justify-content-center align-items-center">
+                        <a href="./abonarEvaluacion.php" class="container p-2 m-1">
+                            <h3 class="card-title text-center">Señar Evaluación</h3>
+                            <p class="card-text text-center">$7500</p>
+                            <p class="card-text text-center">Débito / Crédito</p>
+                        </a>
+                    </div>
                 </div>
-            </div>
 
 
 
