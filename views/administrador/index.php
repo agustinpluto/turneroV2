@@ -3,15 +3,9 @@ session_start();
 $id = $_SESSION["id"];
 $rol = $_SESSION["rol"];
 
-if ($rol == 3) {
-  header("location: ../medicos/index.php");
-} elseif ($rol == 2){
-  header("location: ../pacientes/index.php");
-} elseif ($rol == 1){
-  header("location: ../administrador/index.php");
-} elseif ($rol != 1 || $rol !=2 || $rol !=3){
+if ($rol != 1 || empty($id)) {
   header("location: ../../index.php");
-}
+} 
 
 ?>
 
