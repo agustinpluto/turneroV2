@@ -163,7 +163,7 @@ if ($rol != 2 || empty($id)) {
                 <form method="post">
 
                 <img class="mb-4" src="../../integra.png" alt="" width="80">
-                <h1 class="h3 mb-3 fw-normal">Mis turnos</h1>
+                <h1 class="h3 mb-3 fw-normal text-center">Mis turnos</h1>
 
                 <?php
                 include "../../database/conexion.php";
