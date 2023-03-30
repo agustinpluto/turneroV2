@@ -193,9 +193,9 @@ if ($rol != 2 || empty($id)) {
                         
                         $id_pago = $row['ID_pago'];
                         $id_orden = $row['ID_orden'];
-                        $estado = $row['estado'];
+                        $estado = $row['Estado'];
                         
-                        $fecha_hora = $row['fecha_hora'];
+                        $fecha_hora = $row['Fecha_Hora'];
 
                         echo '<tr>    
                                 
