@@ -14,9 +14,6 @@ $paciente = $_GET['paciente'];
 $fecha = $_GET['fecha'];
 $hora = $_GET['hora'];
 
-$formatted_date = $fecha->format('M-D');
-$formatted_time = $hora->format('H:I');
-
 $verifcode = sha1(microtime(true));
 $to      = $email;
 $subject = 'Nuevo turno';
