@@ -201,9 +201,9 @@ $preference->save();
         </form>
 
         <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
-            <div class="cho-container btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
+            
             <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
-
+            <div class="cho-container btn btn-lg btn-primary" style="background-color: #009ee3; border:2px solid #f2dc23;color: black"></div>
         </div>
         <script src="https://sdk.mercadopago.com/js/v2"></script>
         <script>
