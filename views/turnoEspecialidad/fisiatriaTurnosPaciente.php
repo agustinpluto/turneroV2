@@ -170,7 +170,7 @@ if ($rol != 2 || empty($id)) {
                             // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                         }
                     } else {
-                        echo "Pago no encontrado o no aprobado.";
+                        echo $estado;
                     }
                 }
             }
