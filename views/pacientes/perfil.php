@@ -156,7 +156,7 @@ if ($rol != 2 || empty($id)) {
                 <?php
 
                 include "../../database/conexion.php";
-                $obra = null;
+
                 $sql = "SELECT * FROM pacientes WHERE id_usuario='$id'";
                 $resultado = mysqli_query($conexion, $sql);
                 while ($row = mysqli_fetch_assoc($resultado)) {
@@ -165,7 +165,6 @@ if ($rol != 2 || empty($id)) {
                     $dni = $row['dni'];
                     $apodo = $row['apodo'];
                     $celular = $row['celular'];
-                    $obra = $row['obra'];
                 }
 
                 ?>
@@ -188,28 +187,27 @@ if ($rol != 2 || empty($id)) {
                     <input type="text" class="form-control" name="celular" id="" value="<?php echo $celular ?>">
                     <br>
                 <div class="container-fluid d-flex justify-content-center align-items-center">
-
-                    <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="button" style="background-color: #905597;border-color: #8e8db7;">Cambiar datos</button>
+                    <input type="submit" class="btn btn-warning" name="button" value="Cambiar datos">
                 </div>
-                <div class="container-fluid d-flex justify-content-center align-items-center">
-                    <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
+                <div class="container-fluid">
+                    <a href="../pacientes/index.php" class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: white; border:2px solid #f2dc23;color: black;">Volver</a>
                 </div>
 
             </form>
 
+
+
             <?php
             if (isset($_POST['button'])) {
-                $obraSocial = $_POST["obra"];
-                if (!empty($_POST['button'])) {
 
+                if (!empty($_POST['button'])) {
                     $nombre = $_POST['nombre'];
                     $apellido = $_POST['apellido'];
                     $apodo = $_POST['apodo'];
                     $celular = $_POST['celular'];
 
-                    $sql = "UPDATE pacientes SET nombre='$nombre', apellido='$apellido', apodo='$apodo', celular='$celular' WHERE dni='$dni'";
+                    $sql = "UPDATE pacientes SET nombre='$nombre',apellido='$apellido',apodo='$apodo',celular='$celular' WHERE dni='$dni'";
                     $result = mysqli_query($conexion, $sql);
-                    echo $sql;
                 }
             }
 
