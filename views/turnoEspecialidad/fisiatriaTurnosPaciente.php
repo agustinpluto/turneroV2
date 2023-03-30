@@ -10,17 +10,38 @@ if ($rol != 2 || empty($id)) {
 // SDK de Mercado Pago
 require '../../vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('PROD_ACCESS_TOKEN');
+$access_token='';
+MercadoPago\SDK::setAccessToken($access_token);
 
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
+$preference->back_urls=array(
+   "success"=>"https://turnero-integra.com.ar/correcto.php",
+   "failure"=>"https://turnero-integra.com.ar/fallo.php"
+
+);
+$preference->auto_return = "approved";
+$preference->binary_mode= true;
+
 // Crea un ítem en la preferencia
+$productos = [];
 $item = new MercadoPago\Item();
 $item->title = 'Consulta';
 $item->quantity = 1;
-$item->unit_price = 4000.00;
+$item->unit_price = 2000.00;
 $preference->items = array($item);
+$preference->save();
+array_push($productos, $item);
+$item2 = new MercadoPago\Item();
+$item2->title = 'Consulta';
+$item2->quantity = 1;
+$item2->unit_price = 2000.00;
+$preference->items = array($item2);
+$preference->save();
+array_push($productos, $item2);
+
+$preference->items=$productos;
 $preference->save();
 
 ?>
@@ -186,13 +207,13 @@ $preference->save();
             <div class="cho-container"></div>
             <script src="https://sdk.mercadopago.com/js/v2"></script>
             <script>
-                const mp = new MercadoPago('PUBLIC_KEY', {
+                const mp = new MercadoPago('TEST-eca47de5-3ca3-445e-8ded-9c0bae41a2d8', {
                     locale: 'es-AR'
                 });
 
                 mp.checkout({
                     preference: {
-                        id: 'YOUR_PREFERENCE_ID'
+                        id: '<?php echo $preference->id;?>'
                     },
                     render: {
                         container: '.cho-container',
