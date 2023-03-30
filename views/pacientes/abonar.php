@@ -160,11 +160,7 @@ if ($rol != 2 || empty($id)) {
                 </div>
                 <div class="container-fluid">
                     <div class="row">
-                        <div class="container-fluid d-flex flex-column justify-content-center align-items-center">
-                            <h5>Es necesario abonar el 50% del servicio</h5>
-                            <p class="text-center"><strong>Se llevará a cabo un registro de todos los pagos. Rechazados y Aprobados, con fecha y hora. Podrá accederlos en la sección "Mis pagos".</strong></p>
-                            <p class="text-center"><strong>Solicitaremos el ID DE PAGO para registrar su turno, el mismo aparecerá cuando usted realice el pago. </strong></p>
-                        </div>
+                        
                         <div class="col">
 
                             <div class="card m-1">
