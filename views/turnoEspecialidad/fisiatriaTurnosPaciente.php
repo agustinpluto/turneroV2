@@ -170,7 +170,13 @@ if ($rol != 2 || empty($id)) {
                             // echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $dateObj . "&hora=" . $timeObj . "'</script>";
                         }
                     } else {
-                        echo $estado;
+                        if ($estado == 'USADO'){
+                            echo "El ID de Pago ha sido usado";
+                        } elseif ($estado == 'rejected') {
+                            echo "El pago fue rechazado";
+                        } elseif ($estado == 'pending'){
+                            echo "El pago esta pendiente, intentelo mas tarde utilizando el mismo ID de Pago";
+                        }
                     }
                 }
             }
