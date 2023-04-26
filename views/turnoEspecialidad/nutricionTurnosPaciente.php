@@ -151,36 +151,38 @@ if ($rol != 2 || empty($id)) {
                         $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
                         $actualizacion = mysqli_query($conexion, $sql_actualizar);
 
-                    $apellido_medico = $_POST['nutricionSelect'];
+                        $apellido_medico = $_POST['nutricionSelect'];
 
-                    $dias = $_POST['diasCacciavillaniSelect'];
+                        $dias = $_POST['diasCacciavillaniSelect'];
 
-                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                        $apellido_m = getMatricula($apellido_medico, $conexion);
 
-                    if ($apellido_medico = "Cacciavillani") {
-                        $fecha = $_POST["diasCacciavillaniSelect"];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Tuesday') {
-                            $lunes = $_POST['horariosCacciavillaniSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
+                        if ($apellido_medico = "Cacciavillani") {
+                            $fecha = $_POST["diasCacciavillaniSelect"];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Tuesday') {
+                                $lunes = $_POST['horariosCacciavillaniSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                                    $resultado = mysqli_query($conexion, $sql);
 
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
 
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
 
-                                $email_medico = getMail($apellido_m, $conexion);
+                                    $email_medico = getMail($apellido_m, $conexion);
 
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
+                                }
                             }
                         }
-                    }
+                    } else {
+                        echo "ID de Pago INVALIDO";
+                    }   
                 }
             }
-        }
             ?>
             <div class="container-fluid d-flex justify-content-center align-items-center flex-column">
                 <button class="btn btn-lg btn-primary w-75 m-1" type="submit" name="botonRegistro" style="background-color: #905597;border-color: #8e8db7;">Agendar turno</button>

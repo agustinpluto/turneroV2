@@ -3,7 +3,7 @@
 // SDK de Mercado Pago
 require '../../vendor/autoload.php';
 // Agrega credenciales
-MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6d34b6fa6820bf0-83722175');
+MercadoPago\SDK::setAccessToken('TEST-2146525193346993-033003-535aa38b949446a9f6d34b6fa6820bf0-83722175'); /////////////////////// SUSTITUIR POR YANI
 // Crea un objeto de preferencia
 $preference = new MercadoPago\Preference();
 
@@ -152,7 +152,7 @@ $preference->save();
                 <p>Centro de Rehabilitación Integral</p>
             </div>
             <div class="container-fluid d-flex justify-content-end">
-                <img src="../../logointegra2.png" alt="" style="width:250px">
+                <img src="../../logointegra2.png" alt="" style="width:220px">
             </div>
         </div>
 

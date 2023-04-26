@@ -177,149 +177,154 @@ if ($rol != 2 || empty($id)) {
                         $sql_actualizar = "UPDATE pagos SET Estado = 'USADO' WHERE ID_pago = '$id_pago'";
                         $actualizacion = mysqli_query($conexion, $sql_actualizar);
 
-                    $apellido_medico = $_POST['fonoaudiologiaSelect'];
+                        $apellido_medico = $_POST['fonoaudiologiaSelect'];
 
-                    $dias = [$_POST['diasCorreaSelect'], $_POST['diasJoverSelect'], $_POST['diasMazzolaSelect'], $_POST['diasSerranoSelect']];
+                        $dias = [$_POST['diasCorreaSelect'], $_POST['diasJoverSelect'], $_POST['diasMazzolaSelect'], $_POST['diasSerranoSelect']];
 
-                    $apellido_p = getApellidoPaciente($dni, $conexion);
-                    $apellido_m = getMatricula($apellido_medico, $conexion);
+                        $apellido_p = getApellidoPaciente($dni, $conexion);
+                        $apellido_m = getMatricula($apellido_medico, $conexion);
 
-                    if ($apellido_medico == "Correa") {
-                        $fecha = $_POST['diasCorreaSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Tuesday') {
+                        if ($apellido_medico == "Correa") {
+                            $fecha = $_POST['diasCorreaSelect'];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Tuesday') {
 
-                            $martes = $_POST['horariosMartesCorreaSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $martes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
+                                $martes = $_POST['horariosMartesCorreaSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $martes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$martes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
 
 
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $martes . "'</script>";
+                                }
+                            } elseif ($dia_de_la_semana == 'Thursday') {
+
+                                $jueves = $_POST['horariosJuevesCorreaSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+
+                                }
                             }
-                        } elseif ($dia_de_la_semana == 'Thursday') {
+                        } elseif ($apellido_medico == "Jover") {
+                            $fecha = $_POST['diasJoverSelect'];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Monday') {
+                                $lunes = $_POST['horariosLunesJoverSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
 
-                            $jueves = $_POST['horariosJuevesCorreaSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
 
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
-                                
+                                }
+                            } elseif ($dia_de_la_semana == 'Wednesday') {
+                                $miercoles = $_POST['horariosMiercolesJoverSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+
+
+                                }
+                            }
+                        } elseif ($apellido_medico == "Mazzola") {
+                            $fecha = $_POST['diasMazzolaSelect'];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Thursday') {
+                                $jueves = $_POST['horariosJuevesMazzolaSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+
+                                }
+                            }
+                        } elseif ($apellido_medico == "Serrano") {
+                            $fecha = $_POST['diasSerranoSelect'];
+                            $dia_de_la_semana = date("l", strtotime($fecha));
+                            if ($dia_de_la_semana == 'Monday') {
+                                $lunes = $_POST['horariosLunesSerranoSelect'];
+
+                                if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
+
+                                }
+                            } elseif ($dia_de_la_semana == 'Wednesday') {
+
+                                $miercoles = $_POST['horariosMiercolesSerranoSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
+
+
+                                }
+                            } elseif ($dia_de_la_semana == 'Thursday') {
+
+                                $jueves = $_POST['horariosJuevesSerranoSelect'];
+                                if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
+                                    echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
+                                } else {
+                                    $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
+                                    $resultado = mysqli_query($conexion, $sql);
+                                    $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
+                                    $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
+                                    $email_medico = getMail($apellido_m, $conexion);
+                                    echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
+
+
+                                }
                             }
                         }
-                    } elseif ($apellido_medico == "Jover") {
-                        $fecha = $_POST['diasJoverSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Monday') {
-                            $lunes = $_POST['horariosLunesJoverSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
-                                
-                            }
-                        } elseif ($dia_de_la_semana == 'Wednesday') {
-                            $miercoles = $_POST['horariosMiercolesJoverSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
-
-                                
-                            }
-                        }
-                    } elseif ($apellido_medico == "Mazzola") {
-                        $fecha = $_POST['diasMazzolaSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Thursday') {
-                            $jueves = $_POST['horariosJuevesMazzolaSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
-                                
-                            }
-                        }
-                    } elseif ($apellido_medico == "Serrano") {
-                        $fecha = $_POST['diasSerranoSelect'];
-                        $dia_de_la_semana = date("l", strtotime($fecha));
-                        if ($dia_de_la_semana == 'Monday') {
-                            $lunes = $_POST['horariosLunesSerranoSelect'];
-
-                            if (repetido($conexion, $apellido_m, $fecha, $lunes)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$lunes')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $lunes . "'</script>";
-                                
-                            }
-                        } elseif ($dia_de_la_semana == 'Wednesday') {
-
-                            $miercoles = $_POST['horariosMiercolesSerranoSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $miercoles)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$miercoles')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $miercoles . "'</script>";
-
-                                
-                            }
-                        } elseif ($dia_de_la_semana == 'Thursday') {
-
-                            $jueves = $_POST['horariosJuevesSerranoSelect'];
-                            if (repetido($conexion, $apellido_m, $fecha, $jueves)) {
-                                echo "<br><div class='alert alert-danger'>HORARIO NO DISPONIBLE</div><br>";
-                            } else {
-                                $sql = "INSERT INTO turnos (paciente, medico, fecha, hora) VALUES('$dni', '$apellido_m', '$fecha', '$jueves')";
-                                $resultado = mysqli_query($conexion, $sql);
-                                $nombre_paciente = strtoupper(getNombrePaciente($dni, $conexion));
-                                $apellido_paciente = strtoupper(getApellidoPaciente($dni, $conexion));
-                                $email_medico = getMail($apellido_m, $conexion);
-                                echo "<script>window.location='https://turnero-integra.com.ar/enviarMail.php?email=centrointegracba@gmail.com&paciente=" . $nombre_paciente . ", " . $apellido_paciente . "&fecha=" . $fecha . "&hora=" . $jueves . "'</script>";
-
-                                
-                            }
-                        }
+                    } else {
+                        echo "ID de Pago INVALIDO";
                     }
                 }
-            }}
+            }
+
+
 
 
             ?>

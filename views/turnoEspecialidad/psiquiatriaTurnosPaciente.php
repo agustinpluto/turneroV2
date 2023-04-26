@@ -224,6 +224,8 @@ if ($rol != 2 || empty($id)) {
                                     }
                                 }
                             }
+                        } else {
+                            echo "ID de Pago INVALIDO";
                         }
                     }
                 }

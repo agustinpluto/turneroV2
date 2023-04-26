@@ -43,7 +43,7 @@ function mail_me($to, $subject, $message)
         $mail->Host = 'smtp.sendgrid.net';
         $mail->SMTPAuth = true; // Enable SMTP authentication
         $mail->Username = 'apikey';
-        $mail->Password = '';
+        $mail->Password = ''; /////////////////////////////////////////////////////////77 PASSWORD SENDGRIDAPIKEY
         $mail->SMTPSecure = 'tls'; //PHPMailer::ENCRYPTION_STARTTLS; Enable TLS encryption,
         $mail->Port = 587; // TCP port to connect to
         $mail->CharSet = 'UTF-8';

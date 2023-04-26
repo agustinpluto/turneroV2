@@ -139,7 +139,7 @@ if ($rol != 2 || empty($id)) {
           <p>Centro de Rehabilitación Integral</p>
         </div>
         <div class="container-fluid d-flex justify-content-end">
-          <img src="../../logointegra2.png" alt="" style="width:250px">
+          <img src="../../logointegra2.png" alt="" style="width:220px">
         </div>
       </div>
 
